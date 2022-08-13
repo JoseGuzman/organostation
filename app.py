@@ -24,19 +24,12 @@ from flask_migrate import Migrate
 app = Flask(__name__, template_folder = "templates")
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
 
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
+
 Bootstrap(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Models are to map tables in db to python objects
-
-class User(db.Model):
-    name = db.Column( db.String(128) )
-    surname = db.Column( db.String(128) ) 
-    email = db.Column( db.String(128) )
-    passwd = db.Column( db.String(128), primary_key = True )
-    project = db.Column( db.String(280) )
-    
 
 class LoginForm(FlaskForm):
     """ user/pass login"""
@@ -50,9 +43,18 @@ class RegistrationForm(FlaskForm):
     email = StringField("E-mail", validators = [ Email() ])
     passwd = PasswordField("Password", validators = [ Length(min=8) ] )
     passwd2 = PasswordField("Confirm password", validators = [ Length(min=8) ] )
-    project = StringField("Tell us about your project", validators = [ Length(max=280) ])
+    project = StringField("Brief project description", validators = [ Length(max=280) ])
      
 
+# Models are to map tables in db to python objects
+
+class User(db.Model):
+    name = db.Column( db.String(128) )
+    surname = db.Column( db.String(128) ) 
+    email = db.Column( db.String(128) )
+    passwd = db.Column( db.String(128), primary_key = True )
+    project = db.Column( db.String(280) )
+    
 @app.route("/")
 def index():
     return render_template("index.html")

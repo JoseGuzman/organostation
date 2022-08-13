@@ -1,6 +1,7 @@
-# visualoid
+# Visualoid
 
 [![CodeFactor](https://www.codefactor.io/repository/github/joseguzman/visualoid/badge)](https://www.codefactor.io/repository/github/joseguzman/visualoid)
+
 A visulization app to document electrical or fluorescence signals.
 
 ## Requirements
