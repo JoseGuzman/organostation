@@ -11,24 +11,46 @@ from unicodedata import name
 from flask import Flask
 from flask import render_template
 from flask_bootstrap import Bootstrap
+
+# forms
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import Length, Email
 
+# database
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
 app = Flask(__name__, template_folder = "templates")
-app.config["SECRET_KEY"] = "foo"
+app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
 
 Bootstrap(app)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+# Models are to map tables in db to python objects
+
+class User(db.Model):
+    name = db.Column( db.String(128) )
+    surname = db.Column( db.String(128) ) 
+    email = db.Column( db.String(128) )
+    passwd = db.Column( db.String(128), primary_key = True )
+    project = db.Column( db.String(280) )
+    
 
 class LoginForm(FlaskForm):
+    """ user/pass login"""
     email = StringField("E-mail", validators = [ Email() ])
     passwd = PasswordField("Password", validators = [ Length(min=8) ] )
 
 class RegistrationForm(FlaskForm):
-    name = StringField("Username", validators = [ Length(min=4, max =20) ])
+    """ registration involves name and institution/company """
+    name = StringField("First name", validators = [ Length(min=4, max =20) ])
+    surname = StringField("Last name", validators = [ Length(min=4, max =20) ])
     email = StringField("E-mail", validators = [ Email() ])
     passwd = PasswordField("Password", validators = [ Length(min=8) ] )
     passwd2 = PasswordField("Confirm password", validators = [ Length(min=8) ] )
+    project = StringField("Tell us about your project", validators = [ Length(max=280) ])
      
 
 @app.route("/")
@@ -64,4 +86,4 @@ def test():
     return render_template("test.html")
 
 if __name__ == "__main__":
-    app.run()
+    app.run( debug = True ) # export FLASK_DEBUG=1
