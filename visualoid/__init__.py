@@ -7,6 +7,8 @@ Created: Sun Aug 14 00:28:22 EDT 2022
 Visit https://github.com/okomarov/dash_on_flask for details
 
 This dashboard runs under flask
+
+Check this video: https://www.youtube.com/watch?v=XOFrvzWFM7Y
 """
 from dash import Dash, html, dcc
 import plotly.express as px
@@ -23,7 +25,7 @@ df = pd.DataFrame({
 })
 
 
-def create_visualoid_app(flask_app):
+def create_dashboard(flask_app) -> Dash:
     '''
     creates dash application inside the flask application and 
     renders it in /visualoid
@@ -33,8 +35,9 @@ def create_visualoid_app(flask_app):
 
     # dash layout
     myfig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+
     dash_app.layout = html.Div(children=[
-        html.H1(children='Hello Dash'),
+        html.H1(children='Visualoid Dash'),
 
         html.Div(children='''
             Dash: A web application framework for your data.
@@ -47,4 +50,4 @@ def create_visualoid_app(flask_app):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True) # hot reloading

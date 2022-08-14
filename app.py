@@ -25,9 +25,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 # dashboard
-from visualoid_dash import create_visualoid_app
-
-
+from visualoid import create_dashboard
 
 app = Flask(__name__, template_folder = 'templates', static_url_path = '/static')
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
@@ -39,7 +37,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # dashboard
-create_visualoid_app(flask_app = app)
+create_dashboard(flask_app = app)
 
 
 class LoginForm(FlaskForm):
