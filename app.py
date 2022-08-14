@@ -6,6 +6,8 @@ Main App application
 Jose Guzman, sjm.guzman@gmail.com
 Created: Fri Aug 12 19:37:32 EDT 2022
 
+# Run this app with pipenv shell and type `flask run` and
+# visit http://127.0.0.1:8050/ in your web browser.
 """
 from unicodedata import name
 # basic Flask
@@ -22,16 +24,22 @@ from wtforms.validators import Length, Email
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+# dashboard
+from visualoid_dash import create_visualoid_app
+
 
 
 app = Flask(__name__, template_folder = 'templates', static_url_path = '/static')
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
-
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
-
 Bootstrap(app)
+
+# database
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+# dashboard
+create_visualoid_app(flask_app = app)
 
 
 class LoginForm(FlaskForm):
@@ -87,7 +95,7 @@ def register():
 
     return render_template("register.html", form = registerform)
 
-@app.route("/logout"):
+@app.route("/logout")
 def logout():
 
     return render_template( url_for('index') ) 
