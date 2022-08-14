@@ -35,7 +35,9 @@ def create_dashboard(flask_app:Flask) -> Dash:
     # dash applicaton
     mydash = Dash( server = flask_app, 
         name = 'visualoid', 
-        url_base_pathname = '/visualoid/')
+        url_base_pathname = '/visualoid/',
+        external_stylesheets=[BOOTSTRAP]
+        )
 
     mydash.title = "Visualoid"
 
