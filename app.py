@@ -25,9 +25,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 # dashboard
-from visualoid import create_dashboard
+from visualoid import create_dashboard, test
 
-app = Flask(__name__, template_folder = 'templates', static_url_path = '/static')
+app = Flask(__name__)
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
 Bootstrap(app)
 
@@ -69,6 +69,21 @@ class User(db.Model):
 def index():
     return render_template("index.html")
 
+@app.route("/tutorials")
+def tutorials():
+    """ open list of tutorials """
+    return render_template("tutorials.html") 
+
+@app.route("/customise")
+def customise():
+    """ customise page """
+    return render_template("customise.html")
+
+@app.route("/test")
+def test():
+    """ for testing only """
+    return render_template("test.html")
+
 @app.route("/login", methods = ["GET", "POST"])
 def login():
     """
@@ -84,7 +99,7 @@ def login():
 @app.route("/register", methods = ["GET", "POST"])
 def register():
     """
-    The Register form
+    The Register opens a new page with a form
     """
     registerform = RegistrationForm()
 
@@ -95,14 +110,9 @@ def register():
 
 @app.route("/logout")
 def logout():
-
+    """ when logout, go to index"""
     return render_template( url_for('index') ) 
 
-
-@app.route("/test")
-def test():
-    """ for testing only """
-    return render_template("test.html")
 
 if __name__ == "__main__":
     app.run( debug = True ) # export FLASK_DEBUG=1

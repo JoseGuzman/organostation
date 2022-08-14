@@ -10,22 +10,36 @@ This dashboard runs under flask
 
 Check this video: https://www.youtube.com/watch?v=XOFrvzWFM7Y
 """
+from flask import Flask
+
 from dash import Dash, html, dcc
 import plotly.express as px
 import pandas as pd
 
-#app = Dash(__name__)
+# custom layouts
+from .src.components import layout
 
-# fake a datafram
-# see https://plotly.com/python/px-arguments/ for more options
 df = pd.DataFrame({
     "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
     "Amount": [4, 1, 2, 2, 4, 5],
     "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
 })
 
+def create_dashboard(flask_app:Flask) -> Dash:
+    """
+    Creates a dashboard inside a Flask application
+    """
 
-def create_dashboard(flask_app) -> Dash:
+    # dash applicaton
+    mydash = Dash( server = flask_app, name = 'visualoid', url_base_pathname = '/visualoid/')
+    mydash.title = "Visualoid"
+
+    # dash layout
+    mydash.layout = layout.basic(dashboard = mydash) 
+
+    return mydash 
+
+def test(flask_app) -> Dash:
     '''
     creates dash application inside the flask application and 
     renders it in /visualoid
@@ -48,6 +62,7 @@ def create_dashboard(flask_app) -> Dash:
 
     return dash_app 
 
-
+"""
 if __name__ == '__main__':
     app.run_server(debug=True) # hot reloading
+"""

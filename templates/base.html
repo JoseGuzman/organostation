@@ -18,14 +18,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
         <span class="glyphicon glyphicon-home"></span>
        </a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
-      <li><a href="test"><spam class="glyphicon glyphicon-wrench"></spam> Customize</a></li>
-      <li><a href="test"><spam class="glyphicon glyphicon-education"></spam> Tutorials</a></li>
+      <li><a href="{{url_for('customise') }}"><spam class="glyphicon glyphicon-wrench"></spam> Customise</a></li>
+      <li><a href="{{ url_for('tutorials') }}"><spam class="glyphicon glyphicon-education"></spam> Tutorials</a></li>
       <li><a href="visualoid"><spam class="glyphicon glyphicon-phone"></spam> App</a></li>
 
       <li>
