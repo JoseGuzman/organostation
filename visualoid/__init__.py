@@ -42,11 +42,12 @@ def create_dashboard(flask_app:Flask) -> Dash:
     mydash.title = "Visualoid"
 
     # dash layout
-    mydash.layout = layout.basic(dashboard = mydash) 
+    #mydash.layout = layout.basic(dashboard = mydash) 
+    mydash.layout = layout.test_layout(dashboard = mydash) 
 
     return mydash 
 
-def test(flask_app) -> Dash:
+def test(flask_app:Flask) -> Dash:
     '''
     creates dash application inside the flask application and 
     renders it in /visualoid
