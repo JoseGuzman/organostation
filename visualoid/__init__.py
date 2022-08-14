@@ -13,6 +13,8 @@ Check this video: https://www.youtube.com/watch?v=XOFrvzWFM7Y
 from flask import Flask
 
 from dash import Dash, html, dcc
+from dash_bootstrap_components.themes import BOOTSTRAP
+
 import plotly.express as px
 import pandas as pd
 
@@ -31,7 +33,10 @@ def create_dashboard(flask_app:Flask) -> Dash:
     """
 
     # dash applicaton
-    mydash = Dash( server = flask_app, name = 'visualoid', url_base_pathname = '/visualoid/')
+    mydash = Dash( server = flask_app, 
+        name = 'visualoid', 
+        url_base_pathname = '/visualoid/')
+
     mydash.title = "Visualoid"
 
     # dash layout
