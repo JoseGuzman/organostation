@@ -51,10 +51,11 @@ class RegistrationForm(FlaskForm):
 # Models are to map tables in db to python objects
 
 class User(db.Model):
-    name = db.Column( db.String(128) )
-    surname = db.Column( db.String(128) ) 
-    email = db.Column( db.String(128) )
-    passwd = db.Column( db.String(128), primary_key = True )
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column( db.String(128), nullable=False)
+    surname = db.Column( db.String(128), nullable=False ) 
+    email = db.Column( db.String(128), nullable=False)
+    passwd = db.Column( db.String(128), nullable=False )
     project = db.Column( db.String(280) )
     
 @app.route("/")
