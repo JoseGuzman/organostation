@@ -1,0 +1,42 @@
+<!-- Base template for the OrganoStation site -->
+{% extends "bootstrap/base.html" %}
+
+<!-- Add lang="en" to HTML tag-->
+{% block html_attribs %} lang="en"{% endblock %}
+
+{% block title %}OrganoStation{% endblock %}
+
+<!-- Define css style for organostation-->
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='organostation.css') }}">
+{% endblock %}
+
+<!-- Bootstrap navbar navbar-dark bg-dark"-->
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <span class="glyphicon glyphicon-home"></span>
+       </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="test"><spam class="glyphicon glyphicon-wrench"></spam> Customize</a></li>
+      <li><a href="test">Test</a></li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1">App Disabled</a>
+      </li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+

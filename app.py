@@ -21,7 +21,9 @@ from wtforms.validators import Length, Email
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-app = Flask(__name__, template_folder = "templates")
+
+
+app = Flask(__name__, template_folder = 'templates', static_url_path = '/static')
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location

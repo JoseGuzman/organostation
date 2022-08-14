@@ -1,5 +1,19 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
 
-{% block title %}Visualoid{% endblock %}
+{% block content %}
+<div class="container theme-showcase" role="main" style="margin-top: 75px">
+    <h1><span class="glyphicon glyphicon-box"></span>
+   OrganoStation (OS)</h1>
+</div>
 
-{% block content %}<h1>Visualoid</h1>{% endblock %}
+<div class="container-fluid">
+    <h1>Hello World!</h1>
+    <p>Resize the browser window to see the effect.</p>
+    <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
+    <div class="row">
+      <div class="col-sm-8" style="background-color:lavender;">.col-sm-4</div>
+      <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-8</div>
+    </div>
+  </div>
+
+{% endblock %}
