@@ -8,6 +8,7 @@ Created: Fri Aug 12 19:37:32 EDT 2022
 
 """
 from unicodedata import name
+# basic Flask
 from flask import Flask
 from flask import render_template
 from flask_bootstrap import Bootstrap
@@ -86,8 +87,15 @@ def register():
 
     return render_template("register.html", form = registerform)
 
+@app.route("/logout"):
+def logout():
+
+    return render_template( url_for('index') ) 
+
+
 @app.route("/test")
 def test():
+    """ for testing only """
     return render_template("test.html")
 
 if __name__ == "__main__":
