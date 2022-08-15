@@ -5,7 +5,7 @@ Layouts for the visualoid dashboard
 
 """
 from dash import Dash, html
-from . import dropdown
+from . import dropdown, bar_chart
 
 
 def test_layout(dashboard: Dash) -> html.Div:
@@ -22,7 +22,8 @@ def test_layout(dashboard: Dash) -> html.Div:
             html.Div(
                 className = "dropbox-container", 
                 children = [dropdown.render(dashboard, title='Test')]
-            )
+            ),
+            bar_chart.render(dashboard)
         ]
     )
     return mydiv

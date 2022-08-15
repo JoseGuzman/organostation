@@ -4,7 +4,7 @@ for layouts and menus
 
 
 """
-from typing import List, Tuple
+from typing import List
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
 
