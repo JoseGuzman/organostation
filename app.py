@@ -9,7 +9,7 @@ Created: Fri Aug 12 19:37:32 EDT 2022
 # Run this app with pipenv shell and type `flask run` and
 # visit http://127.0.0.1:8050/ in your web browser.
 """
-from unicodedata import name
+#from unicodedata import name
 # basic Flask
 from flask import Flask
 from flask import render_template
@@ -25,7 +25,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 # dashboard
-from visualoid import create_dashboard, test
+from dashboards.visualoid import create_dashboard, test
+from dashboards import configurator
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
@@ -36,7 +37,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# dashboard
+# dashboards
+configurator.create_dashboard(flask_app = app)
 create_dashboard(flask_app = app)
 
 

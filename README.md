@@ -11,6 +11,8 @@ using
 
 ```bash
 pipenv shell
+export FLASK_DEBUG=1
+Flask run
 ```
 
 ## Docker 
