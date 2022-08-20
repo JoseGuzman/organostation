@@ -1,19 +1,71 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container theme-showcase" role="main" style="margin-top: 75px">
-    <h1><span class="glyphicon glyphicon-box"></span>
+<!-- Picture of Organostation, maybe moveable -->
+<div class="container" role="main" style="margin-top: 75px">
+    <h1><span class="glyphicon glyphicon-home"></span>
    OrganoStation (OS)</h1>
 </div>
 
-<div class="container-fluid">
-    <h1>Hello World!</h1>
-    <p>Resize the browser window to see the effect.</p>
-    <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
-    <div class="row">
-      <div class="col-sm-8" style="background-color:lavender;">.col-sm-4</div>
-      <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-8</div>
-    </div>
-  </div>
+<!-- Specifications -->
+<div class="container-fluid" style="margin-top: 5px" id="specs">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Specifications</h2>
+            <h3 class="text-muted">Based on open-source</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-3" style="background-color:lavenderblush;">
+                  <h4>Mechanical stability</h4>
+                  <p class="text-muted">Electrode positioning with micrometer precission.</p>
+            </div>
+            <div class="col-lg-3" style="background-color:lavenderblush;">
+                    <h4>Electrical components</h4>
+                    <p class="text-mutted">Signa to isolate spikes and extracellular units.</units></p>
+            </div> 
+            <div class="col-lg-3" style="background-color:lavenderblush;"> 
+                    <h4>Fluorescence illumination</h4>
+                    <p class="text-mutted">Signa to isolate spikes and extracellular units.</units></p>
+            </div>
+            <div class="col-lg-3" style="background-color:lavenderblush;">
+                    <h4>Pharmacological application</h4>
+                    <p class="text-mutted">Signa to isolate spikes and extracellular units.</units></p>
+            </div>
 
+        </div>
+    </div>
+</div>
+
+<!-- About us (team) -->
+<!-- <section class="page-section bg-light" id="team"> -->
+<section class="container-fluid" id="team">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Our  Team</h2>
+          <h3 class="section-subheading text-muted">Perfection made with passion.</h3>
+      </div>
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="team-member">
+                  <img class="rounded-circle" src="{{ url_for('static', filename = '/img/team/jose.png') }}" alt="..." />
+                  <h4>Jose Guzman</h4>
+                  <p class="text-muted">Co-founder and Lead Designer</p>
+                  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="team-member">
+                  <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='/img/team/jose.jpg')}}"" alt="..." />
+                  <h4>Christoph Grueber</h4>
+                  <p class="text-muted">Co-founder and Lead Engineer</p>
+                  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 {% endblock %}
