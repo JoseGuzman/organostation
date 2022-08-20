@@ -9,8 +9,6 @@
 <!-- Define css style for organostation-->
 {% block styles %}
 {{super()}}
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='/css/style.css') }}">
 {% endblock %}
 
 <!-- Bootstrap navbar navbar-dark bg-dark"-->
@@ -31,9 +29,8 @@
       <li><a href="visualoid"><spam class="glyphicon glyphicon-phone"></spam> App</a></li>
       <li><a href="{{url_for('test')}}" class="nav-link disabled" tabindex="-1">Disabled</a></li>
     </ul>
-    <!-- -->
 
-    <!-- Right menu with Sign Up and Login "-->
+    <!-- Left menu with Sign Up and Login "-->
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
