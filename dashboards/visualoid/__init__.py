@@ -33,19 +33,19 @@ def create_dashboard(flask_app:Flask) -> Dash:
     """
 
     # dash applicaton
-    mydash = Dash( server = flask_app, 
+    mydashboard = Dash( server = flask_app, 
         name = 'visualoid', 
         url_base_pathname = '/visualoid/',
         external_stylesheets=[BOOTSTRAP]
         )
 
-    mydash.title = "Visualoid"
+    mydashboard.title = "Visualoid"
 
     # dash layout
     #mydash.layout = layout.basic(dashboard = mydash) 
-    mydash.layout = layout.test_layout(dashboard = mydash) 
+    mydashboard.layout = layout.test_layout(dashboard = mydashboard) 
 
-    return mydash 
+    return mydashboard
 
 def test(flask_app:Flask) -> Dash:
     '''
