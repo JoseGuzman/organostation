@@ -1,15 +1,20 @@
-<!-- Base template for the OrganoStation site -->
+<!-- Base template from bootstrap -->
 {% extends "bootstrap/base.html" %}
 
 <!-- Add lang="en" to HTML tag-->
 {% block html_attribs %} lang="en"{% endblock %}
 
-{% block title %}OrganoStation{% endblock %}
+{% block title %}OrganoStation{% endblock %} 
 
 <!-- Define css style for organostation-->
 {% block styles %}
 {{super()}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
 {% endblock %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Define css style for font-awesome-->
 
 <!-- Bootstrap navbar navbar-dark bg-dark"-->
 {% block navbar %}
