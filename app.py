@@ -30,7 +30,7 @@ from dashboards import configurator
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
-Bootstrap(app)
+Bootstrap(app) # we bootstrap our application
 
 # database
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
@@ -55,7 +55,6 @@ class RegistrationForm(FlaskForm):
     passwd = PasswordField("Password", validators = [ Length(min=8) ] )
     passwd2 = PasswordField("Confirm password", validators = [ Length(min=8) ] )
     project = StringField("Brief project description", validators = [ Length(max=280) ])
-     
 
 # Models are to map tables in db to python objects
 
