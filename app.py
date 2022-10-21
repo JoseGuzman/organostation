@@ -38,7 +38,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # dashboards
-configurator.create_dashboard(flask_app = app)
+#configurator.create_dashboard(flask_app = app)
 create_dashboard(flask_app = app)
 
 
