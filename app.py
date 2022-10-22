@@ -7,7 +7,7 @@ Jose Guzman, sjm.guzman@gmail.com
 Created: Fri Aug 12 19:37:32 EDT 2022
 
 # Run this app with pipenv shell and type `flask run` and
-# visit http://127.0.0.1:8050/ in your web browser.
+# visit http://127.0.0.1:8051/ in your web browser.
 """
 #from unicodedata import name
 # basic Flask
@@ -39,6 +39,7 @@ migrate = Migrate(app, db)
 
 # dashboards
 #configurator.create_dashboard(flask_app = app)
+configurator.test_dashboard(flask_app = app)
 create_dashboard(flask_app = app)
 
 
@@ -116,4 +117,5 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run( debug = True ) # export FLASK_DEBUG=1
+    # if using python app.py
+    app.run( debug = True, port=8051 ) # export FLASK_DEBUG=1

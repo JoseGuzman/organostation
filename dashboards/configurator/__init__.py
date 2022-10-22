@@ -7,6 +7,7 @@ Created: Mon Aug 15 21:38:23 EDT 2022
 from flask import Flask
 
 from dash import Dash, html, dcc
+import dash_bootstrap_components as dbc
 from dash_bootstrap_components.themes import BOOTSTRAP
 
 import plotly.express as px
@@ -14,6 +15,23 @@ import pandas as pd
 
 # custom layouts
 
+def test_dashboard(flask_app:Flask) -> Dash:
+    """
+    Layout to test Dash:w
+
+    """
+    mydashboard = Dash(server = flask_app,
+        name = 'Configurator',
+        url_base_pathname = '/configurator/',
+        external_stylesheets=[BOOTSTRAP]
+        )
+
+    # define components 
+    mytext = dcc.Markdown(children='Hello World Configuration')
+    mydashboard.title = "Configurator"
+    mydashboard.layout = dbc.Container([mytext])
+
+    return mydashboard
 
 def create_dashboard(flask_app:Flask) -> Dash:
     """
