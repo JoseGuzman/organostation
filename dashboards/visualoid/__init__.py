@@ -47,7 +47,7 @@ def create_dashboard(flask_app:Flask) -> Dash:
 
     return mydashboard
 
-def test(flask_app:Flask) -> Dash:
+def test_layout(flask_app:Flask) -> Dash:
     '''
     creates dash application inside the flask application and 
     renders it in /visualoid

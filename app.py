@@ -38,9 +38,8 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # dashboards
-#configurator.create_dashboard(flask_app = app)
-configurator.test_dashboard(flask_app = app)
-create_dashboard(flask_app = app)
+configurator.test_layout(flask_app = app)
+test_layout(flask_app = app)
 
 
 class LoginForm(FlaskForm):
