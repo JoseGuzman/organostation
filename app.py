@@ -25,8 +25,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 # dashboard
-from dashboards.visualoid import create_dashboard, test
-from dashboards import configurator
+# from dashboards.visualoid import create_dashboard, test_layout
+from dashboards import testboard
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
@@ -37,9 +37,11 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+#==========================================================================
 # dashboards
-configurator.test_layout(flask_app = app)
-test_layout(flask_app = app)
+#==========================================================================
+testboard.test_layout(flask_app = app)
+# test_layout(flask_app = app)
 
 
 class LoginForm(FlaskForm):
@@ -116,5 +118,5 @@ def logout():
 
 
 if __name__ == "__main__":
-    # if using python app.py
+    # if using python app.py you need environment
     app.run( debug = True, port=8051 ) # export FLASK_DEBUG=1
