@@ -11,36 +11,59 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
         <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
     </ol>
 
     <!-- Wrapper for slides -->
-    <!-- Acquisition system -->
     <div class="carousel-inner" role="listbox">
+
+    <!-- 1. OrganoStation intro -->
     <div class="item active">
         <img src="{{ url_for('static', filename='/img/background.jpg') }}"
         alt="Acquisition System" width="1200" height="700">
         <div class="carousel-caption">
             <h2>OrganoStation</h2>
-            <p></p>
+            <p>A multi-recording system for in vitro preparations</p>
         </div>      
     </div>
 
-    <!-- Wide-field fluorescence imaging -->
+    <!-- 2. Wide-field fluorescence imaging -->
     <div class="item">
         <img src="{{ url_for('static', filename='/img/zoom.jpg')}}"
         alt="Optogenetics" width="1200" height="700">
         <div class="carousel-caption">
-            <h3>Optogenetics</h3>
-            <p>Thank you, Chicago - A night we won't forget.</p>
+            <h2>Wide-field imaging</h2>
+            <p>Infra-red imaging.</p>
+        </div>      
+    </div>
+
+    <!-- 3. Mechanical components -->
+    <div class="item">
+        <img src="{{ url_for('static', filename='/img/zoom.jpg')}}"
+        alt="Optogenetics" width="1200" height="700">
+        <div class="carousel-caption">
+            <h2>Precisse location</h2>
+            <p>Low-noise acquistion.</p>
         </div>      
     </div>
     
-    <!-- Optogenetics -->
+    <!-- 4. Optogenetics -->
+    <div class="item">
+        <img src="{{ url_for('static', filename='/img/opticfiber.gif')}}"
+        alt="Optogenetics" width="1200" height="700">
+        <div class="carousel-caption">
+            <h2>Optogenetics</h2>
+            <p>Optosimulation!</p>
+        </div>      
+    </div>
+
+    <!-- 5. Drug application -->
     <div class="item">
         <img src="{{ url_for('static', filename='/img/optogenetics.jpg')}}"
-        alt="Los Angeles" width="1200" height="700">
+        alt="Drug application" width="1200" height="700">
         <div class="carousel-caption">
-            <h3>LA</h3>
+            <h2>Drug application</h2>
             <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
         </div>      
     </div>
@@ -57,10 +80,13 @@
     </a>
 </div>
 
+<!------------------------------------------------------------------------------>
+<!-- (Small product description) -->
+<!------------------------------------------------------------------------------>
 <div id="band" class="container text-center">
     <h3>OrganoStation</h3>
     <p><em>Recordings in 3D!</em></p>
-    <p>We engineered a miniaturized customized system to obtain electroencephalogram (EEG) signals in 
+    <p>The OrganoStation is customized system to obtain electroencephalogram (EEG) signals in 
         brain organoids or other in vitro preparations. The system comprises 128 micro-electrodes 
         allocated in less than one square millimeter permitting high resolutive invasive measures.
     <p>
@@ -126,34 +152,38 @@
 <!-- Container (Contact Section) -->
 <!------------------------------------------------------------------------------>
 <div id="contact" class="container">
-    <h3 class="text-center">Contact</h3>
-    <p class="text-center"><em>Contact us to know more!</em></p>
+    <h3 class="text-center">Contact Us</h3>
     <div class="row">
+
         <div class="col-md-4">
-            <p>Contact details</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span> Vienna, Austria</p>
-            <p><span class="glyphicon glyphicon-earphone"></span> +43 1515151515</p>
+            <p>Contact details</p><hr>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Schönbrunner Straße 213-215/B501</p>
+            <p>   A 1120 Vienna (Austria)</p>
+            <p><span class="glyphicon glyphicon-earphone"></span> +43 678 126 70 96</p>
             <p><span class="glyphicon glyphicon-envelope"></span> info@organostation.com</p>
         </div>
+
         <div class="col-md-8">
-        <div class="row">
-            <div class="col-sm-6 form-group">
+            <div class="row">
+                <div class="col-sm-6 form-group">
                 <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-            </div>
-            <div class="col-sm-6 form-group">
+                </div>
+                <div class="col-sm-6 form-group">
                 <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+            </div>
+                <textarea class="form-control" id="comments" name="message" placeholder="Comment" rows="7"></textarea>
+            <br>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                <button class="btn pull-right" type="submit">Send Message</button>
             </div>
         </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-        <br>
-        <div class="row">
-            <div class="col-md-12 form-group">
-            <button class="btn pull-right" type="submit">Send</button>
-        </div>
-    </div>
-    </div>
+
+    </div> <!-- row ends-->
     </div>
 </div>
+
 <!------------------------------------------------------------------------------>
 <!-- Footer -->
 <!------------------------------------------------------------------------------>
@@ -163,7 +193,7 @@
     <a class="up-arrow" href="" title="Top">
         <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
-    <p>&copy 2022 OrganoStation </p>
+    <p>OrganoStation&copy 2022</p>
 </footer>
 {% endblock %}
 {% endblock %}
