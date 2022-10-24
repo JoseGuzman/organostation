@@ -16,6 +16,10 @@ h3, h4 {
 }
 
 a:link {
+    color: #777;
+}
+
+a:hover {
     color: #FFC800;
 }
 
