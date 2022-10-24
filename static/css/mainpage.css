@@ -29,7 +29,7 @@ h3, h4 {
 }
 .carousel-inner img {
     -webkit-filter: grayscale(90%);
-    filter: grayscale(80%); /* make all photos black and white */ 
+    filter: grayscale(60%); /* make all photos black and white */ 
     width: 100%; /* Set width to 100% */
     margin: auto;
 }
@@ -76,11 +76,12 @@ p.thick {
     background-color: #333;
     color: #f1f1f1;
     border-radius: 0;
-    transition: .2s;
+    transition: .3s;
 }
 .btn:hover, .btn:focus {
     border: 1px solid #333;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #ffc800;
     color: #000;
 }
 .modal-header, h4, .close {
@@ -114,10 +115,12 @@ p.thick {
     color: #d5d5d5 !important;
 }
 .navbar-nav li a:hover {
-    color: #fff !important;
+    /* color: #fff !important; */
+    color: #ffc800 !important;
 }
 .navbar-nav li.active a {
-    color: #fff !important;
+    /* color: #fff !important; */
+    color: #ffc800 !important;
     background-color: #29292c !important;
 }
 .navbar-default .navbar-toggle {
@@ -147,6 +150,11 @@ footer a:hover {
 }  
 .form-control {
     border-radius: 0;
+}
+.form-control:focus {
+    outline: none !important;
+    border-color: #ffc800;
+    box-shadow: 0 0 5px #ffc800;
 }
 textarea {
     resize: none;
