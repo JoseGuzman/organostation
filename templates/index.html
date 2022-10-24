@@ -1,44 +1,169 @@
 {% extends "header.html" %}
 
 {% block content %}
-<!-- Picture of Organostation, maybe moveable -->
-<div class="container" role="main" style="margin-top: 75px">
-    <h1><span class="glyphicon glyphicon-home"></span>
-    OrganoStation (OS)
-    </h1>
+<!------------------------------------------------------------------------------>
+<!-- Carousel (Contact Section) -->
+<!------------------------------------------------------------------------------>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <!-- Acquisition system -->
+    <div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="{{ url_for('static', filename='/img/background.jpg') }}"
+        alt="Acquisition System" width="1200" height="700">
+        <div class="carousel-caption">
+            <h2>OrganoStation</h2>
+            <p></p>
+        </div>      
+    </div>
+
+    <!-- Wide-field fluorescence imaging -->
+    <div class="item">
+        <img src="{{ url_for('static', filename='/img/zoom.jpg')}}"
+        alt="Optogenetics" width="1200" height="700">
+        <div class="carousel-caption">
+            <h3>Optogenetics</h3>
+            <p>Thank you, Chicago - A night we won't forget.</p>
+        </div>      
+    </div>
+    
+    <!-- Optogenetics -->
+    <div class="item">
+        <img src="{{ url_for('static', filename='/img/optogenetics.jpg')}}"
+        alt="Los Angeles" width="1200" height="700">
+        <div class="carousel-caption">
+            <h3>LA</h3>
+            <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>      
+    </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
-<!-- Specifications -->
-<div class="container-fluid" style="margin-top: 5px" id="specs">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Specifications</h2>
-            <h3 class="text-muted">Based on open-source</h3>
+<div id="band" class="container text-center">
+    <h3>OrganoStation</h3>
+    <p><em>Recordings in 3D!</em></p>
+    <p>We engineered a miniaturized customized system to obtain electroencephalogram (EEG) signals in 
+        brain organoids or other in vitro preparations. The system comprises 128 micro-electrodes 
+        allocated in less than one square millimeter permitting high resolutive invasive measures.
+    <p>
+</div>
+
+<!------------------------------------------------------------------------------>
+<!-- Specificiations (Tab Section) -->
+<!------------------------------------------------------------------------------>
+
+<div id="specs" class="container">
+    <h3 class="text-center">Technical specifications</h3>  
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#ephys">Acquistion system</a></li>
+        <li><a data-toggle="tab" href="#manipulation">Micromanipulation</a></li>
+        <li><a data-toggle="tab" href="#imaging">Wide-field microscopy</a></li>
+        <li><a data-toggle="tab" href="#pharma">Drug application system</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="ephys" class="tab-pane fade in active">
+            <h2>Electronics and acquisition system</h2>
+            <ul>
+                <li>Multiplexer board for the acquistion of up to 512 channels at 30 kHz via USB 3.0.</li>
+                <li>Low-noise recording headstage microchips for signal amplification. </li>
+                <li>Serial peripheral interface cables connecting board to headstage. </li>
+                <li>Sharpened extracellular probes with customized number and location of electrodes. </li>
+            </ul>
         </div>
-        <div class="row">
-            <div class="col-lg-3" style="background-color:lavenderblush;">
-                <h4>Mechanical stability</h4>
-                <p class="text-muted">Electrode positioning with micrometer precission.</p>
-            </div>
-            <div class="col-lg-3" style="background-color:lavenderblush;">
-                <h4>Electrical components</h4>
-                <p class="text-mutted">Signa to isolate spikes and extracellular units.</units></p>
-            </div> 
-            <div class="col-lg-3" style="background-color:lavenderblush;"> 
-                <h4>Fluorescence illumination</h4>
-                <p class="text-mutted">Signa to isolate spikes and extracellular units.</units></p>
-            </div>
-            <div class="col-lg-3" style="background-color:lavenderblush;">
-                <h4>Pharmacological application</h4>
-                <p class="text-mutted">Signa to isolate spikes and extracellular units.</units></p>
-            </div>
+
+        <div id="manipulation" class="tab-pane fade">
+            <h2>Electrical isolation and micromanipulation</h2>
+            <ul>
+                <li>Precise (&lt 1 &mu;m) motorized (4.8 nm resolution) XYZ micromanipulators with 25 mm travel distance.</li>
+                <li>XYZ manual controlled (25 mm) stage oxidized to reduce toxicity or chemical degradation.</li>
+                <li>Vibration-damping optical table (600 x 900 mm L x W) and the associated passive-isolation table.</li>
+                <li>Electromagnetic isolator (&lt 55 dB) with computer ergonomic solution (600 x 900 x 600, L x W x H).</li>
+            </ul>
         </div>
+
+        <div id="imaging" class="tab-pane fade">
+            <h2>Wide-field fluorescence imaging</h2>
+            <ul>
+                <li>Large (20-80 mm) working distance and field of view (12 x 9 mm) with 0.6-1.7X magnification range.</li>
+                <li>Computer vision infrared video-camera with 3.5 um per pixel resolution up to 227 frames per second.</li>
+                <li>Broadband or single-colored (e.g., 470 nm) strong LED illumination (up to 1200 mW).</li>
+                <li>Filter sets for green (470 BP/495 LP/525 BP) or red (590 BP/660 LP/700 BP) fluorophores.</li>
+            </ul>
+        </div>
+
+        <div id="pharma" class="tab-pane fade">
+            <h2>Drug application system</h2>
+            <ul>
+                <li>Dual-channel temperature controller for solution heating and sample temperature preservation.</li>
+                <li>Peristaltic application of small volumes (10-25 ml) under controlled recirculation (0-30 ml/min).</li>
+                <li>Temperature-controlled quick-exchange recording chamber (9-13 mm diameter).</li>
+                <li>PVC-based adaptations for tissue oxygenation and drug exchange.</li>
+            </ul>
+        </div>
+
     </div>
 </div>
+<!------------------------------------------------------------------------------>
+<!-- Container (Contact Section) -->
+<!------------------------------------------------------------------------------>
+<div id="contact" class="container">
+    <h3 class="text-center">Contact</h3>
+    <p class="text-center"><em>Contact us to know more!</em></p>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Contact details</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Vienna, Austria</p>
+            <p><span class="glyphicon glyphicon-earphone"></span> +43 1515151515</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> info@organostation.com</p>
+        </div>
+        <div class="col-md-8">
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+        </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+        <br>
+        <div class="row">
+            <div class="col-md-12 form-group">
+            <button class="btn pull-right" type="submit">Send</button>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+<!------------------------------------------------------------------------------>
+<!-- Footer -->
+<!------------------------------------------------------------------------------>
 
 {% block footer %}
-<div class="container">
-    <div id="footer"><p>&copy 2022 OrganoStation</p></div>
-</div>
-{%- endblock %}
+<footer class="text-center">
+    <a class="up-arrow" href="" title="Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>&copy 2022 OrganoStation </p>
+</footer>
+{% endblock %}
 {% endblock %}
