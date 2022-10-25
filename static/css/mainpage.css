@@ -3,20 +3,30 @@
 * Adapted from: 
 https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_theme_band_complete
 */
+h1 { font-family: Nunito; 
+    font-size: 23px; 
+    font-style: normal; font-variant: normal; 
+    font-weight: 700; line-height: 23px; 
+    margin: 10px 0 30px 0;
+    color: #1f1f1f
+} 
+
 body {
-    font: 400 15px/1.8 Lato, sans-serif;
+    font: 400 15px/1.8 sans-serif;
+    font-family: Nunito;
     color: #777;
 }
+
 h3, h4 {
     font: 400 15px/1.8 Nunito, sans-serif;
     margin: 10px 0 30px 0;
     letter-spacing: 5px;      
     font-size: 20px;
-    color: #111;
+    color: #1f1f1f;
 }
 
 a:link {
-    color: #777;
+    color: #777; 
 }
 
 a:hover {
@@ -73,7 +83,7 @@ p.thick {
 }
 
 .list-group-item:hover {
-    background-color: #FFF4C4 !important;
+    background-color: #FCF4D7!important;
 }
 .thumbnail {
     padding: 0 0 15px 0;

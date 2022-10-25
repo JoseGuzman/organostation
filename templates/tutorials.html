@@ -4,10 +4,10 @@
 
 {% block content %}
 <div id="tutorials" class="container">
-    <h3 class="text-center">Tutorials page</h3>
+    <h1 class="text-center">Tutorials page</h1>
 
     <ol class="list-group list-group-numered">
-        <a href="index.html" class="list-group-item">
+        <a href="{{ url_for('index') }}" class="list-group-item">
             <span class="badge">Day 1</span>
             <p class="thick">Before we start</p>
             <p class="list-group-item-text">Contains a list of preparatory elements necessary before your equipment arrives.
@@ -16,25 +16,25 @@
 
         <a href="" class="list-group-item">
             <spam class="badge">Day 2</spam>
-            <p class="list-group-item-text thick">Hardware Installation</p>
+            <p class="thick">Hardware Installation</p>
             <p class="list-group-item-text">Installation of equipment and description of its components.</p>
         </a> 
 
         <a href="" class="list-group-item disabled">
             <spam class="badge">Day 3</spam>
-            <p class="list-group-item-text thick">Software Configuration</p>
+            <p class="thick">Software Configuration</p>
             <p class="list-group-item-text">Installation of acquistion system and testing of signal acquistion. </p>
         </a> 
 
         <a href="" class="list-group-item">
             <span class="badge">Day 4</span>
-            <p class="list-group-item-text thick">Sample Preparation</p>
+            <p class="thick">Sample Preparation</p>
             <p class="list-group-item-text">This guide will prepare you to perform your first recordings.</p>
         </a> 
 
         <a href="" class="list-group-item disabled">
             <span class="badge">Day 5</span>
-            <p class="list-group-item-text thick">Data Analysis </p>
+            <p class="thick">Data Analysis </p>
             <p class="list-group-item-text">Visualization, signal extraction and analysis.</p>
         </a> 
     </ol>
