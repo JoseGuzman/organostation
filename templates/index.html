@@ -85,9 +85,9 @@
 <!------------------------------------------------------------------------------>
 <div id="band" class="container text-center">
     <h1>OrganoStation</h1>
-    <p>The OrganoStation is a customized system to obtain electroencephalogram (EEG) signals in 
-        brain organoids or other in vitro preparations. The system allows the 
-        precise allocation of micro-electrodes enabling high resolutive invasive measures.
+    <p class="thick">The OrganoStation is a customized system to obtain 
+        electroencephalogram (EEG) signals in 
+        brain organoids or other in vitro preparations.  
     <p>
 </div>
 
@@ -160,29 +160,40 @@
 
         <div class="col-md-4">
             <p class="thick">Contact details</p><hr>
-            <p><span class="glyphicon glyphicon-map-marker"></span> Schönbrunner Straße 213-215/B501</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> 
+                Schönbrunner Straße 213-215/B501</p>
             <p>   A 1120 Vienna (Austria)</p>
             <p><span class="glyphicon glyphicon-earphone"></span> +43 678 126 70 96</p>
             <p><span class="glyphicon glyphicon-envelope"></span> 
                 <a href="mailto:info@vise-og.com">info@organostation.com</a></p>
         </div>
 
+        <form id="contactForm">
         <div class="col-md-8">
-            <div class="row">
+            <div class="row"> <!-- first row -->
                 <div class="col-sm-6 form-group">
-                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                    <input class="form-control" id="name" name="name" placeholder="Name*" type="text" required>
                 </div>
                 <div class="col-sm-6 form-group">
-                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                    <input class="form-control" id="email" name="email" placeholder="Email*" type="email" required>
                 </div>
-            </div>
-                <textarea class="form-control" id="comments" name="message" placeholder="Comment" rows="7"></textarea>
-            <br>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                <button class="btn pull-right" type="submit">Send Message</button>
-            </div>
+            </div> <!-- end first row -->
+
+                <textarea class="form-control" id="comments" name="message" placeholder="Comment*" rows="7" required></textarea>
+                <br>
+
+            <div class="row"> <!-- second row -->
+                <div class="col-md-6 form-group">
+                    <!-- Lambda message -->
+                    <p id="lambda_text"> </p>
+                </div>
+                <div class="col-md-6 form-group">
+                    <!-- Submit button -->
+                    <button class="btn pull-right text-uppercase" type="submit">Send Message</button>
+                </div>
+            </div> <!-- end second row -->
         </div>
+        </form>
 
     </div> <!-- row ends-->
     </div>
@@ -197,7 +208,7 @@
     <a class="up-arrow" href="" title="Top">
         <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
-    <p>OrganoStation&copy 2022</p>
+    <p>&copy 2022 Copyright: www.organostation.com</p>
 </footer>
 {% endblock %}
 {% endblock %}
