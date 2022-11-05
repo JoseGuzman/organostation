@@ -4,23 +4,23 @@ __init__.py
 Author: Jose Guzman
 Created: Mon Aug 15 21:38:23 EDT 2022
 
-Strongly based on this video:
+Dash tests based on this video:
 https://www.youtube.com/watch?v=7m0Bq1EGPPg
 """
 from flask import Flask
 
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc 
 from dash import Output, Input
-import dash_bootstrap_components as dbc
+import dash_bootstrap_components as dbc # pip install dash-bootstrap-components
 
 import plotly.express as px
 import pandas as pd
 
 # custom layouts
 
-def test_layout(flask_app:Flask) -> Dash:
+def simple_callback(flask_app:Flask) -> Dash:
     """
-    Layout to test Dash
+    Layout to test Dash with a simple callback
     """
     # main Dash application
     mydashboard = Dash(server = flask_app,
@@ -30,8 +30,9 @@ def test_layout(flask_app:Flask) -> Dash:
         )
 
     # define components  
-    mytext = dcc.Markdown(children='# Hello World in TestBoard')
+    myhead = dcc.Markdown(children='# Simple Callback ')
     myinput = dbc.Input(value='Insert your message here')
+    mytext = dcc.Markdown(children=' ')
 
     # callback decorator and callback function
     @mydashboard.callback(
@@ -48,11 +49,20 @@ def test_layout(flask_app:Flask) -> Dash:
 
     # finish layout
     mydashboard.title = "testboard"
-    mydashboard.layout = dbc.Container([mytext, myinput])
+    mydashboard.layout = dbc.Container(
+        children=[
+            html.Br(),
+            myhead, 
+            html.Hr(), 
+            myinput, 
+            html.Hr(), 
+            mytext
+        ]
+    )
 
     return mydashboard
 
-def create_dashboard(flask_app:Flask) -> Dash:
+def simple_graph(flask_app:Flask) -> Dash:
     """
     Creates a dashboard inside a Flask application
     """
