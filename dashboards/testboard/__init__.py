@@ -27,7 +27,7 @@ def simple_callback(flask_app:Flask) -> Dash:
         name = 'TestBoard',
         url_base_pathname = '/testboard/',
         external_stylesheets=[dbc.themes.SOLAR]
-        )
+    )
 
     # define components  
     myhead = dcc.Markdown(children='# Simple Callback ')
@@ -44,10 +44,10 @@ def simple_callback(flask_app:Flask) -> Dash:
         """
         Function argument comes from component_property of input
         """
-        # returns componenent_property of the output:w
+        # returns componenent_property of the output
         return mytext
 
-    # finish layout
+    # dash layout
     mydashboard.title = "testboard"
     mydashboard.layout = dbc.Container(
         children=[
@@ -64,27 +64,59 @@ def simple_callback(flask_app:Flask) -> Dash:
 
 def simple_graph(flask_app:Flask) -> Dash:
     """
-    Creates a dashboard inside a Flask application
+    Creates a simple graph in a Flask application
     """
 
     # dash applicaton
     mydash = Dash( server = flask_app, 
-        name = 'configurator', 
+        name = 'Simple Graph', 
         url_base_pathname = '/testboard/',
-        external_stylesheets=[dbc.themes.BOOTSTRAP]
+        external_stylesheets=[dbc.themes.VAPOR]
         )
 
-    mydash.title = "Configurator"
+    df = px.data.medals_long()
 
+    # 1. components
+    mytitle = dcc.Markdown(children='# App to see medals')
+    mygraph = dcc.Graph( figure={}, id='graph', config= {'displaylogo': False})
+    mydropdown = dcc.Dropdown(
+        options = ['Bar Plot', 'Scatter Plot'],
+        value = 'Bar Plot',
+        clearable = False
+    )
+
+    # 2. callback decorator and function
+    @mydash.callback(
+        Output('graph', component_property = 'figure'),
+        Input(mydropdown, component_property = 'value')
+    )
+
+    def update_graph(myselection):
+        """
+        It populates the figure
+        """
+        if myselection == 'Bar Plot':
+            fig = px.bar(
+                data_frame=df, x = 'nation', y = 'count',
+                color='medal'
+            )
+        elif myselection == 'Scatter Plot':
+            fig = px.scatter(
+                data_frame = df, 
+                x = 'nation', 
+                y = 'count',
+                color = 'medal'
+            )
+        # returned objects go to OutPut components_property 
+        return fig
     # dash layout
-    #mydash.layout = layout.basic(dashboard = mydash) 
-    #mydash.layout = layout.test_layout(dashboard = mydash) 
-    mydash.layout = html.Div(children=[
-        html.H1(children='Customize page'),
-
-        html.Div(children='''
-            Dash: A web application framework for your data.
-        ''')
-        ])
-
+    mydash.title = 'Graph'
+    mydash.layout = dbc.Container(
+        children = [
+            html.Br(),
+            mytitle,
+            mygraph,
+            mydropdown
+        ]
+    )
     return mydash 

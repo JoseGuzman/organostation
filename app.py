@@ -40,7 +40,8 @@ migrate = Migrate(app, db)
 #==========================================================================
 # dashboards
 #==========================================================================
-testboard.simple_callback(flask_app = app)
+#testboard.simple_callback(flask_app = app)
+testboard.simple_graph(flask_app = app)
 # test_layout(flask_app = app)
 
 
