@@ -71,7 +71,7 @@ def simple_graph(flask_app:Flask) -> Dash:
     mydash = Dash( server = flask_app, 
         name = 'Simple Graph', 
         url_base_pathname = '/testboard/',
-        external_stylesheets=[dbc.themes.VAPOR]
+        external_stylesheets=[dbc.themes.LUX]
         )
 
     df = px.data.medals_long()
