@@ -3,6 +3,9 @@ __init__.py
 
 Author: Jose Guzman
 Created: Mon Aug 15 21:38:23 EDT 2022
+
+Strongly based on this video:
+https://www.youtube.com/watch?v=7m0Bq1EGPPg
 """
 from flask import Flask
 
@@ -20,14 +23,14 @@ def test_layout(flask_app:Flask) -> Dash:
     """
     # main Dash application
     mydashboard = Dash(server = flask_app,
-        name = 'Configurator',
+        name = 'TestBoard',
         url_base_pathname = '/testboard/',
         external_stylesheets=[dbc.themes.BOOTSTRAP]
         )
 
     # define components 
-    mytext = dcc.Markdown(children='Hello World Configuration')
-    mydashboard.title = "Configurator"
+    mytext = dcc.Markdown(children='# Hello World in TestBoard')
+    mydashboard.title = "testboard"
     mydashboard.layout = dbc.Container([mytext])
 
     return mydashboard
