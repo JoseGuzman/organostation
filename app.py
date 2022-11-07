@@ -26,48 +26,50 @@ from flask_migrate import Migrate
 
 # dashboard
 # from dashboards.visualoid import create_dashboard, test_layout
-from dashboards import testboard
+from dashboards import testboard 
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
-Bootstrap(app) # we bootstrap our application
+Bootstrap(app)  # we bootstrap our application
 
 # database
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db" # database location
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"  # database location
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-#==========================================================================
+# ==========================================================================
 # dashboards
-#==========================================================================
+# ==========================================================================
 #testboard.simple_callback(flask_app = app)
-testboard.simple_graph(flask_app = app)
+testboard.test_layout(flask_app=app)
 # test_layout(flask_app = app)
 
 
 class LoginForm(FlaskForm):
     """ user/pass login"""
-    email = StringField("E-mail", validators = [ Email() ])
-    passwd = PasswordField("Password", validators = [ Length(min=8) ] )
+    email = StringField("E-mail", validators=[Email()])
+    passwd = PasswordField("Password", validators=[Length(min=8)])
+
 
 class RegistrationForm(FlaskForm):
     """ registration involves name and institution/company """
-    name = StringField("First name", validators = [ Length(min=4, max =20) ])
-    surname = StringField("Last name", validators = [ Length(min=4, max =20) ])
-    email = StringField("E-mail", validators = [ Email() ])
-    passwd = PasswordField("Password", validators = [ Length(min=8) ] )
-    passwd2 = PasswordField("Confirm password", validators = [ Length(min=8) ] )
-    project = StringField("Brief project description", validators = [ Length(max=280) ])
+    name = StringField("First name", validators=[Length(min=4, max=20)])
+    surname = StringField("Last name", validators=[Length(min=4, max=20)])
+    email = StringField("E-mail", validators=[Email()])
+    passwd = PasswordField("Password", validators=[Length(min=8)])
+    passwd2 = PasswordField("Confirm password", validators=[Length(min=8)])
+    project = StringField("Brief project description",validators=[Length(max=280)])
 
 # Models are to map tables in db to python objects
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column( db.String(128), nullable=False)
-    surname = db.Column( db.String(128), nullable=False)
-    email = db.Column( db.String(128), nullable=False)
-    passwd = db.Column( db.String(128), nullable=False )
-    project = db.Column( db.String(280) )
+    name = db.Column(db.String(128), nullable=False)
+    surname = db.Column(db.String(128), nullable=False)
+    email = db.Column(db.String(128), nullable=False)
+    passwd = db.Column(db.String(128), nullable=False)
+    project = db.Column(db.String(280))
+
 
 @app.route("/")
 def index():
@@ -76,19 +78,22 @@ def index():
 @app.route("/tutorials")
 def tutorials():
     """ open list of tutorials """
-    return render_template("tutorials.html") 
+    return render_template("tutorials.html")
+
 
 @app.route("/customise")
 def customise():
     """ customise page """
     return render_template("customise.html")
 
+
 @app.route("/test")
 def test():
     """ for testing only """
     return render_template("test.html")
 
-@app.route("/login", methods = ["GET", "POST"])
+
+@app.route("/login", methods=["GET", "POST"])
 def login():
     """
     The Login form
@@ -98,9 +103,10 @@ def login():
     if loginform.validate_on_submit():
         return "It's valid"
 
-    return render_template("login.html", form = loginform)
+    return render_template("login.html", form=loginform)
 
-@app.route("/register", methods = ["GET", "POST"])
+
+@app.route("/register", methods=["GET", "POST"])
 def register():
     """
     The Register opens a new page with a form
@@ -110,14 +116,15 @@ def register():
     if registerform.validate_on_submit():
         return "It's valid"
 
-    return render_template("register.html", form = registerform)
+    return render_template("register.html", form=registerform)
+
 
 @app.route("/logout")
 def logout():
     """ when logout, go to index"""
-    return render_template( url_for('index') ) 
+    return render_template(url_for('index'))
 
 
 if __name__ == "__main__":
     # if using python app.py you need environment
-    app.run( debug = True, port=8051 ) # export FLASK_DEBUG=1
+    app.run(debug=True, port=8051)  # export FLASK_DEBUG=1
