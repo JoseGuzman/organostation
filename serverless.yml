@@ -17,6 +17,11 @@ provider:
     apiGateway:
         shouldStartNameWithService: true
 
+# extend functionality with plugins
+plugins:
+    - serverless-wsgi
+    - serverless-python-requirements
+
 functions:
     app:
         handler: wsgi_handler.handler
@@ -30,7 +35,6 @@ custom:
         pythonBin: python3
         packRequirements: false
 
-# extend functionality with plugins
-plugins:
-    - serverless-wsgi
-    - serverless-python-requirements
+package:
+    patterns:
+        - '!node_modules/**'
