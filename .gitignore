@@ -43,3 +43,4 @@ minibrain.egg-info/
 # Serverless applications 
 #=========================================================================
 node_modules/
+.serverless/
