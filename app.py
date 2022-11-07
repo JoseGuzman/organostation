@@ -64,11 +64,11 @@ class RegistrationForm(FlaskForm):
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column( db.String(128), nullable=False)
-    surname = db.Column( db.String(128), nullable=False ) 
+    surname = db.Column( db.String(128), nullable=False)
     email = db.Column( db.String(128), nullable=False)
     passwd = db.Column( db.String(128), nullable=False )
     project = db.Column( db.String(280) )
-    
+
 @app.route("/")
 def index():
     return render_template("index.html")
