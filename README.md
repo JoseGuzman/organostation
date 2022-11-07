@@ -2,7 +2,9 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/joseguzman/organostation/badge)](https://www.codefactor.io/repository/github/joseguzman/organostation)
 
-A visulization app to document electrical or fluorescence signals.
+This is the webpage of the OrganoStation. The OrganoStation is a customized system to obtain neurophysiological signals (e.g., EEG)
+in brain organoids or other in vitro preparations.
+It also contains a visualization app to document and analyze electrical or fluorescence signals.
 
 ## Requirements
 
