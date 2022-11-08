@@ -26,7 +26,7 @@ from flask_migrate import Migrate
 
 # dashboard
 # from dashboards.visualoid import create_dashboard, test_layout
-from dashboards import testboard 
+from dashboards import testboard
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
@@ -58,9 +58,11 @@ class RegistrationForm(FlaskForm):
     email = StringField("E-mail", validators=[Email()])
     passwd = PasswordField("Password", validators=[Length(min=8)])
     passwd2 = PasswordField("Confirm password", validators=[Length(min=8)])
-    project = StringField("Brief project description",validators=[Length(max=280)])
+    project = StringField("Brief project description",
+                          validators=[Length(max=280)])
 
 # Models are to map tables in db to python objects
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -74,6 +76,7 @@ class User(db.Model):
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/tutorials")
 def tutorials():
