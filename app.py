@@ -29,7 +29,8 @@ from flask_migrate import Migrate
 from dashboards import testboard
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = b'_5#y2L"F4Q8z\n\xec]/'
+#app.config.from_pyfile('config.py')
+app.config.from_object('config.DevConfig')
 Bootstrap(app)  # we bootstrap our application
 
 # database
