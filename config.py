@@ -2,6 +2,8 @@
 Set Flask Config variables.
 
 Check here: https://hackersandslackers.com/configure-flask-applications/
+Check here to use S3 for static content: 
+https://abhishekm47.medium.com/serve-static-assets-on-s3-bucket-a-complete-flask-guide-fbe128d97e71
 """
 from os import environ
 from dotenv import load_dotenv
@@ -20,6 +22,8 @@ class Config:
     # AWS Secrets
     AWS_SECRET_KEY = environ.get('AWS_SECRET_KEY')
     AWS_KEY_ID = environ.get('AWS_KEY_ID')
+    ACL = 'public-read'
+    FLASKS3_BUCKET_NAME = environ.get('FLASKS3_BUCKET_NAME')
 
 
 class DevelopmentConfig(Config):
