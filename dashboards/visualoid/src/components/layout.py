@@ -11,10 +11,10 @@ import dash_bootstrap_components as dbc
 from . import dropdown, bar_chart
 
 
-def test_layout(dashboard: Dash) -> html.Div:
+def simple_callback(dashboard: Dash) -> html.Div:
     """
-    Basic layout to test that includes the title of the dashboard
-    and a second html.Div element.
+    Basic layout to test basic components in a layout 
+    and its callbacks
     """
 
     mydiv = html.Div(
@@ -31,7 +31,7 @@ def test_layout(dashboard: Dash) -> html.Div:
     )
     return mydiv
 
-def simple_layout(dashboard: Dash) -> html.Div:
+def simple_test(dashboard: Dash) -> html.Div:
     """
     Simple layout for testing pourposes
     """
@@ -39,9 +39,10 @@ def simple_layout(dashboard: Dash) -> html.Div:
     # define a simple layout with a dbc container
     return dbc.Container(
         children = [
+            html.Br(),
             html.H1(dashboard.title),
             html.Hr(),
-            html.H3("Simple_layout"),
+            html.H3("Simple_test"),
             html.Br()
         ]
     )

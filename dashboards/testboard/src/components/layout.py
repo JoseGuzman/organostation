@@ -7,6 +7,10 @@ Created: Mon Aug 15 21:38:23 EDT 2022
 Dash layouts based on this video:
 https://www.youtube.com/watch?v=7m0Bq1EGPPg
 
+A dashboard layout contains the dash application,
+the components with the callbacks, and a container
+with a list of html components.
+
 """
 from flask import Flask
 
