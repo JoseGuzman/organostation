@@ -9,7 +9,7 @@ Created: Fri Aug 12 19:37:32 EDT 2022
 # Run this app with pipenv shell and type `flask run` and
 # visit http://127.0.0.1:8051/ in your web browser.
 """
-#from unicodedata import name
+# from unicodedata import name
 # basic Flask
 from flask import Flask
 from flask import render_template
@@ -24,6 +24,8 @@ from wtforms.validators import Length, Email
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+import config
+
 # dashboard
 # from dashboards.visualoid import create_dashboard, test_layout
 from dashboards import testboard
@@ -34,9 +36,9 @@ app.config.from_object('config.DevConfig')
 Bootstrap(app)  # we bootstrap our application
 
 # database
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"  # database location
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"  # database location
+#db = SQLAlchemy(app)
+#migrate = Migrate(app, db)
 
 # ==========================================================================
 # dashboards
@@ -59,12 +61,10 @@ class RegistrationForm(FlaskForm):
     email = StringField("E-mail", validators=[Email()])
     passwd = PasswordField("Password", validators=[Length(min=8)])
     passwd2 = PasswordField("Confirm password", validators=[Length(min=8)])
-    project = StringField("Brief project description",
-                          validators=[Length(max=280)])
+    project = StringField("Brief project description", validators=[Length(max=280)])
 
 # Models are to map tables in db to python objects
-
-
+"""
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
@@ -72,7 +72,7 @@ class User(db.Model):
     email = db.Column(db.String(128), nullable=False)
     passwd = db.Column(db.String(128), nullable=False)
     project = db.Column(db.String(280))
-
+"""
 
 @app.route("/")
 def index():
