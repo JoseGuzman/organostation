@@ -29,6 +29,7 @@ import config
 # dashboard
 # from dashboards.visualoid import create_dashboard, test_layout
 from dashboards import testboard
+from dashboards import visualoid
 
 app = Flask(__name__)
 #app.config.from_pyfile('config.py')
@@ -44,7 +45,8 @@ Bootstrap(app)  # we bootstrap our application
 # dashboards
 # ==========================================================================
 #testboard.simple_callback(flask_app = app)
-testboard.test_layout(flask_app=app)
+testboard.test_layout(flask_app = app)
+visualoid.test_dashboard(flask_app = app)
 # test_layout(flask_app = app)
 
 

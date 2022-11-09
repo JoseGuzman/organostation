@@ -5,6 +5,9 @@ Layouts for the visualoid dashboard
 
 """
 from dash import Dash, html
+import dash_bootstrap_components as dbc
+
+# application imports
 from . import dropdown, bar_chart
 
 
@@ -28,15 +31,17 @@ def test_layout(dashboard: Dash) -> html.Div:
     )
     return mydiv
 
-def basic(dashboard: Dash) -> html.Div:
+def simple_layout(dashboard: Dash) -> html.Div:
     """
-    Basic layout to test
+    Simple layout for testing pourposes
     """
 
-    return html.Div(
-        className = "app-div",
+    # define a simple layout with a dbc container
+    return dbc.Container(
         children = [
-                html.H1(dashboard.title),
-                html.Hr()
-                ] 
+            html.H1(dashboard.title),
+            html.Hr(),
+            html.H3("Simple_layout"),
+            html.Br()
+        ]
     )
