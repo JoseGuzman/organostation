@@ -16,7 +16,7 @@ from dash import Output, Input
 # interactive higher-level components generated with 
 # JavaScript, HTML, and CSS through the React.js library 
 from dash import dcc 
-import dash_bootstrap_components as dbc # pip install dash-bootstrap-components
+import dash_bootstrap_components as dbc # install dash-bootstrap-components
 
 import plotly.express as px
 

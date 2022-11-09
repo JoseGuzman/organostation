@@ -15,4 +15,4 @@ import dash_bootstrap_components as dbc # pip install dash-bootstrap-components
 
 
 def test_layout(flask_app:Flask) -> None:
-    layout.simple_callback(flask_app)
+    layout.simple_graph(flask_app)
