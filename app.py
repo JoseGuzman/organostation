@@ -21,13 +21,12 @@ from wtforms import StringField, PasswordField
 from wtforms.validators import Length, Email
 
 # database
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+#from flask_sqlalchemy import SQLAlchemy
+#from flask_migrate import Migrate
 
 import config
 
 # dashboard
-# from dashboards.visualoid import create_dashboard, test_layout
 from dashboards import testboard
 from dashboards import visualoid
 
@@ -78,6 +77,7 @@ class User(db.Model):
 
 @app.route("/")
 def index():
+    """ main page """
     return render_template("index.html")
 
 
@@ -128,7 +128,7 @@ def register():
 @app.route("/logout")
 def logout():
     """ when logout, go to index"""
-    return render_template(url_for('index'))
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
