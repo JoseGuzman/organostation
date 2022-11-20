@@ -1,7 +1,7 @@
 """
 app.py
 
-Main App application
+Main Flask application
 
 Jose Guzman, sjm.guzman@gmail.com
 Created: Fri Aug 12 19:37:32 EDT 2022
@@ -45,7 +45,7 @@ Bootstrap(app)  # we bootstrap our application
 # ==========================================================================
 #testboard.simple_callback(flask_app = app)
 testboard.test_layout(flask_app = app)
-visualoid.test_callback(flask_app = app)
+visualoid.test_dashboard(flask_app = app)
 # test_layout(flask_app = app)
 
 
