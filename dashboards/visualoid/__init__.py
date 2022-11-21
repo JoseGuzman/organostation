@@ -43,7 +43,7 @@ def test_callback(flask_app:Flask) -> Dash:
     """
     Creates a simple callback
     """
-    mydashboard = Dash( 
+    mydashboard = Dash(
         server = flask_app,
         name = 'Visualoid',
         url_base_pathname = '/visualoid/',
@@ -52,3 +52,19 @@ def test_callback(flask_app:Flask) -> Dash:
     mydashboard.title = "Visualoid"
     mydashboard.layout = layout.simple_callback(dashboard = mydashboard)
     return mydashboard
+
+def test_side_bar(flask_app:Flask) -> Dash:
+    """
+    Test the side bar
+    """
+    mydashboard = Dash(
+        server = flask_app,
+        name = 'Visualoid',
+        url_base_pathname = '/visualoid/',
+        external_stylesheets = [dbc.themes.BOOTSTRAP]
+    )
+    mydashboard.title = "Visualoid"
+    mydashboard.layout = layout.main_side_bar(dashboard = mydashboard)
+    return mydashboard
+
+

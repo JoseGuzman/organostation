@@ -9,7 +9,7 @@ from dash import Dash, html
 import dash_bootstrap_components as dbc
 
 # application imports
-from . import dropdown, bar_chart
+from . import dropdown, bar_chart, side_bar
 
 def error_404(dashboard: Dash) -> html.Div:
     """
@@ -20,8 +20,26 @@ def error_404(dashboard: Dash) -> html.Div:
         children = [
             html.H1("404: Not found", className="text-danger"),
             html.Hr(),
-            html.P("The pathname was not recognised...")
+            html.P("The page was not recognised...")
             ]
+    )
+    return mydiv
+
+def main_side_bar(dashboard: Dash) -> html.Div:
+    """
+    Basic layout to test basic components in a layout 
+    and its callbacks
+    """
+    mydiv = html.Div(
+        className = "app-div",
+        children = [
+            html.H1(dashboard.title),
+            html.Hr(),
+            html.Div(
+                className = "dropbox-container", 
+                children = [side_bar.render(dashboard, title='Test')]
+            )
+        ]
     )
     return mydiv
 
@@ -30,7 +48,6 @@ def simple_callback(dashboard: Dash) -> html.Div:
     Basic layout to test basic components in a layout 
     and its callbacks
     """
-
     mydiv = html.Div(
         className = "app-div",
         children = [
@@ -47,7 +64,7 @@ def simple_callback(dashboard: Dash) -> html.Div:
 
 def simple_layout(dashboard: Dash) -> dbc.Container:
     """
-    Simple layout for title and message 
+    Simple layout for title and message
     """
     # define a simple layout with a dbc container
     mycont = dbc.Container(
