@@ -9,7 +9,8 @@ Visit https://github.com/okomarov/dash_on_flask for details
 Check this video: https://www.youtube.com/watch?v=XOFrvzWFM7Y
 
 The Flask application will call the dashboards defined here.
-Layouts contain pre-designed components and callbacks that are 
+(a dash object). The dash object is the argument of a layout.
+Layouts contain pre-designed components and callbacks and are 
 defined in .scr.components
 """
 from flask import Flask
@@ -17,7 +18,7 @@ from flask import Flask
 from dash import Dash
 import dash_bootstrap_components as dbc # for themes
 
-# application imports layouts from src
+# layouts take dash as argument
 from .src.components import layout
 
 def test_dashboard(flask_app:Flask) -> Dash:
@@ -33,7 +34,8 @@ def test_dashboard(flask_app:Flask) -> Dash:
     )
     mydashboard.title = "Visualoid"
     # dash layout in src/components/layout
-    mydashboard.layout = layout.simple_layout(dashboard = mydashboard) 
+    #mydashboard.layout = layout.simple_layout(dashboard = mydashboard) 
+    mydashboard.layout = layout.error_404(dashboard = mydashboard) 
     return mydashboard
 
 def test_callback(flask_app:Flask) -> Dash:

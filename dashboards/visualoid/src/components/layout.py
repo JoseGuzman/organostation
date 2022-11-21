@@ -1,7 +1,8 @@
 """
 layout.py
 
-Layouts for the visualoid dashboard
+Layouts for dash app return html.Div or dbc.Container objects
+to be appended to a dash application upon creation.
 
 """
 from dash import Dash, html
@@ -10,6 +11,19 @@ import dash_bootstrap_components as dbc
 # application imports
 from . import dropdown, bar_chart
 
+def error_404(dashboard: Dash) -> html.Div:
+    """
+    Returns 404 error
+    """
+    mydiv = html.Div(
+        className = "p-3 bg-light rounded-3",
+        children = [
+            html.H1("404: Not found", className="text-danger"),
+            html.Hr(),
+            html.P("The pathname was not recognised...")
+            ]
+    )
+    return mydiv
 
 def simple_callback(dashboard: Dash) -> html.Div:
     """
@@ -31,18 +45,19 @@ def simple_callback(dashboard: Dash) -> html.Div:
     )
     return mydiv
 
-def simple_test(dashboard: Dash) -> html.Div:
+def simple_layout(dashboard: Dash) -> dbc.Container:
     """
-    Simple layout for testing pourposes
+    Simple layout for title and message 
     """
-
     # define a simple layout with a dbc container
-    return dbc.Container(
+    mycont = dbc.Container(
         children = [
             html.Br(),
             html.H1(dashboard.title),
             html.Hr(),
-            html.H3("Simple_test"),
-            html.Br()
+            html.H3("Simple layout"),
+            html.Br(),
+            html.P("This is a simple layout for title and message")
         ]
     )
+    return mycont
