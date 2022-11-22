@@ -5,6 +5,8 @@ table.py
 from dash import Dash, dash_table
 from dash import html, dcc
 
+import dash_bootstrap_components as dbc
+
 import pandas as pd
 
 df = pd.read_csv(
@@ -18,7 +20,7 @@ def create_table() -> html.Div:
     mytable = html.Div(
         [ 
             html.Hr(),
-            html.H6('Recording Library'),
+            dbc.Label('Recording Library'),
             html.Br(),
             dash_table.DataTable(
             df.to_dict("records"),

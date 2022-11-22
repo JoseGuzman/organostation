@@ -18,8 +18,8 @@ from . import ids  # custom IDs
 
 UPLOAD_STYLE = {
     "width": "300px",
-    "height": "60px",
-    "lineHeight": "60px",
+    "height": "50px",
+    "lineHeight": "50px",
     "borderWidth": "1px",
     "borderStyle": "dashed",
     "borderRadius": "5px",
@@ -126,7 +126,7 @@ def upload_option(dashboard:Dash) -> html.Div:
 
     bar = html.Div(
         [
-            html.H6("Upload"),
+            dbc.Label("Upload"),
             dcc.Upload(
                 id = "upload-data",
                 children = html.Div(
