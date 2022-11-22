@@ -13,6 +13,8 @@ from dash.dependencies import Input, Output
 
 import dash_bootstrap_components as dbc # for themes
 
+from . import layout
+
 # the style arguments for the sidebar. 
 # We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
@@ -45,32 +47,31 @@ def render(dashboard: Dash, title: str) -> html.Div:
             className="lead"
         ),
         dbc.Nav([
-            dbc.NavLink("Home", href="/", active="exact"),
-            dbc.NavLink("Page 1", href="/page-1", active="exact"),
-            dbc.NavLink("Page 2", href="/page-2", active="exact"),
+            dbc.NavLink('File Manager', href="/file_manager", active="exact"),
+            dbc.NavLink('Visualize', href="/visualize", active="exact"),
+            dbc.NavLink('Analysis', href="/analysis", active="exact"),
             ],
-            vertical=True,
-            pills=True,
+            fill=True, pills=True, justified=True
             ),
         ],
-        style=SIDEBAR_STYLE,
+        #style=SIDEBAR_STYLE,
     )
     @dashboard.callback(
         Output("page-content", "children"),
         [Input("url", "pathname")]
     )
-    def render_page_content(pathname:str): 
+    def render_page_content(pathname:str):
         """
         reads pathname and loads the corresponding layout
         """
-        if pathname == "/":
+        if pathname == "/file_manager":
             return html.P("This is the content of the home page!")
-        elif pathname == "/page-1":
+        elif pathname == "/visualize":
             return html.P("This is the content of page 1. Yay!")
-        elif pathname == "/page-2":
-            return html.P("Oh cool, this is page 2!")
+        elif pathname == "/analysis":
+            return layout.error_404(dashboard)
         # return a 404 message
-        return layout.error_404(dashboard)
+        return html.P('Home page')
 
     content = html.Div(id="page-content", style=CONTENT_STYLE)
     mylayout = html.Div([dcc.Location(id="url"), sidebar, content])

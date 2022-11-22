@@ -41,12 +41,12 @@ Bootstrap(app)  # we bootstrap our application
 #migrate = Migrate(app, db)
 
 # ==========================================================================
-# dashboards
+# dashboards (see in __init__.py)
 # ==========================================================================
 #testboard.simple_callback(flask_app = app)
 testboard.test_layout(flask_app = app)
-#visualoid.test_dashboard(flask_app = app)
-visualoid.test_side_bar(flask_app = app)
+visualoid.test(flask_app = app)
+#visualoid.test_callback(flask_app = app)
 # test_layout(flask_app = app)
 
 
