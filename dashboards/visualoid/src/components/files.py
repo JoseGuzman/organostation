@@ -103,6 +103,22 @@ def save(dashboard:Dash) -> html.Div:
 
     return html.Div(mysave)
 
+def comments(dashboard:Dash) -> html.Div:
+    accordion = html.Div(
+    dbc.Accordion(
+        [
+            dbc.AccordionItem(
+                [
+                    html.P("Recording observations"),
+                    dbc.Textarea("Click here"),
+                ],
+                title="Notes",
+            ),
+        ],
+        )
+    )
+    return accordion
+
 def upload_option(dashboard:Dash) -> html.Div:
     """
     Upload file option
@@ -118,9 +134,6 @@ def upload_option(dashboard:Dash) -> html.Div:
                 ),
                 style= UPLOAD_STYLE, multiple = False,
             ),
-            html.H6("Recording Library"),
-            html.Hr(),
-            html.Ul(id="file-list")
         ],
     )
     return bar 

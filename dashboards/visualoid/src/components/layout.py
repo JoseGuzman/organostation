@@ -13,9 +13,11 @@ import dash_bootstrap_components as dbc
 # application imports
 from . import dropdown, bar_chart, side_bar, files
 
+from . import table
+
 def start_page(dashboard:Dash) -> html.Div:
     """
-    Returns start page
+    Initial start page
     """
     mydiv = html.Div(
         className = "p-3 bg-light rounded-3",
@@ -29,7 +31,8 @@ def start_page(dashboard:Dash) -> html.Div:
 
 def file_manager(dashboard:Dash) -> html.Div:
     """
-    returns the file manager page
+    File manager page, with controls, filename, upload
+    and table.
     """
     return html.Div(
         #className = "p-3 bg-light rounded-3",
@@ -37,8 +40,17 @@ def file_manager(dashboard:Dash) -> html.Div:
             [
             dbc.Row(
                 [
-                    dbc.Col([files.controls(dashboard), files.save(dashboard)], md=3, className="bg-light"),
-                    dbc.Col(files.upload_option(dashboard), className='bg-light')
+                    dbc.Col(
+                        [
+                            files.controls(dashboard), 
+                            files.save(dashboard),
+                            files.comments(dashboard)
+                        ], md=3 ,className="bg-light"),
+                    dbc.Col([
+                        files.upload_option(dashboard),
+                        table.create_table()
+                        ]
+                        , className='bg-light')
                 ],
                 align="top"
             )
