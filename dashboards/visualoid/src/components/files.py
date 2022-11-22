@@ -44,7 +44,7 @@ def controls(dashboard:Dash) -> html.Div:
         ),
         html.Div(
             [
-                dbc.Label("Y variable"),
+                dbc.Label("Probe Type"),
                 dcc.Dropdown(
                     id="y-variable",
                     options=[
@@ -81,26 +81,25 @@ def save(dashboard:Dash) -> html.Div:
     """
     Save options
     """
-    mysave = dbc.Card(
-        [
-        html.Div(
+    mysave = dbc.Card([
+        dbc.CardHeader("Filename"),
+        dbc.CardBody(
             dbc.Row(
                 [
                     dbc.Col(
                         [
-                        dbc.Input(id="cluster-count", type="number", value=3),
+                        dbc.Input(id="cluster-count", type="text"),
                         ], width=9
                     ),
                     dbc.Col(
                         [
-                        dbc.Button('Save', id='save-file')
+                        dbc.Button('Add', id='save-file')
                         ], width=3
                     )
                 ]
             )
         )
-        ], body=True,
-    )
+    ])
 
     return html.Div(mysave)
 
