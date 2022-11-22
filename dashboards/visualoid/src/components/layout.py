@@ -11,11 +11,11 @@ from dash import Dash, html
 import dash_bootstrap_components as dbc
 
 # application imports
-from . import dropdown, bar_chart, side_bar
+from . import dropdown, bar_chart, side_bar, files
 
 def start_page(dashboard:Dash) -> html.Div:
     """
-    Returns 404 error
+    Returns start page
     """
     mydiv = html.Div(
         className = "p-3 bg-light rounded-3",
@@ -32,14 +32,15 @@ def file_manager(dashboard:Dash) -> html.Div:
     returns the file manager page
     """
     return html.Div(
-        className = "p-3 bg-light rounded-3",
+        #className = "p-3 bg-light rounded-3",
         children =
             [
             dbc.Row(
                 [
-                    dbc.Col(html.Div("One of 2 columns"), width=3),
-                    dbc.Col(html.Div("Load binary"))
-                ]
+                    dbc.Col(files.controls(dashboard), md=3, className="bg-light"),
+                    dbc.Col(files.upload_option(dashboard), className='bg-light')
+                ],
+                align="top"
             )
             ]
     )
