@@ -17,7 +17,7 @@ import dash_bootstrap_components as dbc
 from . import ids  # custom IDs
 
 UPLOAD_STYLE = {
-    "width": "65%",
+    "width": "300px",
     "height": "60px",
     "lineHeight": "60px",
     "borderWidth": "1px",
@@ -32,7 +32,7 @@ def controls(dashboard:Dash) -> html.Div:
     [
         html.Div(
             [
-                dbc.Label("X variable"),
+                dbc.Label("Recording Date"),
                 dcc.Dropdown(
                     id="x-variable",
                     options=[
@@ -77,6 +77,33 @@ def controls(dashboard:Dash) -> html.Div:
     )
     return html.Div(controls)
 
+def save(dashboard:Dash) -> html.Div:
+    """
+    Save options
+    """
+    mysave = dbc.Card(
+        [
+        html.Div(
+            dbc.Row(
+                [
+                    dbc.Col(
+                        [
+                        dbc.Input(id="cluster-count", type="number", value=3),
+                        ], width=9
+                    ),
+                    dbc.Col(
+                        [
+                        dbc.Button('Save', id='save-file')
+                        ], width=3
+                    )
+                ]
+            )
+        )
+        ], body=True,
+    )
+
+    return html.Div(mysave)
+
 def upload_option(dashboard:Dash) -> html.Div:
     """
     Upload file option
@@ -92,7 +119,7 @@ def upload_option(dashboard:Dash) -> html.Div:
                 ),
                 style= UPLOAD_STYLE, multiple = False,
             ),
-            html.H6("File List"),
+            html.H6("Recording Library"),
             html.Hr(),
             html.Ul(id="file-list")
         ],

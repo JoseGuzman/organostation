@@ -37,7 +37,7 @@ def file_manager(dashboard:Dash) -> html.Div:
             [
             dbc.Row(
                 [
-                    dbc.Col(files.controls(dashboard), md=3, className="bg-light"),
+                    dbc.Col([files.controls(dashboard), files.save(dashboard)], md=3, className="bg-light"),
                     dbc.Col(files.upload_option(dashboard), className='bg-light')
                 ],
                 align="top"
@@ -59,7 +59,7 @@ def error_404(dashboard:Dash) -> html.Div:
     )
     return mydiv
 
-def main_side_bar(dashboard:Dash) -> html.Div:
+def info_side_bar(dashboard:Dash) -> html.Div:
     """
     Basic layout to test basic components in a layout 
     and its callbacks
