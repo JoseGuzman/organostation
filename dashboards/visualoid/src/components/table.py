@@ -16,7 +16,9 @@ df = pd.read_csv(
 app = Dash(__name__)
 
 def create_table() -> html.Div:
-
+    """
+    Creates file library to select data
+    """
     mytable = html.Div(
         [ 
             html.Hr(),

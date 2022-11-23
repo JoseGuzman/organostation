@@ -7,6 +7,7 @@ Created:  Tue Nov 22 19:41:01 CET 2022
 
 User interfaces components (dcc) for loading data
 """
+from datetime import date
 from typing import List
 
 from dash import Dash, html, dcc
@@ -28,17 +29,20 @@ UPLOAD_STYLE = {
 }
 
 def controls(dashboard:Dash) -> html.Div:
+    """
+    Basic controls for file saving
+    """
     controls = dbc.Card(
     [
         html.Div(
             [
                 dbc.Label("Recording Date"),
-                dcc.Dropdown(
-                    id="x-variable",
-                    options=[
-                        {"label": col, "value": col} for col in ['a', 'b', 'c']
-                    ],
-                    value="sepal length (cm)",
+                dcc.DatePickerSingle(
+                    min_date_allowed = date(1995,8,1),
+                    max_date_allowed = date.today(),
+                    initial_visible_month = date.today(),
+                    date = date.today()
+
                 ),
             ]
         ),

@@ -52,8 +52,8 @@ def test(flask_app:Flask) -> Dash:
         external_stylesheets = [dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP]
     )
     mydashboard.title = "Visualoid"
-    mymenu = main_menu(mydashboard)
-    container = dbc.Container([mymenu], fluid=True)
+    # mymenu = main_menu(mydashboard)
+    container = dbc.Container([main_menu(mydashboard)], fluid=True)
     mydashboard.layout = container
     return mydashboard
 
