@@ -44,7 +44,7 @@ def file_manager(dashboard:Dash) -> html.Div:
                         [
                             files.save(dashboard),
                             files.controls(dashboard),
-                            files.comments(dashboard)
+                            files.comments(dashboard),
                         ], md=3 ,className="bg-light"),
                     dbc.Col([
                         files.upload_option(dashboard),

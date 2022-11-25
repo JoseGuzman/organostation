@@ -18,7 +18,7 @@ import dash_bootstrap_components as dbc
 from . import ids  # custom IDs
 
 UPLOAD_STYLE = {
-    "width": "300px",
+    "width": "100%",
     "height": "50px",
     "lineHeight": "50px",
     "borderWidth": "1px",
@@ -32,22 +32,26 @@ def controls(dashboard:Dash) -> html.Div:
     """
     Basic controls for file saving
     """
-    controls = dbc.Card(
-    [
-        html.Div(
+    controls = dbc.Card([
+        dbc.CardHeader('Recording properties'),
+        dbc.CardBody(
             [
-                dbc.Label("Recording Date"),
-                dcc.DatePickerSingle(
-                    min_date_allowed = date(1995,8,1),
-                    max_date_allowed = date.today(),
-                    initial_visible_month = date.today(),
-                    date = date.today()
-
-                ),
-            ]
-        ),
-        html.Div(
-            [
+            html.Div(
+                dbc.Row(
+                [
+                    dbc.Col([dbc.Label("Recording Date ")]),
+                    dbc.Col([
+                        dcc.DatePickerSingle(
+                        min_date_allowed = date(1995,8,1),
+                        max_date_allowed = date.today(),
+                        initial_visible_month = date.today(),
+                        date = date.today())
+                    ])
+                ]
+                )
+            ),
+            html.Div(
+                [
                 dbc.Label("Probe Type"),
                 dcc.Dropdown(
                     id="y-variable",
@@ -56,10 +60,10 @@ def controls(dashboard:Dash) -> html.Div:
                     ],
                     value="sepal width (cm)",
                 ),
-            ]
-        ),
-        html.Div(
-            dbc.Row(
+                ]
+            ),
+            html.Div(
+                dbc.Row(
                 [
                     dbc.Col(
                         [
@@ -74,11 +78,11 @@ def controls(dashboard:Dash) -> html.Div:
                         ] 
                     )
                 ]
+                )
             )
-        ),
-    ],
-    body=True,
-    )
+            ]
+        )
+    ])
     return html.Div(controls)
 
 def save(dashboard:Dash) -> html.Div:
@@ -86,24 +90,17 @@ def save(dashboard:Dash) -> html.Div:
     Save options
     """
     mysave = dbc.Card([
-        dbc.CardHeader("Filename"),
+        dbc.CardHeader("Data file"),
         dbc.CardBody(
             dbc.Row(
                 [
-                    dbc.Col(
-                        [
-                        dbc.Input(id="cluster-count", type="text"),
-                        ], width=9
-                    ),
-                    dbc.Col(
-                        [
-                        dbc.Button('Add', id='save-file')
-                        ], width=3
-                    )
+                    dcc.Upload('Upload binary file', id='save-file', 
+                        style=UPLOAD_STYLE, multiple=False)
                 ]
-            )
+            ),
         )
-    ])
+        ]
+    )
 
     return html.Div(mysave)
 
