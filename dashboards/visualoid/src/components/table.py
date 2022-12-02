@@ -1,5 +1,7 @@
 """
 table.py
+
+The table for the Recording Library
 """
 
 from dash import Dash, dash_table

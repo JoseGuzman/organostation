@@ -39,13 +39,16 @@ def controls(dashboard:Dash) -> html.Div:
             html.Div(
                 dbc.Row(
                 [
-                    dbc.Col([dbc.Label("Recording Date ")]),
+                    dbc.Col([dbc.Label("Date ")]),
                     dbc.Col([
                         dcc.DatePickerSingle(
-                        min_date_allowed = date(1995,8,1),
-                        max_date_allowed = date.today(),
-                        initial_visible_month = date.today(),
-                        date = date.today())
+                            month_format = 'YYYY MMMM',
+                            #end_date_placeholder_text='MMMM Y',
+                            placeholder = 'DD MM YYYY',
+                            min_date_allowed = date(1995,8,1),
+                            max_date_allowed = date.today(),
+                            initial_visible_month = date.today(),
+                            date = date.today())
                     ])
                 ]
                 )
