@@ -1,0 +1,47 @@
+<!-- Base template from bootstrap -->
+{% extends "bootstrap/base.html" %}
+
+<!-- Add lang="en" to HTML tag-->
+{% block html_attribs %}lang="en"{% endblock %}
+
+{% block title %}OrganoStation{% endblock %} 
+
+{% block styles %}
+{{super()}}
+<!-- Define css style for font-awesome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<!-- Define css style for organostation-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mainpage.css') }}">
+{% endblock %}
+
+<!-- Bootstrap navbar navbar-dark bg-dark"-->
+{% block navbar %}
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Home logo with brand name-->
+    <div class="navbar-nav navbar-header">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        <span class="glyphicon glyphicon-home"></span> 
+      </a>
+    </div>
+
+    <!-- Right menu with options-->
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="{{url_for('tutorials')}}"><spam class="glyphicon glyphicon-education"></spam> TUTORIALS</a></li>
+      <li><a href="visualoid"><spam class="glyphicon glyphicon-phone"></spam> APP</a></li>
+      <li><a href="testboard"><spam class="glyphicon glyphicon-phone"></spam> TestBoard</a></li>
+      <li><a href="#contact"><spam class="glyphicon glyphicon-envelope"></spam> CONTACT</a></li>
+    </ul>
+
+    <!-- Left menu with Sign Up and Login "-->
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+      <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+    </ul>
+    <!-- -->
+  </div>
+</nav>
+{% endblock %}
+
