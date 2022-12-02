@@ -12,11 +12,13 @@ from dotenv import load_dotenv
 
 BASEDIR = Path(__file__).resolve().parent
 
+# local variables in users' directory
 load_dotenv(BASEDIR / '.env')
 
 class Config:
     """
-    Basic Flask config
+    Basic Flask configuration. It will load default configuration
+    variables to access AWS.
     """
     FLASK_DEBUG = environ.get('FLASK_DEBUG')
     SECRET_KEY = environ.get('SECRET_KEY')
