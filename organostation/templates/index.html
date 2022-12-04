@@ -1,4 +1,4 @@
-{% extends "header.html" %}
+{% extends "navigation.html" %}
 
 {% block content %}
 <!------------------------------------------------------------------------------>
@@ -18,55 +18,50 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
-    <!-- 1. OrganoStation intro -->
-    <div class="item active">
-        <img src="{{ url_for('static', filename='/img/background.jpg') }}" 
-        style="width: 1300px; height: 800px" />
-        <div class="carousel-caption">
-            <h2>OrganoStation</h2>
-            <p>A multi-recording system for in vitro preparations</p>
-        </div>      
-    </div>
+        <!-- 1. OrganoStation intro -->
+        <div class="item active">
+            <img src="{{ url_for('static', filename='/img/background.jpg') }}" style="width: 1300px; height: 800px" />
+            <div class="carousel-caption">
+                <h2>OrganoStation</h2>
+                <p>A multi-recording system for in vitro preparations</p>
+            </div>
+        </div>
 
-    <!-- 2. Wide-field fluorescence imaging -->
-    <div class="item">
-        <img src="{{ url_for('static', filename='/img/zoom.jpg')}}" 
-        style="width: 1300px; height: 800px" />
-        <div class="carousel-caption">
-            <h2>Wide-field imaging</h2>
-            <p>Infra-red imaging.</p>
-        </div>      
-    </div>
+        <!-- 2. Wide-field fluorescence imaging -->
+        <div class="item">
+            <img src="{{ url_for('static', filename='/img/zoom.jpg')}}" style="width: 1300px; height: 800px" />
+            <div class="carousel-caption">
+                <h2>Wide-field imaging</h2>
+                <p>Infra-red imaging.</p>
+            </div>
+        </div>
 
-    <!-- 3. Mechanical components -->
-    <div class="item">
-        <img src="{{ url_for('static', filename='/img/zoom.jpg')}}" 
-        style="width: 1300px; height: 800px" />
-        <div class="carousel-caption">
-            <h2>Precisse location</h2>
-            <p>Low-noise acquistion.</p>
-        </div>      
-    </div>
-    
-    <!-- 4. Optogenetics -->
-    <div class="item">
-        <img src="{{ url_for('static', filename='/img/opticfiber.gif')}}" 
-        style="width: 1300px; height: 800px" />
-        <div class="carousel-caption">
-            <h2>Optogenetics</h2>
-            <p>Optosimulation!</p>
-        </div>      
-    </div>
+        <!-- 3. Mechanical components -->
+        <div class="item">
+            <img src="{{ url_for('static', filename='/img/zoom.jpg')}}" style="width: 1300px; height: 800px" />
+            <div class="carousel-caption">
+                <h2>Precisse location</h2>
+                <p>Low-noise acquistion.</p>
+            </div>
+        </div>
 
-    <!-- 5. Drug application -->
-    <div class="item">
-        <img src="{{ url_for('static', filename='/img/optogenetics.jpg')}}" 
-        style="width: 1300px; height: 800px" />
-        <div class="carousel-caption">
-            <h2>Accute Drug Application</h2>
-            <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
-        </div>      
-    </div>
+        <!-- 4. Optogenetics -->
+        <div class="item">
+            <img src="{{ url_for('static', filename='/img/opticfiber.gif')}}" style="width: 1300px; height: 800px" />
+            <div class="carousel-caption">
+                <h2>Optogenetics</h2>
+                <p>Optosimulation!</p>
+            </div>
+        </div>
+
+        <!-- 5. Drug application -->
+        <div class="item">
+            <img src="{{ url_for('static', filename='/img/optogenetics.jpg')}}" style="width: 1300px; height: 800px" />
+            <div class="carousel-caption">
+                <h2>Accute Drug Application</h2>
+                <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+            </div>
+        </div>
     </div>
 
     <!-- Left and right controls -->
@@ -85,9 +80,9 @@
 <!------------------------------------------------------------------------------>
 <div id="band" class="container text-center">
     <h1>OrganoStation</h1>
-    <p>The OrganoStation is a customized system to obtain 
-        neurophysiological signals,  like ElectroEcephaloGrams (EEG) in 
-        brain organoids or other in vitro preparations.  
+    <p>The OrganoStation is a customized system to obtain
+        neurophysiological signals, like ElectroEcephaloGrams (EEG) in
+        brain organoids or other in vitro preparations.
     <p>
 </div>
 
@@ -96,16 +91,19 @@
 <!------------------------------------------------------------------------------>
 
 <div id="specs" class="container">
-    <h1 class="text-center">Technical specifications</h1>  
+    <h1 class="text-center">Technical specifications</h1>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#ephys">
-            <span class="glyphicon glyphicon-edit"></span> Acquistion system</a></li>
+                <span class="glyphicon glyphicon-edit"></span> Acquistion system</a></li>
         <li><a data-toggle="tab" href="#manipulation">
-            <spam class="glyphicon glyphicon-move"></spam> Micromanipulation</a></li>
+                <spam class="glyphicon glyphicon-move"></spam> Micromanipulation
+            </a></li>
         <li><a data-toggle="tab" href="#imaging">
-            <spam class="glyphicon glyphicon glyphicon-facetime-video"></spam> Wide-field videomicroscopy</a></li>
+                <spam class="glyphicon glyphicon glyphicon-facetime-video"></spam> Wide-field videomicroscopy
+            </a></li>
         <li><a data-toggle="tab" href="#pharma">
-            <spam class="glyphicon glyphicon glyphicon-tint"></spam> Drug application system</a></li>
+                <spam class="glyphicon glyphicon glyphicon-tint"></spam> Drug application system
+            </a></li>
     </ul>
 
     <div class="tab-content">
@@ -122,18 +120,23 @@
         <div id="manipulation" class="tab-pane fade">
             <h2>Electrical isolation and micromanipulation</h2>
             <ul>
-                <li>Precise (&lt 1 &mu;m) motorized (4.8 nm resolution) XYZ micromanipulators with 25 mm travel distance.</li>
+                <li>Precise (&lt 1 &mu;m) motorized (4.8 nm resolution) XYZ micromanipulators with 25 mm travel
+                    distance.</li>
                 <li>XYZ manual controlled (25 mm) stage oxidized to reduce toxicity or chemical degradation.</li>
-                <li>Vibration-damping optical table (600 x 900 mm L x W) and the associated passive-isolation table.</li>
-                <li>Electromagnetic isolator (&lt 55 dB) with computer ergonomic solution (600 x 900 x 600, L x W x H).</li>
+                <li>Vibration-damping optical table (600 x 900 mm L x W) and the associated passive-isolation table.
+                </li>
+                <li>Electromagnetic isolator (&lt 55 dB) with computer ergonomic solution (600 x 900 x 600, L x W x H).
+                </li>
             </ul>
         </div>
 
         <div id="imaging" class="tab-pane fade">
             <h2>Wide-field fluorescence imaging</h2>
             <ul>
-                <li>Large (20-80 mm) working distance and field of view (12 x 9 mm) with 0.6-1.7X magnification range.</li>
-                <li>Computer vision infrared video-camera with 3.5 um per pixel resolution up to 227 frames per second.</li>
+                <li>Large (20-80 mm) working distance and field of view (12 x 9 mm) with 0.6-1.7X magnification range.
+                </li>
+                <li>Computer vision infrared video-camera with 3.5 um per pixel resolution up to 227 frames per second.
+                </li>
                 <li>Broadband or single-colored (e.g., 470 nm) strong LED illumination (up to 1200 mW).</li>
                 <li>Filter sets for green (470 BP/495 LP/525 BP) or red (590 BP/660 LP/700 BP) fluorophores.</li>
             </ul>
@@ -143,7 +146,8 @@
             <h2>Drug application system</h2>
             <ul>
                 <li>Dual-channel temperature controller for solution heating and sample temperature preservation.</li>
-                <li>Peristaltic application of small volumes (10-25 ml) under controlled recirculation (0-30 ml/min).</li>
+                <li>Peristaltic application of small volumes (10-25 ml) under controlled recirculation (0-30 ml/min).
+                </li>
                 <li>Temperature-controlled quick-exchange recording chamber (9-13 mm diameter).</li>
                 <li>PVC-based adaptations for tissue oxygenation and drug exchange.</li>
             </ul>
@@ -159,44 +163,49 @@
     <div class="row">
 
         <div class="col-md-4">
-            <p class="thick">Contact details</p><hr>
-            <p><span class="glyphicon glyphicon-map-marker"></span> 
+            <p class="thick">Contact details</p>
+            <hr>
+            <p><span class="glyphicon glyphicon-map-marker"></span>
                 Schönbrunner Straße 213-215/B501</p>
-            <p>   A 1120 Vienna (Austria)</p>
+            <p> A 1120 Vienna (Austria)</p>
             <p><span class="glyphicon glyphicon-earphone"></span> +43 678 126 70 96</p>
-            <p><span class="glyphicon glyphicon-envelope"></span> 
-                <a href="mailto:info@vise-og.com">info@organostation.com</a></p>
+            <p><span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:info@vise-og.com">info@organostation.com</a>
+            </p>
         </div>
 
         <form id="contactForm">
-        <div class="col-md-8">
-            <div class="row"> <!-- first row -->
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="name" name="name" placeholder="Name*" type="text" required>
-                </div>
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="email" name="email" placeholder="Email*" type="email" required>
-                </div>
-            </div> <!-- end first row -->
+            <div class="col-md-8">
+                <div class="row">
+                    <!-- first row -->
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Name*" type="text" required>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Email*" type="email" required>
+                    </div>
+                </div> <!-- end first row -->
 
-                <textarea class="form-control" id="comments" name="message" placeholder="Comment*" rows="7" required></textarea>
+                <textarea class="form-control" id="comments" name="message" placeholder="Comment*" rows="7"
+                    required></textarea>
                 <br>
 
-            <div class="row"> <!-- second row -->
-                <div class="col-md-6 form-group">
-                    <!-- Lambda message -->
-                    <p id="lambda_text"> </p>
-                </div>
-                <div class="col-md-6 form-group">
-                    <!-- Submit button -->
-                    <button class="btn pull-right text-uppercase" type="submit">Send Message</button>
-                </div>
-            </div> <!-- end second row -->
-        </div>
+                <div class="row">
+                    <!-- second row -->
+                    <div class="col-md-6 form-group">
+                        <!-- Lambda message -->
+                        <p id="lambda_text"> </p>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <!-- Submit button -->
+                        <button class="btn pull-right text-uppercase" type="submit">Send Message</button>
+                    </div>
+                </div> <!-- end second row -->
+            </div>
         </form>
 
     </div> <!-- row ends-->
-    </div>
+</div>
 </div>
 
 <!------------------------------------------------------------------------------>

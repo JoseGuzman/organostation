@@ -1,13 +1,11 @@
 """
-Application entry point. 
+Application entry point.
 
-To run this app simply execute the run.sh script attached 
-to this repository.
+To run this app type python wsgi.py
 """
 from organostation import init_app
 
-app = init_app()
+myapp = init_app()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=8051)
-
+    myapp.run(port=8051)

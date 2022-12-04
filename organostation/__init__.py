@@ -5,16 +5,24 @@ Check for aditional information
 https://hackersandslackers.com/flask-application-factory/
 """
 from flask import Flask
+from flask_bootstrap import Bootstrap
+
 
 def init_app() -> Flask:
     """
-    Creates the Flask app object according 
+    Creates the Flask app object
     """
-    # 
-    app = Flask(__name__, instance_relative_config = False)
-    app.config.from_object('config.Config')
+    # Initialize core application
+    myapp = Flask(__name__, instance_relative_config=False)
+    myapp.config.from_object("config.DevConfig")  # see config.py
 
-    with app.app_context():
+    # Initialize plugings
+    Bootstrap(myapp)
+
+    # The app context
+    with myapp.app_context():
+        # Include routes
         from . import routes
-        
-        return app
+
+        # dashboards
+        return myapp

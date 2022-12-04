@@ -44,5 +44,5 @@ class ProdConfig(Config):
     Flask config file for Production
     """
     FLASK_ENV = 'production'
-    DEBUG = False 
+    DEBUG = False
     TESTING = False
