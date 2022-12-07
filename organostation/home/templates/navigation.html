@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Home logo with brand name-->
+    <div class="navbar-nav navbar-header">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        <span class="glyphicon glyphicon-home"></span> 
+      </a>
+    </div>
+
+    <!-- Right menu with options-->
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="{{url_for('tutorials')}}"><spam class="glyphicon glyphicon-education"></spam> TUTORIALS</a></li>
+      <li><a href="visualoid"><spam class="glyphicon glyphicon-phone"></spam> APP</a></li>
+      <li><a href="testboard"><spam class="glyphicon glyphicon-wrench"></spam> CONFIGURE</a></li>
+      <li><a href="#contact"><spam class="glyphicon glyphicon-envelope"></spam> CONTACT</a></li>
+    </ul>
+
+    <!-- Left menu with Sign Up and Login "-->
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span> SIGN UP</a></li>
+      <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+    </ul>
+    <!-- -->
+  </div>
+</nav>

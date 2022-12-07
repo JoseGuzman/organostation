@@ -1,0 +1,28 @@
+<!-- Base template from bootstrap -->
+{% extends "bootstrap/base.html" %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="description" content={{description}}>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
+
+    <!-- fontawesome 5 for icons -->
+    <script src="https://kit.fontawesome.com/6364eb9ae2.js" crossorigin="anonymous"></script>
+    <!-- Define css style for font-awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <!-- Define css style for organostation-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mainpage.css') }}">
+</head>
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+
+</html>
