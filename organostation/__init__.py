@@ -13,7 +13,12 @@ def init_app() -> Flask:
     Creates the Flask app object
     """
     # Initialize core application
-    myapp = Flask(__name__, instance_relative_config=False)
+    myapp = Flask(
+        __name__,
+        instance_relative_config=False,
+        static_folder="static",
+        template_folder="templates",
+    )
     myapp.config.from_object("config.DevConfig")  # see config.py
 
     # Initialize plugings

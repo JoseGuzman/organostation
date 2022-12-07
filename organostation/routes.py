@@ -4,30 +4,27 @@ Created: Sat Dec  3 12:13:14 CET 2022
 
 Flask routes declaration file
 """
+from flask import Blueprint
 from flask import current_app as app
 from flask import render_template
 
+"""
+home_bp = Blueprint(
+    "home_bp", __name__, template_folder="templates", static_folder="static"
+)
+"""
+
 
 @app.route("/")
-def home():
+def index():
     """home page for OrganoStation"""
-    return render_template(
-        "home.html",
-        title="OrganoStation",
-        info="A visualisation app to document electrical or fluorescence signals.",
-    )
+    return render_template("index.html")
 
 
 @app.route("/test")
 def test():
     """This is a test page"""
     return render_template("test.html", description="simple test", info=42)
-
-
-@app.route("/")
-def index():
-    """main page"""
-    return render_template("index.html")
 
 
 @app.route("/tutorials")

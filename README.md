@@ -6,15 +6,22 @@ The [OrganoStation](http://www.organostation.com) is a customized system to obta
 in brain organoids or other in vitro preparations.
 It also contains a visualization app to document and analyze electrical or fluorescence signals.
 
-## Requirements
+## Installation 
+
+### Installation with 'requirements.txt'
+Type `bash run.sh`
+
+### Installation via [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 
 Type `pip install pipenv` to install pipenv and create an environment
 using 
 
-```bash
-pipenv shell
-export FLASK_DEBUG=1
-flask run
+```shell
+$ git clone https//github.com/JoseGuzman/organostation.git
+$ cd organostation
+$ pipenv shell
+$ pipenv update 
+$ flask run
 ```
 
 ## Docker 
