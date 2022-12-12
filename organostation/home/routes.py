@@ -5,9 +5,8 @@ Created: Sat Dec  3 12:13:14 CET 2022
 It creates our 'home' blueprint. We define routes, templates and logic of the
 homepage here. Visitors will have access to all contents of home.
 """
-from flask import Blueprint
-from flask import current_app as app
-from flask import render_template
+# from flask import current_app as app
+from flask import Blueprint, render_template
 
 home_bp = Blueprint(
     "home_bp", __name__, template_folder="templates", static_folder="static"
