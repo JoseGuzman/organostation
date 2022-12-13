@@ -3,6 +3,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[requires]
+python_version = "3.9"
+
 [packages]
 flask = "*"
 flask-wtf = "*"
@@ -19,9 +22,6 @@ python-dotenv = "*"
 [dev-packages]
 autopep8 = "*"
 black = "*"
-
-[requires]
-python_version = "3.9"
 
 [pipenv]
 allow_prereleases = true

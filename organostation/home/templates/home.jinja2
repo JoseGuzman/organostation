@@ -1,4 +1,8 @@
+{% block content %}
 <div class="container">
     <h1>Home {{ title }}</h1>
-    <h6>Home {{ subtitle }}</h6>
+    <h4>Home {{ subtitle }}</h4>
 </div>
+
+{% include "blueprintinfo.jinja2" %}
+{% endblock %}
