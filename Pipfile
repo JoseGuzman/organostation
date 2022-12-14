@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+<<<<<<< HEAD
 click = "==8.1.3"
 flask = "==2.2.2"
 importlib-metadata = "==5.1.0"
@@ -42,6 +43,21 @@ wtforms = "==3.0.1"
 flask-assets = "*"
 lesscpy = "*"
 css = "*"
+=======
+flask = "*"
+flask-wtf = "*"
+flask-bootstrap = "*"
+email-validator = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+flask-login = "*"
+dash = "*"
+pandas = "*"
+dash-bootstrap-components = "*"
+python-dotenv = "*"
+flask-assets = "*"
+lesscpy = "*"
+>>>>>>> refs/remotes/origin/main
 cssmin = "*"
 jsmin = "*"
 
