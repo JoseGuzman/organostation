@@ -8,8 +8,7 @@ https://hackersandslackers.com/flask-application-factory/
 
 from flask import Flask
 from flask_assets import Environment
-
-# from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap
 
 
 def create_app() -> Flask:
@@ -25,7 +24,7 @@ def create_app() -> Flask:
     # Initialize plugings
     assets = Environment()  # create an assets environment
     assets.init_app(myapp)  # initialize it with the app
-    # Bootstrap(myapp)
+    Bootstrap(myapp)
 
     # The app context
     with myapp.app_context():
