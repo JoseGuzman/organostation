@@ -1,8 +1,10 @@
 {% block content %}
+{% include "navigation.jinja2" %}
 <div class="container">
     <h1>Home {{ title }}</h1>
     <h4>Home {{ subtitle }}</h4>
 </div>
 
+<!-- general static and templates -->
 {% include "blueprintinfo.jinja2" %}
 {% endblock %}
