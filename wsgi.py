@@ -9,9 +9,9 @@ from __init__.py and runs it on port 8051.
 To run this app you need the appropiate environment and type:
 >>> python wsgi.py
 """
-from organostation import init_app
+from organostation import create_app
 
-myapp = init_app()
+myapp = create_app()
 
 if __name__ == "__main__":
     myapp.run(port=8051)

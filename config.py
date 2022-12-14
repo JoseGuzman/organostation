@@ -13,36 +13,47 @@ from dotenv import load_dotenv
 BASEDIR = Path(__file__).resolve().parent
 
 # local variables in users' directory
-load_dotenv(BASEDIR / '.env')
+load_dotenv(BASEDIR / ".env")
+
 
 class Config:
     """
     Basic Flask configuration. It will load default configuration
     variables to access AWS.
     """
-    FLASK_DEBUG = environ.get('FLASK_DEBUG')
-    SECRET_KEY = environ.get('SECRET_KEY')
+
+    FLASK_DEBUG = environ.get("FLASK_DEBUG")
+    SECRET_KEY = environ.get("SECRET_KEY")
+
+    # Flaks-Assets bundle
+    LESS_BIN = "/usr/local/bin/lessc"
+    ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
+    ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
 
     # AWS Access
-    AWS_SECRET_KEY = environ.get('AWS_SECRET_KEY')
-    AWS_KEY_ID = environ.get('AWS_KEY_ID')
-    AWS_REGION = environ.get('AWS_REGION')
+    AWS_SECRET_KEY = environ.get("AWS_SECRET_KEY")
+    AWS_KEY_ID = environ.get("AWS_KEY_ID")
+    AWS_REGION = environ.get("AWS_REGION")
 
-    ACL = 'public-read'
-    FLASKS3_BUCKET_NAME = environ.get('FLASKS3_BUCKET_NAME')
+    ACL = "public-read"
+    FLASKS3_BUCKET_NAME = environ.get("FLASKS3_BUCKET_NAME")
+
 
 class DevConfig(Config):
     """
     Flask config file for Development
     """
-    FLASK_ENV = 'development'
+
+    FLASK_ENV = "development"
     DEBUG = True
     TESTING = True
+
 
 class ProdConfig(Config):
     """
     Flask config file for Production
     """
-    FLASK_ENV = 'production'
+
+    FLASK_ENV = "production"
     DEBUG = False
     TESTING = False
