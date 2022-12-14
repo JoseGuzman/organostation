@@ -17,7 +17,6 @@ It also contains a visualization app to document and analyze electrical or fluor
 |   `-- visualoid
 |-- organostation
 |   |-- __init__.py
-|   |-- __pycache__
 |   |-- dashboards
 |   |-- home
 |   |-- premium
