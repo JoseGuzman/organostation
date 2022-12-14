@@ -25,7 +25,7 @@ It also contains a visualization app to document and analyze electrical or fluor
 |-- requirements.txt
 |-- run.sh
 `-- wsgi.py
-``
+```
 
 ## Installation
 
