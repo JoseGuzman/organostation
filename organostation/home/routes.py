@@ -9,7 +9,9 @@ homepage here. Visitors will have access to all contents of home.
 from flask import Blueprint, render_template
 
 home_bp = Blueprint(
-    "home_bp", __name__, template_folder="templates", static_folder="static"
+    "home_bp", __name__, 
+    template_folder="templates", 
+    static_folder="static"
 )
 
 
@@ -17,7 +19,9 @@ home_bp = Blueprint(
 def index():
     """Homepage"""
     return render_template(
-        "home.jinja2", title="Organostation", subtitle="Electrophysiology in a box"
+        "home.jinja2", 
+        title="Organostation", 
+        description="Electrophysiology in a box"
     )
 
 
