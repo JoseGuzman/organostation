@@ -1,6 +1,5 @@
 """
 Flask Application Factory with Blueprints
-home will be available to all visitors
 
 Check for aditional information
 https://hackersandslackers.com/flask-application-factory/
@@ -8,7 +7,8 @@ https://hackersandslackers.com/flask-application-factory/
 
 from flask import Flask
 from flask_assets import Environment
-from flask_bootstrap import Bootstrap
+
+# from flask_bootstrap import Bootstrap
 
 
 def create_app() -> Flask:
@@ -29,8 +29,8 @@ def create_app() -> Flask:
     # The app context
     with myapp.app_context():
         # Import parts of our application
-        from .home import routes
         from .assets import compile_static_assets
+        from .home import routes  # home is available to all
 
         # Register Blueprints
         myapp.register_blueprint(routes.home_bp)

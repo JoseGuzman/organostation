@@ -1,12 +1,13 @@
-{% extends "layout.jinja2" %}
 {% block content %}
 
-{% include "navigation.jinja2" %}
+{# {% include "navigation.jinja2" %} #}
+<link href="{{ url_for('static', filename='dist/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+
 <div class="container">
-    <h1>Home {{ title }}</h1>
-    <h4>Home {{ subtitle }}</h4>
+    <h1>Title: {{ title }}</h1>
+    <h4>Description: {{ description }}</h4>
 </div>
 
-<!-- general static and templates -->
+{# general static and templates #}
 {% include "blueprintinfo.jinja2" %}
 {% endblock %}

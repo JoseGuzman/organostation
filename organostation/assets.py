@@ -11,25 +11,25 @@ from flask_assets import Bundle, Environment
 def compile_static_assets(assets: Environment) -> None:
     """Compile static assets."""
 
-    # CSS
-    style_bundle = Bundle(
+    # Cascading Style Sheets
+    css_bundle = Bundle(
         "src/less/*.less",
         filters="less, cssmin",
         output="dist/css/style.min.css",
-        extra={"rel": "stylesheet/css"},
+        extra={"rel": "stylesheet/css"}
     )
 
     # JS
     js_bundle = Bundle(
         "src/js/main.js",
         filters="jsmin",
-        output="dist/js/main.min.js",
+        output="dist/js/main.min.js"
     )
 
     # Register bundles
-    assets.register("main_styles", style_bundle)
+    assets.register("main_styles", css_bundle)
     #assets.register("main_js", js_bundle)
 
     # Build less styles
-    style_bundle.build()
+    css_bundle.build()
     #js_bundle.build()

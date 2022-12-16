@@ -3,24 +3,24 @@ routes.py
 Created: Sat Dec  3 12:13:14 CET 2022
 
 It creates our 'home' blueprint. We define routes, templates and logic of the
-homepage here. Visitors will have access to all contents of home.
+homepage here. The home bluerprint is for web visitors. It guarantees
+acces all free contents (i.e. blog, customization and forms).
 """
-# from flask import current_app as app
 from flask import Blueprint, render_template
 
 home_bp = Blueprint(
-    "home_bp", __name__, 
-    template_folder="templates", 
+    "home_bp", __name__,
+    template_folder="templates",
     static_folder="static"
 )
 
-
+# note that every route must have a title and description
 @home_bp.route("/")
 def index():
-    """Homepage"""
+    """Homepage visible to all users"""
     return render_template(
-        "home.jinja2", 
-        title="Organostation", 
+        "home.jinja2",
+        title="Organostation App",
         description="Electrophysiology in a box"
     )
 
