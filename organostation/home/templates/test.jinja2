@@ -1,0 +1,16 @@
+{# test page #}
+{% extends "layout.jinja2" %}
+
+
+{% block content %}
+
+<div class="container" role="main" style="margin-top: 75px">
+    <h1>H1: {{ title }}</h1>
+    <h2>H2: {{ title }}</h2>
+    <h3>H3: {{ title }}</h3>
+    <h4>H4: {{ description }}</h4>
+</div>
+
+{# general static and templates #}
+{% include "blueprintinfo.jinja2" %}
+{% endblock %}

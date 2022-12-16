@@ -27,8 +27,12 @@ def index():
 
 @home_bp.route("/test")
 def test():
-    """This is a test page"""
-    return render_template("test.html", description="simple test", info=42)
+    """Test page"""
+    return render_template(
+        "test.jinja2",
+        title="test",
+        description="simple test"
+    )
 
 
 @home_bp.route("/tutorials")

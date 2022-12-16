@@ -7,6 +7,8 @@
     <h1>Title: {{ title }}</h1>
     <h4>Description: {{ description }}</h4>
 </div>
+Standard text.
+<a href="{{ url_for('home_bp.test') }}">Test link</a>
 
 {# general static and templates #}
 {% include "blueprintinfo.jinja2" %}
