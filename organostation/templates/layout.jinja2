@@ -7,8 +7,8 @@
     <title>{{title}}</title>
     <meta charset="utf-8">
     <meta name="description" content={{description}}>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
-    {# customized stylesheet #}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='vise.ico') }}" />
+    {#-- Define css style for organostation #}
     <link href="{{ url_for('static', filename='/dist/css/style.min.css') }}" rel="stylesheet" type="text/css" />
 
     {# fontawesome 5 for icons #}
@@ -18,9 +18,6 @@
     {# Google fonts #}
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    {#-- Define css style for organostation
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mainpage.css') }}">
-    #}
 </head>
 
 <body>
