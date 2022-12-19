@@ -18,6 +18,7 @@ dash = "*"
 pandas = "*"
 dash-bootstrap-components = "*"
 python-dotenv = "*"
+email-validator = "*"
 
 [dev-packages]
 black = "*"
