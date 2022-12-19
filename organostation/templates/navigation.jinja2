@@ -1,40 +1,41 @@
 {#
 This is a contextualized navigation bar.
 #}
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Home logo with brand name-->
         <div class="navbar-nav navbar-header">
-            <a class="navbar-brand" href="{{ url_for('home_bp.home') }}">
+            <a class="navbar-brand" href="{{ url_for('guest_bp.home') }}">
                 <span class="glyphicon glyphicon-home"></span>
             </a>
         </div>
 
         <!-- Left menu with options-->
         <ul class="nav navbar-nav navbar-left">
-            {% if request.blueprint == 'user_bp' %}
-            <li><a href="{{url_for('user_bp.tutorials')}}">
+            {% if request.blueprint == 'premium_bp' %}
+            <li><a href="{{url_for('premium_bp.tutorials')}}">
                     <spam class="glyphicon glyphicon-education"></spam> TUTORIALS
                 </a></li>
             <li><a href="visualoid">
                     <spam class="glyphicon glyphicon-phone"></spam> APP
                 </a></li>
             {% endif %}
-            <li><a href="testboard">
+            <li><a href="{{url_for('guest_bp.specs')}}">
                     <spam class="glyphicon glyphicon-wrench"></spam> CONFIGURE
                 </a></li>
-            <li><a href="#contact">
+            <li><a href="{{url_for('guest_bp.contact')}}">
                     <spam class="glyphicon glyphicon-envelope"></spam> CONTACT
                 </a></li>
         </ul>
 
         <!-- Right menu with Sign Up and Login "-->
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('home_bp.register') }}">
+            <li><a href="{{ url_for('guest_bp.register') }}">
                     <span class="glyphicon glyphicon-user"></span> SIGN UP
                 </a>
             </li>
-            <li><a href="{{ url_for('home_bp.login') }}">
+            <li><a href="{{ url_for('guest_bp.login') }}">
                     <span class="glyphicon glyphicon-log-in"></span> LOGIN
                 </a>
             </li>

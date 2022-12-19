@@ -1,32 +1,37 @@
 {#
 This is the application layout for the main environment. It includes
-the navigation bar.
+the navigation bar. When routing with Flask, include title and description.
 #}
-{# {% extends "bootstrap/base.html" %} #}
+{% extends "bootstrap/base.html" %}
 
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
     <meta charset="utf-8">
-    <meta name="description" content={{description}}>
+    <meta name="description" content={{ description }}>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='vise.ico') }}" />
-    {#-- Define css style for organostation #}
-    <link href="{{ url_for('static', filename='/dist/css/style.min.css') }}" rel="stylesheet" type="text/css" />
 
-    {# fontawesome 5 for icons #}
+    {# Nunito and Montserrat Google fonts #}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&family=Montserrat" />
+
+    {#-- Define css style for organostation #}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/style.min.css') }}" />
+
+    {#
+    fontawesome 5 for icons #}
     <script src="https://kit.fontawesome.com/6364eb9ae2.js" crossorigin="anonymous"></script>
-    {# Define css style for font-awesome #}
+    {# Define css style for font-awesome
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {# Google fonts #}
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    #}
 </head>
 
 <body>
     {% include "navigation.jinja2" %}
     {% block content %}{% endblock %}
+    {% include "footer.jinja2" %}
 </body>
 
 </html>

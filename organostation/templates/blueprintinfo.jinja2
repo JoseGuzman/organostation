@@ -2,8 +2,10 @@
 blueprints info for debuggin only
 #}
 
-<div class="blueprint-info">
+<div class="container" role="main" style="margin-top: 75px">
+    <hr>
     <h3>Blueprint Info</h3>
+    <p>This is only for debugging</p>
     <ul class="page-properties">
         <li><span class="attribute-title">Blueprint:</span> <span class="attribute-value">{{ request.blueprint }}</span>
         </li>
@@ -12,4 +14,5 @@ blueprints info for debuggin only
         <li><span class="attribute-title">View:</span> <span class="attribute-value">{{ request.endpoint }}</span></li>
         <li><span class="attribute-title">Route:</span> <span class="attribute-value">{{ request.path }}</span></li>
     </ul>
+    <hr>
 </div>
