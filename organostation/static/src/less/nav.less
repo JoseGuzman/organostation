@@ -1,0 +1,38 @@
+/* navigation styling elements */
+navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px;
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 5px;
+}
+
+.nav_link {
+    list-style: none;
+}
+
+.nav_link li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+/* style active link */
+.nav_link li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_link li a:hover {
+    transition: all 0.3s ease 0s;
+    color: #FFC800;
+}
+
+.nav_link li.active a {
+    color: #FFC800;
+}
