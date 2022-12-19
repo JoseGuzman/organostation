@@ -1,3 +1,7 @@
+{#
+This is the application layout for the main environment. It includes
+the navigation bar.
+#}
 {# {% extends "bootstrap/base.html" %} #}
 
 <!doctype html>
@@ -21,6 +25,7 @@
 </head>
 
 <body>
+    {% include "navigation.jinja2" %}
     {% block content %}{% endblock %}
 </body>
 

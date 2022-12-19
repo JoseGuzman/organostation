@@ -9,30 +9,24 @@ acces all free contents (i.e. blog, customization and forms).
 from flask import Blueprint, render_template
 
 home_bp = Blueprint(
-    "home_bp", __name__,
-    template_folder="templates",
-    static_folder="static"
+    "home_bp", __name__, template_folder="templates", static_folder="static"
 )
 
 # note that every route must have a title and description
 @home_bp.route("/")
-def index():
+def home():
     """Homepage visible to all users"""
     return render_template(
         "home.jinja2",
         title="Organostation App",
-        description="Electrophysiology in a box"
+        description="Electrophysiology in a box",
     )
 
 
 @home_bp.route("/test")
 def test():
     """Test page"""
-    return render_template(
-        "test.jinja2",
-        title="test",
-        description="simple test"
-    )
+    return render_template("test.jinja2", title="test", description="simple test")
 
 
 @home_bp.route("/tutorials")

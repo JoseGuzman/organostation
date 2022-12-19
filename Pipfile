@@ -20,4 +20,4 @@ dash-bootstrap-components = "*"
 python-dotenv = "*"
 
 [dev-packages]
-
+black = "*"
