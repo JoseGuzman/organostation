@@ -1,9 +1,8 @@
 """
-Flask Application Factory with Blueprints
+Main Flask Application Factory with Blueprints
 
 Check for aditional information
 https://hackersandslackers.com/flask-application-factory/
-
 """
 
 from flask import Flask
@@ -17,14 +16,14 @@ def create_app() -> Flask:
     # Initialize core application
     myapp = Flask(
         __name__,
-        instance_relative_config = False,
+        instance_relative_config=False,
     )
 
     myapp.config.from_object("config.DevConfig")  # see config.py
 
     # Initialize Bootstrap
     Bootstrap(myapp)
-    # Initialize environment 
+    # Initialize environment
     assets = Environment()  # create an assets environment
     assets.init_app(myapp)  # initialize it with the app
 
@@ -32,10 +31,12 @@ def create_app() -> Flask:
     with myapp.app_context():
         # Import parts of our application
         from .assets import compile_static_assets
-        from .guest import routes  
+
+        # routes related to registered users
+        from .profile.routes import profile_bp
 
         # Register Blueprints
-        myapp.register_blueprint(routes.guest_bp)
+        myapp.register_blueprint(profile_bp)
 
         # dashboards
 

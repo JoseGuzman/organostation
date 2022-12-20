@@ -37,6 +37,7 @@ It also contains a visualization app to document and analyze electrical or fluor
 
 ## Installation
  * You may need to install [Node.js](https://nodejs.org/en/download/) and less with `npm install less`
+ * Create a file called .evn in your home directory to run the forms.
 
 ### Installation with 'requirements.txt'
 Type `bash run.sh`
