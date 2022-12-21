@@ -18,7 +18,7 @@ It also contains a visualization app to document and analyze electrical or fluor
 |   |-- dashboards
 |   |   |-- testboard
 |   |   `-- visualoid
-|   |-- guest 
+|   |-- profile 
 |   |   |-- routes.py
 |   |   |-- static
 |   |   `-- templates
@@ -28,6 +28,9 @@ It also contains a visualization app to document and analyze electrical or fluor
 |   |-- static
 |   `-- templates
 |       |-- blueprintinfo.jinja2
+|       |-- contact.jinja2
+|       |-- footer.jinja2
+|       |-- home.jinja2
 |       |-- layout.jinja2
 |       `-- navigation.jinja2
 |-- requirements.txt

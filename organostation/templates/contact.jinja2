@@ -1,0 +1,58 @@
+{# contact page #}
+{% extends "layout.jinja2" %}
+{% block content %}
+
+<div class="container" role="main" style="margin-top: 75px">
+    <div id="contact" class="form-wrapper">
+        <h1 class="text-center">Contact Us</h1>
+        <div class="row">
+
+            <div class="col-md-4">
+                <h4>Contact details</h4>
+                <hr>
+                <p><span class="glyphicon glyphicon-map-marker"></span>
+                    Schönbrunner Straße 213-215/B501</p>
+                <p> A 1120 Vienna (Austria)</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> +43 678 126 70 96</p>
+                <p><span class="glyphicon glyphicon-envelope"></span>
+                    <a href="mailto:info@vise-og.com">info@organostation.com</a>
+                </p>
+            </div>
+
+            <form id="contactForm">
+                <div class="col-md-8">
+                    <div class="row">
+                        <!-- first row -->
+                        <div class="col-sm-6 form-group">
+                            <input class="form-control" id="name" name="name" placeholder="Name*" type="text" required>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <input class="form-control" id="email" name="email" placeholder="Email*" type="email"
+                                required>
+                        </div>
+                    </div> <!-- end first row -->
+
+                    <textarea class="form-control" id="comments" name="message" placeholder="Comment*" rows="7"
+                        required></textarea>
+                    <br>
+
+                    <div class="row">
+                        <!-- second row -->
+                        <div class="col-md-6 form-group">
+                            <!-- Lambda message -->
+                            <p id="lambda_text"> </p>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <!-- Submit button -->
+                            <button class="btn pull-right text-uppercase" type="submit">Send Message</button>
+                        </div>
+                    </div> <!-- end second row -->
+                </div>
+            </form>
+
+        </div> <!-- row ends-->
+    </div>
+</div>
+
+{# general static and templates #}
+{% endblock %}

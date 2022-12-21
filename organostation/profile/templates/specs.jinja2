@@ -1,0 +1,72 @@
+{# techical specifications #}
+{% extends "layout.jinja2" %}
+
+{% block content %}
+
+<div class="container" role="main" style="margin-top: 75px">
+    <h1 class="text-center">Technical specifications</h1>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#ephys">
+                <span class="glyphicon glyphicon-edit"></span> Acquistion system</a></li>
+        <li><a data-toggle="tab" href="#manipulation">
+                <spam class="glyphicon glyphicon-move"></spam> Micromanipulation
+            </a></li>
+        <li><a data-toggle="tab" href="#imaging">
+                <spam class="glyphicon glyphicon glyphicon-facetime-video"></spam> Wide-field videomicroscopy
+            </a></li>
+        <li><a data-toggle="tab" href="#pharma">
+                <spam class="glyphicon glyphicon glyphicon-tint"></spam> Drug application system
+            </a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="ephys" class="tab-pane fade in active">
+            <h2>Electronics and acquisition system</h2>
+            <ul>
+                <li>Multiplexer board for the acquistion of up to 512 channels at 30 kHz via USB 3.0.</li>
+                <li>Low-noise recording headstage microchips for signal amplification. </li>
+                <li>Serial peripheral interface cables connecting board to headstage. </li>
+                <li>Sharpened extracellular probes with customized number and location of electrodes. </li>
+            </ul>
+        </div>
+
+        <div id="manipulation" class="tab-pane fade">
+            <h2>Electrical isolation and micromanipulation</h2>
+            <ul>
+                <li>Precise (&lt 1 &mu;m) motorized (4.8 nm resolution) XYZ micromanipulators with 25 mm travel
+                    distance.</li>
+                <li>XYZ manual controlled (25 mm) stage oxidized to reduce toxicity or chemical degradation.</li>
+                <li>Vibration-damping optical table (600 x 900 mm L x W) and the associated passive-isolation table.
+                </li>
+                <li>Electromagnetic isolator (&lt 55 dB) with computer ergonomic solution (600 x 900 x 600, L x W x H).
+                </li>
+            </ul>
+        </div>
+
+        <div id="imaging" class="tab-pane fade">
+            <h2>Wide-field fluorescence imaging</h2>
+            <ul>
+                <li>Large (20-80 mm) working distance and field of view (12 x 9 mm) with 0.6-1.7X magnification range.
+                </li>
+                <li>Computer vision infrared video-camera with 3.5 um per pixel resolution up to 227 frames per second.
+                </li>
+                <li>Broadband or single-colored (e.g., 470 nm) strong LED illumination (up to 1200 mW).</li>
+                <li>Filter sets for green (470 BP/495 LP/525 BP) or red (590 BP/660 LP/700 BP) fluorophores.</li>
+            </ul>
+        </div>
+
+        <div id="pharma" class="tab-pane fade">
+            <h2>Drug application system</h2>
+            <ul>
+                <li>Dual-channel temperature controller for solution heating and sample temperature preservation.</li>
+                <li>Peristaltic application of small volumes (10-25 ml) under controlled recirculation (0-30 ml/min).
+                </li>
+                <li>Temperature-controlled quick-exchange recording chamber (9-13 mm diameter).</li>
+                <li>PVC-based adaptations for tissue oxygenation and drug exchange.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock%}
