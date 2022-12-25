@@ -6,7 +6,7 @@ This is a contextualized navigation bar.
     <div class="container-fluid">
         <!-- Home logo with brand name-->
         <div class="navbar-nav navbar-header">
-            <a class="navbar-brand" href="{{ url_for('home') }}">
+            <a class="navbar-brand" href="{{ url_for('home_bp.home') }}">
                 <span class="glyphicon glyphicon-home"></span>
             </a>
         </div>
@@ -21,21 +21,21 @@ This is a contextualized navigation bar.
                     <spam class="glyphicon glyphicon-phone"></spam> APP
                 </a></li>
             {% endif %}
-            <li><a href="{{url_for('guest_bp.specs')}}">
+            <li><a href="{{url_for('home_bp.specs')}}">
                     <spam class="glyphicon glyphicon-wrench"></spam> CONFIGURE
                 </a></li>
-            <li><a href="{{url_for('guest_bp.contact')}}">
+            <li><a href="{{url_for('home_bp.specs')}}">
                     <spam class="glyphicon glyphicon-envelope"></spam> CONTACT
                 </a></li>
         </ul>
 
         <!-- Right menu with Sign Up and Login "-->
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('guest_bp.register') }}">
+            <li><a href="{{ url_for('home_bp.specs') }}">
                     <span class="glyphicon glyphicon-user"></span> SIGN UP
                 </a>
             </li>
-            <li><a href="{{ url_for('guest_bp.login') }}">
+            <li><a href="{{ url_for('home_bp.specs') }}">
                     <span class="glyphicon glyphicon-log-in"></span> LOGIN
                 </a>
             </li>

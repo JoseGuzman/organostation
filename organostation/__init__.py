@@ -7,7 +7,6 @@ https://hackersandslackers.com/flask-application-factory/
 
 from flask import Flask
 from flask_assets import Environment
-
 from flask_bootstrap import Bootstrap
 
 
@@ -24,7 +23,7 @@ def create_app() -> Flask:
     # Initialize Bootstrap
     Bootstrap(myapp)
     # Initialize environment
-    assets = Environment()  # create an assets environment
+    assets = Environment()  # create an assets environment for styling
     assets.init_app(myapp)  # initialize it with the app
 
     # The app context
@@ -32,11 +31,14 @@ def create_app() -> Flask:
         # Import parts of our application
         from .assets import compile_static_assets
 
-        # routes related to registered users
-        from .profile.routes import profile_bp
+        # routes related to unregistered users
+        from .home.views import home_bp
 
+        # from .guest.routes import guest_bp
+        # routes related to registered users
+        # from .profile.routes import profile_bp
         # Register Blueprints
-        myapp.register_blueprint(profile_bp)
+        myapp.register_blueprint(home_bp)
 
         # dashboards
 

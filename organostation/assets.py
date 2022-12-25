@@ -16,20 +16,16 @@ def compile_static_assets(assets: Environment) -> None:
         "src/less/*.less",
         filters="less, cssmin",
         output="dist/css/style.min.css",
-        extra={"rel": "stylesheet/css"}
+        extra={"rel": "text/css"},
     )
 
     # JS
-    js_bundle = Bundle(
-        "src/js/main.js",
-        filters="jsmin",
-        output="dist/js/main.min.js"
-    )
+    js_bundle = Bundle("src/js/main.js", filters="jsmin", output="dist/js/main.min.js")
 
     # Register bundles
     assets.register("main_styles", css_bundle)
-    #assets.register("main_js", js_bundle)
+    # assets.register("main_js", js_bundle)
 
     # Build less styles
     css_bundle.build()
-    #js_bundle.build()
+    # js_bundle.build()
