@@ -4,6 +4,7 @@ assets.py
 Created: Wed Dec 14 14:51:46 CET 2022
 
 CSS and JS bundles that will be compiled and served by Flask-Assets.
+
 """
 from flask_assets import Bundle, Environment
 

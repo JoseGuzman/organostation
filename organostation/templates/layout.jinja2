@@ -1,37 +1,37 @@
 {#
 This is the application layout for the main environment. It includes
-the navigation bar. When routing with Flask, include title and description.
+the navigation bar and a footer.
+
+Because this layout inherits from
+bootstrap/base.html, we need to use super() when defining
+html and head blocks, to allow Flask to override.
+
+When routing with Flask, include title and description.
 #}
 {% extends "bootstrap/base.html" %}
 
-<!doctype html>
-<html lang="en">
+{% block head %}
+{{ super() }}
+<title>{% block title %}{% endblock %}</title>
+{% endblock %}
 
-<head>
-    <title>{{ title }}</title>
-    <meta charset="utf-8">
-    <meta name="description" content={{ description }}>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+{% block styles %}
+{{super()}}
+<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&family=Montserrat" />
+{% endblock %}
 
-    {# Nunito and Montserrat Google fonts #}
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&family=Montserrat" />
+{% block navbar %}
+{% include "navigation.jinja2" %}
+{% endblock %}
 
-    {#-- Define css style for organostation #}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/style.min.css') }}" />
+{% block content %}
+<div class="container" role="main">
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
 
-    {#
-    fontawesome 5 for icons #}
-    <script src="https://kit.fontawesome.com/6364eb9ae2.js" crossorigin="anonymous"></script>
-    {# Define css style for font-awesome
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    #}
-</head>
-
-<body>
-    {% include "navigation.jinja2" %}
-    {% block content %}{% endblock %}
-    {% include "footer.jinja2" %}
-</body>
-
-</html>
+{% block scripts %}
+<script src="https://kit.fontawesome.com/6364eb9ae2.js" crossorigin="anonymous"></script>
+{{super()}}
+{% endblock %}

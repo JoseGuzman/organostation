@@ -2,17 +2,15 @@
 blueprints info for debuggin only
 #}
 
-<div class="container" role="main" style="margin-top: 75px">
-    <hr>
-    <h4>Blueprint Info</h4>
-    <p>This is only for debugging</p>
-    <ul class="page-properties">
-        <li><span class="attribute-title">Blueprint:</span> <span class="attribute-value">{{ request.blueprint }}</span>
-        </li>
-        <li><span class="attribute-title">Template:</span> <span class="attribute-value">{{
-                self._TemplateReference__context.name }}</span></li>
-        <li><span class="attribute-title">View:</span> <span class="attribute-value">{{ request.endpoint }}</span></li>
-        <li><span class="attribute-title">Route:</span> <span class="attribute-value">{{ request.path }}</span></li>
-    </ul>
-    <hr>
-</div>
+<hr>
+<h2>Blueprint Info</h2>
+<p>This is only for debugging</p>
+<ul class="page-properties">
+    <li><span class="attribute-title">Blueprint:</span> <span class="attribute-value">{{ request.blueprint }}</span>
+    </li>
+    <li><span class="attribute-title">Template:</span> <span class="attribute-value">{{
+            self._TemplateReference__context.name }}</span></li>
+    <li><span class="attribute-title">View:</span> <span class="attribute-value">{{ request.endpoint }}</span></li>
+    <li><span class="attribute-title">Route:</span> <span class="attribute-value">{{ request.path }}</span></li>
+</ul>
+<hr>
