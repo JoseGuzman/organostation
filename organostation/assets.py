@@ -12,7 +12,7 @@ from flask_assets import Bundle, Environment
 def compile_static_assets(assets: Environment) -> None:
     """Compile static assets."""
 
-    # Cascading Style Sheets
+    # Cascading Style Sheets that override Bootstrap
     css_bundle = Bundle(
         "src/less/*.less",
         filters="less, cssmin",

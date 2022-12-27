@@ -19,16 +19,20 @@ When routing with Flask, include title and description.
 {{super()}}
 <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&family=Montserrat" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/style.min.css') }}" />
 {% endblock %}
 
+
+{% block body %}
 {% block navbar %}
 {% include "navigation.jinja2" %}
 {% endblock %}
 
 {% block content %}
-<div class="container" role="main">
+<div class="mycontainer" role="main">
     {% block page_content %}{% endblock %}
 </div>
+{% endblock %}
 {% endblock %}
 
 {% block scripts %}
