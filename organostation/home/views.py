@@ -44,3 +44,9 @@ def register():
     return render_template(
         "register.jinja2", title="Register", description="Register page"
     )
+
+
+@home_bp.route("/login")
+def login():
+    """Login page"""
+    return render_template("login.html", title="Register", description="Register page")
