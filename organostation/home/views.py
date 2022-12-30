@@ -34,16 +34,14 @@ def test():
 def specs():
     """Technical specifications"""
     return render_template(
-        "specs.jinja2", title="Specifications", description="technical specifications"
+        "home.jinja2", title="Specifications", description="technical specifications"
     )
 
 
 @home_bp.route("/register")
 def register():
     """Register page"""
-    return render_template(
-        "register.jinja2", title="Register", description="Register page"
-    )
+    return render_template("home.jinja2", title="Register", description="Register page")
 
 
 @home_bp.route("/login")

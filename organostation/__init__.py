@@ -23,7 +23,7 @@ def create_app() -> Flask:
     myapp.config.from_object("config.DevConfig")  # see config.py
 
     # Initialize Bootstrap
-    Bootstrap(myapp)
+    # Bootstrap(myapp)
     # Initialize environment
     # assets = Environment()  # create an assets environment for styling
     # assets.init_app(myapp)  # initialize it with the app

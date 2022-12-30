@@ -2,19 +2,21 @@
 test page:
 It serves as a template for future pages
 #}
-{% extends "layout.jinja2" %}
+{% extends "layout3.jinja2" %}
+
 {% block title %} {{ title }} {% endblock %}
 
-{% block page_content %}
+{% block content %}
 <h1 class="text-center">{{ title }} </h1>
 <h1>H1: {{ title }}</h1>
 <h2>H2: {{ title }}</h2>
 <h3>H3: {{ title }}</h3>
 <h4>H4: {{ description }}</h4>
 <H4>This is my title paragraph</H4>
-<p>Simple paragraph for text <a href="{{url_for('home_bp.home')}}">with a home Link</a>
+<div class="container">
+    Simple paragraph for text <a href="{{url_for('home_bp.home')}}">with a home Link</a>
     that continues to run until the end.
-</p>
+</div>
 
 <p>New paragraph includes image
     <img src="{{ url_for('static', filename='img/favicon.ico') }}" href="{{ url_for('home_bp.home') }}" />
