@@ -20,11 +20,13 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
             <ul class="navbar-nav d-flex flex-row me-1">
                 <!-- Contact -->
                 <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="#"><i class="fas fa-envelope mx-1"></i> Contact</a>
+                    <a class="nav-link" href="{{ url_for('home_bp.contact') }}"><i class="fas fa-envelope mx-1"></i>
+                        Contact</a>
                 </li>
                 <!-- Configure -->
                 <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="#"><i class="fas fa-cog mx-1"></i> Configure</a>
+                    <a class="nav-link" href="{{ url_for('home_bp.configuration') }}"><i class="fas fa-cog mx-1"></i>
+                        Configure</a>
                 </li>
                 <!-- My Account Dropdown menu -->
                 <li class="nav-item dropdown">
@@ -33,8 +35,10 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
                         <i class="fa-solid fa-chalkboard-user"></i> My Account
                     </a>
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Login</a>
-                        <a class="dropdown-item" href="#"><i class="fa-regular fa-address-card"></i> Register</a>
+                        <a class="dropdown-item" href="{{ url_for('home_bp.login')}}">
+                            <i class="fas fa-user"></i> Login</a>
+                        <a class="dropdown-item" href="{{ url_for('home_bp.register')}}">
+                            <i class="fa-regular fa-address-card"></i> Register</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><i class="fa-solid fa-right-to-bracket"></i> Log out</a>
                     </div>

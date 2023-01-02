@@ -18,33 +18,45 @@ home_bp = Blueprint(
 def home():
     """Homepage visible to all users"""
     return render_template(
-        "home.jinja2",  # global template
+        "home.jinja2",  # uses layout and navigation jijna2 templates
         title="Organostation App",
         description="Electrophysiology in a box",
     )
 
 
-@home_bp.route("/test")
-def test():
-    """Test page"""
-    return render_template("test.jinja2", title="Test Page", description="simple test")
+@home_bp.route("/contact")
+def contact():
+    """Contact form page"""
+    return render_template(
+        "contact.jinja2", title="Contact Us", description="Contact page"
+    )
 
 
-@home_bp.route("/specs")
-def specs():
+@home_bp.route("/configuration")
+def configuration():
     """Technical specifications"""
     return render_template(
-        "home.jinja2", title="Specifications", description="technical specifications"
+        "configuration.jinja2",
+        title="Specifications",
+        description="technical specifications",
     )
 
 
 @home_bp.route("/register")
 def register():
     """Register page"""
-    return render_template("home.jinja2", title="Register", description="Register page")
+    return render_template(
+        "register.html", title="Register", description="Register page"
+    )
 
 
 @home_bp.route("/login")
 def login():
     """Login page"""
     return render_template("login.html", title="Register", description="Register page")
+
+
+@home_bp.route("/test")
+def test():
+    """Test page"""
+    return render_template("test.jinja2", title="Test Page", description="simple test")
