@@ -2,7 +2,7 @@
 Home page for organostation.
 #}
 
-{% extends "layout3.jinja2" %}
+{% extends "layout.jinja2" %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -15,7 +15,4 @@ Home page for organostation.
 <p class="container" align="right">
     Register <a href="{{url_for('home_bp.home')}}">here</a>
 </p>
-<div class="container">
-    <i class="bi bi-calendar">Calendar</i>
-</div>
 {% endblock %}
