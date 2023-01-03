@@ -9,10 +9,10 @@ Home page for organostation.
 {% block content %}
 <h1 class="text-center">OrganoStation App</h1>
 <p class="text-center">
-    <img src="{{ url_for('static', filename='img/brain2.png') }}" />
+    <img src="{{ url_for('static', filename='img/brain1.jpg') }}" />
 </p>
 
 <p class="container" align="right">
-    Register <a href="{{url_for('home_bp.home')}}">here</a>
+    <a href="{{url_for('home_bp.register') }}" type="button" class="btn btn-outline-danger">Register</a>
 </p>
 {% endblock %}
