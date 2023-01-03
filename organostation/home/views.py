@@ -9,6 +9,8 @@ We define routes, templates and logic of the homepage here.
 """
 from flask import Blueprint, render_template
 
+from .forms import LoginForm
+
 home_bp = Blueprint(
     "home_bp",
     __name__,
@@ -54,10 +56,16 @@ def register():
     )
 
 
-@home_bp.route("/login")
+@home_bp.route("/login", methods=["GET", "POST"])
 def login():
     """Login page"""
-    return render_template("login.html", title="Register", description="Register page")
+    myform = LoginForm()
+    if myform.validate_on_submit():
+        return redirect(url_for("home_bp.home"))
+
+    return render_template(
+        "login.jinja2", form=myform, title="Login", description="Login Access"
+    )
 
 
 @home_bp.route("/test")

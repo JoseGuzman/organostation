@@ -22,7 +22,7 @@ It serves as a template for future pages
     <img src="{{ url_for('static', filename='img/favicon.ico') }}" href="{{ url_for('home_bp.home') }}" />
 </p>
 <p> Second local image
-    <img src="{{ url_for('home_bp.static', filename='img/zoom.jpg') }}">
+    <img class="rounded mx-auto d-block" src="{{ url_for('home_bp.static', filename='img/zoom.jpg') }}" width="300">
 </p>
 
 {# general static and templates #}

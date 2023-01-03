@@ -23,7 +23,7 @@ class Config:
     """
 
     FLASK_DEBUG = environ.get("FLASK_DEBUG")
-    SECRET_KEY = environ.get("SECRET_KEY")  # to sign session cookies
+    SECRET_KEY = environ.get("SECRET_KEY")  # to sign session cookies and forms
 
     # Flaks-Assets bundle
     # LESS_BIN = "/usr/local/bin/lessc"

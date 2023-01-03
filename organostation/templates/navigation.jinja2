@@ -10,7 +10,7 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
         <a class="navbar-brand" href="{{ url_for('home_bp.home') }}">OrganoStation</a>
 
         <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
@@ -28,11 +28,16 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
                     <a class="nav-link" href="{{ url_for('home_bp.configuration') }}"><i class="fas fa-cog mx-1"></i>
                         Configure</a>
                 </li>
+                <!-- My Account -->
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link" href="{{ url_for('home_bp.login') }}"><i class="fas fa-user mx-1"></i>
+                        My Account</a>
+                </li>
                 <!-- My Account Dropdown menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-chalkboard-user"></i> My Account
+                        <i class="fa-solid fa-chalkboard-user"></i> User
                     </a>
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url_for('home_bp.login')}}">
