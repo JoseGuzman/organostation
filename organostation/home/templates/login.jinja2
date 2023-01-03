@@ -1,0 +1,81 @@
+<!-- Login access: 
+    you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-with-python-and-flask/-->
+{% extends "layout.jinja2" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block content %}
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                    {# First column #}
+                    <div class="col-lg-6">
+                        <div class="card-body p-md-5 mx-md-4">
+
+                            <div class="text-center">
+                                <img src="{{ url_for('static', filename='img/brain1.jpg')}}" style="width: 185px;"
+                                    alt="logo">
+                                <h4 class="mt-1 mb-5 pb-1">OrganoStation App</h4>
+                            </div>
+
+                            <form>
+                                <p>Please login to your account</p>
+
+                                <div class="form-outline mb-4">
+                                    {{form.email(placeholder="Email or Username", class="form-control")}}
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{form.password(placeholder='Password', class="form-control")}}
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form.remember_me(class="form-check", style="float:left")}} {{
+                                    form.remember_me.label }}
+                                    <a href="/reset-password/" style="float:right">Forgot password?</a>
+                                </div>
+
+                                <div class="form-outline mb-4 d-grid">
+                                    {{ form.submit(class_="btn btn-primary btn-block mb-3")
+                                    }}
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    {# Second column #}
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="text-black px-3 py-4 p-md-5 mx-md-4">
+                            <div class="text-center">
+                                <img src="{{ url_for('static', filename='img/brain3.jpg') }}" style="width: 185px;"
+                                    alt="logo">
+                            </div>
+                            <h5 class="mb-4">Access Policy</h5>
+                            <p class="small mb-0">
+                                The OrganoStation is a customized system to obtain neurophysiological signals (e.g.,
+                                EEG) in brain organoids or other in vitro preparations. It also contains a
+                                visualization app to document and analyze electrical or fluorescence signals.
+                            </p>
+                            <br>
+                            <p class="small mb-0">
+                                Accessing to the app you will access to the tutorials
+                            </p>
+                            <br>
+                            <div class="d-flex align-items-center justify-content-center pb-4">
+
+                                <p class="mb-0 me-2">Don't have an account?</p>
+                                <a href="{{url_for('home_bp.register') }}" type="button"
+                                    class="btn btn-outline-danger">Create new</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
