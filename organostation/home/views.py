@@ -9,7 +9,7 @@ We define routes, templates and logic of the homepage here.
 """
 from flask import Blueprint, flash, redirect, render_template, url_for
 
-from .forms import ContactForm, LoginForm
+from .forms import ContactForm, LoginForm, SignUpForm
 
 
 def flash_errors(form):
@@ -62,6 +62,26 @@ def contact():
     )
 
 
+@home_bp.route("/register")
+def register():
+    """Register page"""
+    signup_form = SignUpForm()
+    if signup_form.validate_on_submit():
+        print(f"Contact Form: {signup_form.data}")
+        flash("Registration successfully.")
+        return redirect(url_for("home_bp.login"))
+    else:
+        print(f"Error-> {signup_form.errors}")
+        flash_errors(signup_form)
+
+    return render_template(
+        "signup.jinja2",
+        form=signup_form,
+        title="Register",
+        description="Register page",
+    )
+
+
 @home_bp.route("/login", methods=["GET", "POST"])
 def login():
     """Login page with username, password and remember me option"""
@@ -70,7 +90,6 @@ def login():
         print(f"Contact Form: {login_form.data}")
         flash("Logged in successfully.")
         login_form = LoginForm(formdata=None)
-
     else:
         print(f"Error-> {login_form.errors}")
         flash_errors(login_form)  # check get_flashed_messages() in login.jinja2
@@ -87,14 +106,6 @@ def configuration():
         "configuration.jinja2",
         title="Specifications",
         description="technical specifications",
-    )
-
-
-@home_bp.route("/register")
-def register():
-    """Register page"""
-    return render_template(
-        "register.html", title="Register", description="Register page"
     )
 
 
