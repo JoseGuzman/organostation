@@ -56,17 +56,17 @@ class SignUpForm(FlaskForm):
         label="Password",
         validators=[
             DataRequired(),
-            Length(min=8, message="Password must be at least 8 characters long"),
+            Length(min=8, message="Password must be at least 8 characters long."),
         ],
     )
 
     confirm = PasswordField(
-        label="Confirm Password",
+        label="Confirm Your Password",
         validators=[
             DataRequired(),
-            EqualTo("passwords", message="Passwords must match"),
+            EqualTo("password", message="Passwords must match."),
         ],
     )
-    terms = BooleanField("\t\n\r\x0b\x0c I agree to the terms and conditions")
+    terms = BooleanField("\t\n\r\x0b\x0c I agree to the terms and conditions.")
 
     submit = SubmitField("Register")

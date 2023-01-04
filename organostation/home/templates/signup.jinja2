@@ -22,7 +22,7 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                 <h4 class="mt-1 mb-5 pb-1">Register User</h4>
                             </div>
                             {# Login form #}
-                            <form method="POST" , action="">
+                            <form class="form-wrapper" method="POST" , action="">
                                 {{ form.hidden_tag() }} {# CRF protection #}
                                 <div class="form-outline mb-3">
                                     <p class="small">{{form.first_name.label}}
@@ -53,12 +53,11 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                     </p>
                                 </div>
                                 <div class="form-outline mb-3 small">
-                                    {{ form.terms(class="form-check", style="float:left")}} {{
-                                    form.terms.label }}
-                                    <a href="/reset-password/" style="float:right">Forgot password?</a>
+                                    {{ form.terms(class="form-check", style="float:left")}} I agree to
+                                    the <a href="#">Terms & Conditions</a>
                                 </div>
                                 <div class="form-outline mb-4 d-grid">
-                                    {{ form.submit(class_="btn btn-primary btn-block mb-3")
+                                    {{ form.submit(class="btn btn-primary btn-block mb-3")
                                     }}
                                 </div>
                                 <div class="form-outline mb-0 d-grid">

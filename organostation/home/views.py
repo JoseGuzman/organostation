@@ -51,7 +51,7 @@ def contact():
         # Recreate form with no data to clean form #
         contact_form = ContactForm(formdata=None)
     else:
-        print(f"Error-> {contact_form.errors}")
+        print(f"Form Errors-> {contact_form.errors}")
         flash_errors(contact_form)  # check get_flashed_messages() in contact.jinja2
 
     return render_template(
@@ -62,23 +62,19 @@ def contact():
     )
 
 
-@home_bp.route("/register")
+@home_bp.route("/register", methods=["GET", "POST"])
 def register():
     """Register page"""
     signup_form = SignUpForm()
     if signup_form.validate_on_submit():
-        print(f"Contact Form: {signup_form.data}")
-        flash("Registration successfully.")
-        return redirect(url_for("home_bp.login"))
+        print(f"Sign-up Form: {signup_form.data}")
+        return redirect(url_for("home_bp.home"))
     else:
         print(f"Error-> {signup_form.errors}")
         flash_errors(signup_form)
 
     return render_template(
-        "signup.jinja2",
-        form=signup_form,
-        title="Register",
-        description="Register page",
+        "signup.jinja2", title="Register", description="Register page", form=signup_form
     )
 
 
@@ -89,7 +85,7 @@ def login():
     if login_form.validate_on_submit():
         print(f"Contact Form: {login_form.data}")
         flash("Logged in successfully.")
-        login_form = LoginForm(formdata=None)
+        return redirect(url_for("home_bp.home"))
     else:
         print(f"Error-> {login_form.errors}")
         flash_errors(login_form)  # check get_flashed_messages() in login.jinja2
