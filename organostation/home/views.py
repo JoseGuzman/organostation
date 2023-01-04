@@ -9,7 +9,7 @@ We define routes, templates and logic of the homepage here.
 """
 from flask import Blueprint, render_template
 
-from .forms import LoginForm
+from .forms import ContactForm, LoginForm
 
 home_bp = Blueprint(
     "home_bp",
@@ -22,7 +22,7 @@ home_bp = Blueprint(
 
 @home_bp.route("/")
 def home():
-    """Homepage visible to all users"""
+    """The homepage will be visible to all users"""
     return render_template(
         "home.jinja2",  # uses layout and navigation jijna2 templates
         title="Organostation App",
@@ -30,11 +30,15 @@ def home():
     )
 
 
-@home_bp.route("/contact")
+@home_bp.route("/contact", methods=["GET", "POST"])
 def contact():
     """Contact form page"""
+    myform = ContactForm()
+    if myform.validate_on_submit():
+        return redirect(url_for("home_bp.home"))
+
     return render_template(
-        "contact.jinja2", title="Contact Us", description="Contact page"
+        "contact.jinja2", title="Contact Us", description="Contact page", form=myform
     )
 
 
@@ -72,3 +76,9 @@ def login():
 def test():
     """Test page"""
     return render_template("test.jinja2", title="Test Page", description="simple test")
+
+
+@home_bp.route("/contact2")
+def contact2():
+    """Test page"""
+    return render_template("contact.html", title="Test Page", description="simple test")

@@ -1,8 +1,10 @@
 """
 Set Flask Config variables.
 
+We need a file called .env where the variables are stored.:w
+
 Check here: https://hackersandslackers.com/configure-flask-applications/
-Check here to use S3 for static content: 
+Check here to use S3 for static content:
 https://abhishekm47.medium.com/serve-static-assets-on-s3-bucket-a-complete-flask-guide-fbe128d97e71
 """
 from os import environ

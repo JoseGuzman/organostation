@@ -1,10 +1,12 @@
-{#
-Home page for organostation.
-#}
+{#-- Login access:
+you may look here:
+https://www.mattbutton.com/2019/01/05/google-authentication-with-python-and-flask/-->
 
+#}
 {% extends "layout.jinja2" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+
 
 {% block content %}
 
@@ -18,10 +20,31 @@ Home page for organostation.
                             <div class="card-body p-md-6 mx-md-4">
 
                                 <div class="text-center">
-                                    <img src="{{url_for('static', filename='img/brain1.jpg')}}" alt="logo">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                        style="height: 150px;" alt="logo">
+                                    <h4 class="mt-1 mb-5 pb-1">Contact Us</h4>
                                 </div>
 
+                                <form>
+                                    <p>Please fill this form</p>
 
+                                    <div class="form-outline mb-4">
+                                        {{form.name(placeholder="Name", class="form-control")}}
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        {{form.email(placeholder='Email', class="form-control")}}
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        {{form.body(placeholder='Message', class="form-control")}}
+                                    </div>
+
+                                    <div class="form-outline mb-4 d-grid">
+                                        {{ form.submit(class_="btn btn-primary btn-block mb-3")
+                                        }}
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-6 d-flex align-items-center">
@@ -45,4 +68,5 @@ Home page for organostation.
         </div>
     </div>
 </section>
+
 {% endblock %}
