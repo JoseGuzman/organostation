@@ -62,7 +62,7 @@ def register():
 
 @home_bp.route("/login", methods=["GET", "POST"])
 def login():
-    """Login page"""
+    """Login page with username, password and remember me option"""
     myform = LoginForm()
     if myform.validate_on_submit():
         return redirect(url_for("home_bp.home"))
