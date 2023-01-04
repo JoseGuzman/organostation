@@ -52,13 +52,31 @@ def contact():
         contact_form = ContactForm(formdata=None)
     else:
         print(f"Error-> {contact_form.errors}")
-        flash_errors(contact_form)
+        flash_errors(contact_form)  # check get_flashed_messages() in contact.jinja2
 
     return render_template(
         "contact.jinja2",
         title="Contact Us",
         description="Contact page",
         form=contact_form,
+    )
+
+
+@home_bp.route("/login", methods=["GET", "POST"])
+def login():
+    """Login page with username, password and remember me option"""
+    login_form = LoginForm()
+    if login_form.validate_on_submit():
+        print(f"Contact Form: {login_form.data}")
+        flash("Logged in successfully.")
+        login_form = LoginForm(formdata=None)
+
+    else:
+        print(f"Error-> {login_form.errors}")
+        flash_errors(login_form)  # check get_flashed_messages() in login.jinja2
+
+    return render_template(
+        "login.jinja2", form=login_form, title="Login", description="Login Access"
     )
 
 
@@ -77,20 +95,6 @@ def register():
     """Register page"""
     return render_template(
         "register.html", title="Register", description="Register page"
-    )
-
-
-@home_bp.route("/login", methods=["GET", "POST"])
-def login():
-    """Login page with username, password and remember me option"""
-    myform = LoginForm()
-    if myform.validate_on_submit():
-        if myform.user_mail == "admin" and myform.password == "admin":
-            flash("Logged in successfully.")
-            return redirect(url_for("home_bp.home"))
-
-    return render_template(
-        "login.jinja2", form=myform, title="Login", description="Login Access"
     )
 
 

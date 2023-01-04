@@ -9,14 +9,15 @@ class ContactForm(FlaskForm):
 
     name = StringField(label="Name", validators=[DataRequired(), Length(min=3)])
     email = StringField(
-        label="Email", validators=[DataRequired(), Email(granular_message=True)]
+        label="Email",
+        validators=[DataRequired(), Length(min=5), Email(granular_message=True)],
     )
 
     message = TextAreaField(
         label="Message",
         validators=[
             DataRequired(),
-            Length(min=10, message=("The message is too short.")),
+            Length(min=10, message=("The message is less than 10 chars.")),
         ],
     )
     # recaptcha = ecaptchaField()
@@ -28,9 +29,7 @@ class LoginForm(FlaskForm):
 
     user_mail = StringField(
         "User Email",
-        validators=[
-            DataRequired(),
-        ],
+        validators=[DataRequired(), Length(min=5), Email(granular_message=True)],
     )
     password = PasswordField("Password", validators=[DataRequired()])
     remember_me = BooleanField("\t\n\r\x0b\x0c Remember me")
