@@ -1,0 +1,115 @@
+{#-- Login access:
+you may look here:
+https://www.mattbutton.com/2019/01/05/google-authentication-with-python-and-flask/-->
+
+#}
+{% extends "layout.jinja2" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+
+{% block content %}
+
+
+
+<h2 class="text-center">Account Login</h2>
+<form action="" , method="POST" class="form-signin">
+    {{ form.hidden_tag() }} {# hidden field to protect against cross-site-scripting #}
+
+    <div class="form-group">
+        {{ form.email.label }}<br>
+        {{form.email(size=32, placeholder="Email or Username", class="form-control")}}<br>
+    </div>
+
+    <div class="form-group">
+        {{form.password.label}}
+        {{form.password(size=32, placeholder='Password', class="form-control")}}
+    </div>
+
+    <div class="checkbox">
+        {{ form.remember_me(class="form-check", style="float:left")}} {{ form.remember_me.label }}
+        <a href="/reset-password/" style="float:right">Forgot password</a>
+    </div>
+
+    {{ form.submit(class_="btn btn-primary btn-block") }}
+</form>
+
+
+<h1 class="text-center">Account Login</h1>
+{% macro render_field(field) %}
+<div class="form-group">
+    {{ field.label }}
+    {{ field(**kwargs)|safe }}
+    {% if field.errors %}
+    {% for error in field.errors %}
+    {{ error }}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endmacro %}
+<div class="p-3">
+    <form id="loginForm" class="form form-register" method="POST" action="" role="form">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.email, placeholder="email") }}<br>
+        {{ render_field(form.password, placeholder="password") }}<br>
+        <div class="form-group">
+            {{form.email(size=40)}}
+        </div>
+        <br>
+        <div class="form-group" placeholder="Email or Username">
+            {{form.password(size=40)}}
+        </div>
+        <p><input class="btn btn-default btn-submit" type="submit" value="Log In"></p>
+        <button id="login" class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+    </form>
+</div>
+
+<HR>
+<div class="form-wrapper p-3">
+    <h2 class="title">Account Login</h2>
+
+    <form class="form-signin" method="POST" action="{{ url_for('home_bp.contact') }}">
+
+        <fieldset class="form-field">
+            {{ form.email.label }}
+            {{ form.email(size=50) }}
+        </fieldset>
+        <br>
+        <fieldset class="form-field">
+            {{ form.password.label }}
+            {{ form.password(size=50) }}
+        </fieldset>
+        <br>
+
+        {{form.remember}}
+        {{ form.submit }}
+
+    </form>
+</div>
+<HR>
+<div class="container p-3">
+    <form action="/login/" method="post" class="form-signin">
+        {# <h2 class="form-signin-heading">Account Login</h2>#}
+        <h2>Account Login</h2>
+        <input type="hidden" name="csrfmiddlewaretoken"
+            value="EyorsGKIFjFV8KSJuYaiNMu0JMEeKbcsNxOS6HfxlyUSiqX5PohkylbwQyNoOKeZ">
+
+        <input type="text" name="username" autofocus class="form-control" placeholder="Email or Username" maxlength="50"
+            autocapitalize="none" autocomplete="username" required id="id_username">
+        <br>
+        <input type="password" name="password" class="form-control" placeholder="Password" required id="id_password">
+
+        <input type="hidden" name="next" value="" />
+        <div class="checkbox">
+            <label><input type="checkbox" name="remember" id="id_remember"> Remember Me</label><a
+                href="/reset-password/" style="float:right">Forgot password</a>
+        </div>
+        <br>
+        <button id="login" class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+    </form>
+    <div class="form-signin">
+        <p>New user? <a id="register" href="{{url_for('home_bp.home')}}">Create an account</a></p>
+    </div>
+</div>
+{% endblock %}

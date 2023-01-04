@@ -1,59 +1,52 @@
-<!-- Login access: 
-    you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-with-python-and-flask/-->
+{# Login access:
+you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-with-python-and-flask/-->
+#}
+
 {% extends "layout.jinja2" %}
 
 {% block title %} {{ title }} {% endblock %}
 
-
 {% block content %}
-<section class="h-100" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
+
+<section class="h-100" style="background-color: #eee;"> {# section element of height 100% and light-gray background #}
+    <div class="container h-100 py-5"> {# height 100% and extra-large up/down padding#}
+        <div class="row d-flex justify-content-center align-items-center h-50"> {# row element d-flex to align
+            horizontaly children #}
+            <div class="col-md-6"> {# grid column that takes 10 out of 12 available extra large columns #}
                 <div class="card rounded-3 text-black">
-                    <div class="row g-0">
-                        {# First column #}
-                        <div class="col-lg-6">
-                            <div class="card-body p-md-6 mx-md-4">
-
-                                <div class="text-center">
-                                    <img src="{{ url_for('static', filename='img/brain3.jpg')}}" style="height: 150px;"
-                                        alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">OrganoStation Login</h4>
+                    <div class="row g-0"> {# all the gutters (spacing between columns) removed #}
+                        <div class="card-body p-md-6 mx-md-4"> {# 6 units on all sides and 4 left/right#}
+                            <div class="text-center">
+                                <img src="{{ url_for('static', filename='img/brain3.jpg')}}" style="height: 100px;"
+                                    alt="logo">
+                                <h4 class="mt-1 mb-5 pb-1">OrganoStation Login</h4>
+                            </div>
+                            {# Login form #}
+                            <form>
+                                <div class="form-outline mb-3">
+                                    {{form.email(placeholder="Email or Username", class="form-control")}}
                                 </div>
-
-                                <form>
-                                    <p>Please login to your account</p>
-
-                                    <div class="form-outline mb-4">
-                                        {{form.email(placeholder="Email or Username", class="form-control")}}
-                                    </div>
-
-                                    <div class="form-outline mb-4">
-                                        {{form.password(placeholder='Password', class="form-control")}}
-                                    </div>
-
-                                    <div class="form-outline mb-4">
-                                        {{ form.remember_me(class="form-check", style="float:left")}} {{
-                                        form.remember_me.label }}
-                                        <a href="/reset-password/" style="float:right">Forgot password?</a>
-                                    </div>
-
-                                    <div class="form-outline mb-4 d-grid">
-                                        {{ form.submit(class_="btn btn-primary btn-block mb-3")
-                                        }}
-                                    </div>
-                                </form>
-                                <div class="d-flex align-items-center justify-content-center mb-4">
-                                    <p class="mb-0 me-2">Don't have an account?</p>
-                                    <a href="{{url_for('home_bp.register') }}" type="button"
-                                        class="btn btn-outline-danger">Create new</a>
+                                <div class="form-outline mb-3">
+                                    {{form.password(placeholder='Password', class="form-control")}}
                                 </div>
-
+                                <div class="form-outline mb-3">
+                                    {{ form.remember_me(class="form-check", style="float:left")}} {{
+                                    form.remember_me.label }}
+                                    <a href="/reset-password/" style="float:right">Forgot password?</a>
+                                </div>
+                                <div class="form-outline mb-4 d-grid">
+                                    {{ form.submit(class_="btn btn-primary btn-block mb-3")
+                                    }}
+                                </div>
+                            </form>
+                            {# Create new account #}
+                            <div class="d-flex align-items-center justify-content-center pb-4">
+                                <p class="mb-0 me-2">Don't have an account?</p>
+                                <a href="{{url_for('home_bp.register') }}">Create new</a>
                             </div>
                         </div>
                         {# Second column #}
-                    </div>
+                    </div> {# class="row g-0"#}
                 </div>
             </div>
         </div>

@@ -8,38 +8,40 @@ It serves as a template for future pages
 
 {% block content %}
 <h1 class="text-center">{{ title }} </h1>
-<section class="h-150" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
+<section class="h-100" style="background-color: #eee;"> {# section element of height 100% and light-gray background #}
+    <div class="container h-100 py-5"> {# height 100% and extra-large left/right padding#}
+        <div class="row d-flex justify-content-center align-items-center h-100"> {# row element d-flex to align
+            horizontaly children #}
+            <div class="col-xl-10"> {# grid column that takes 10 out of 12 available extra large columns #}
                 <div class="card rounded-3 text-black">
-                    <div class="row g-0">
-                        <div class="card-body p-md-5 mx-md-4">
-                            h1 class="text-center">{{ title }} </h1>
-                            <h1>H1: {{ title }}</h1>
-                            <h2>H2: {{ title }}</h2>
-                            <h3>H3: {{ title }}</h3>
-                            <h4>H4: {{ description }}</h4>
-                            <H4>This is my title paragraph</H4>
-                            <div class="container">
-                                Simple paragraph for text <a href="{{url_for('home_bp.home')}}">with a home Link</a>
-                                that continues to run until the end.
-                            </div>
+                    <div class="row g-0"> {# all the gutters (spacing between columns) removed #}
+                        <div class="col-lg-6"> {# card-body element#}
+                            <div class="card-body p-md-6 mx-md-4">
+                                h1 class="text-center">{{ title }} </h1>
+                                <h1>H1: {{ title }}</h1>
+                                <h2>H2: {{ title }}</h2>
+                                <h3>H3: {{ title }}</h3>
+                                <h4>H4: {{ description }}</h4>
+                                <H4>This is my title paragraph</H4>
+                                <div class="container">
+                                    Simple paragraph for text <a href="{{url_for('home_bp.home')}}">with a home Link</a>
+                                    that continues to run until the end.
+                                </div>
 
-                            <p>New paragraph includes image
-                                <img src="{{ url_for('static', filename='img/favicon.ico') }}"
-                                    href="{{ url_for('home_bp.home') }}" />
-                            </p>
-                            <p> Second local image
-                                <img class="rounded mx-auto d-block"
-                                    src="{{ url_for('home_bp.static', filename='img/zoom.jpg') }}" width="300">
-                            </p>
+                                <p>New paragraph includes image
+                                    <img src="{{ url_for('static', filename='img/favicon.ico') }}"
+                                        href="{{ url_for('home_bp.home') }}" />
+                                </p>
+                                <p> Second local image
+                                    <img class="rounded mx-auto d-block"
+                                        src="{{ url_for('home_bp.static', filename='img/zoom.jpg') }}" width="300">
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 {# general static and templates #}
 {% include "blueprintinfo.jinja2" %}
