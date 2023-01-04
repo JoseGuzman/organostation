@@ -22,9 +22,10 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                 <h4 class="mt-1 mb-5 pb-1">OrganoStation Login</h4>
                             </div>
                             {# Login form #}
-                            <form>
+                            <form method="POST" , action="">
+                                {{ form.hidden_tag() }}
                                 <div class="form-outline mb-3">
-                                    {{form.email(placeholder="Email or Username", class="form-control")}}
+                                    {{form.user_mail(placeholder="Email", class="form-control")}}
                                 </div>
                                 <div class="form-outline mb-3">
                                     {{form.password(placeholder='Password', class="form-control")}}

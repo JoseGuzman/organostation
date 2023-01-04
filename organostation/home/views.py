@@ -2,14 +2,25 @@
 views.py
 Created: Sun Dec 25 21:10:17 CET 2022
 
-It creates the routes (or views) for our 'home'. Home uses a 
+It creates the routes (or views) for our 'home'. Home uses a
 'home_bp' blueprint that define access to basic resources
-from the home webpage. 
-We define routes, templates and logic of the homepage here. 
+from the home webpage.
+We define routes, templates and logic of the homepage here.
 """
-from flask import Blueprint, render_template
+from flask import Blueprint, flash, redirect, render_template, url_for
 
 from .forms import ContactForm, LoginForm
+
+
+def flash_errors(form):
+    """Generate flash form errors"""
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(
+                "Error in %s field - %s" % (getattr(form, field).label.text, error),
+                "error",
+            )
+
 
 home_bp = Blueprint(
     "home_bp",
@@ -33,12 +44,21 @@ def home():
 @home_bp.route("/contact", methods=["GET", "POST"])
 def contact():
     """Contact form page"""
-    myform = ContactForm()
-    if myform.validate_on_submit():
-        return redirect(url_for("home_bp.home"))
+    contact_form = ContactForm()
+    if contact_form.validate_on_submit():
+        print(f"Contact Form: {contact_form.data}")
+        flash("Message sent successfully!")
+        # Recreate form with no data to clean form #
+        contact_form = ContactForm(formdata=None)
+    else:
+        print(f"Error-> {contact_form.errors}")
+        flash_errors(contact_form)
 
     return render_template(
-        "contact.jinja2", title="Contact Us", description="Contact page", form=myform
+        "contact.jinja2",
+        title="Contact Us",
+        description="Contact page",
+        form=contact_form,
     )
 
 
@@ -65,7 +85,9 @@ def login():
     """Login page with username, password and remember me option"""
     myform = LoginForm()
     if myform.validate_on_submit():
-        return redirect(url_for("home_bp.home"))
+        if myform.user_mail == "admin" and myform.password == "admin":
+            flash("Logged in successfully.")
+            return redirect(url_for("home_bp.home"))
 
     return render_template(
         "login.jinja2", form=myform, title="Login", description="Login Access"

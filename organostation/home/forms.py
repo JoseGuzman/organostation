@@ -1,34 +1,37 @@
 """Form object declaration."""
-from flask_wtf import FlaskForm, RecaptchaField
+from flask_wtf import FlaskForm
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms.validators import DataRequired, Email, InputRequired, Length
 
 
 class ContactForm(FlaskForm):
-    """Contact us form with name, email and body."""
+    """Contact form with name, email and message."""
 
-    name = StringField("Name", validators=[DataRequired()])
-
+    name = StringField(label="Name", validators=[DataRequired(), Length(min=3)])
     email = StringField(
-        "Email",
-        validators=[Email(message=("Not a valid email address.")), DataRequired()],
+        label="Email", validators=[DataRequired(), Email(granular_message=True)]
     )
 
-    body = TextAreaField(
-        "Message",
+    message = TextAreaField(
+        label="Message",
         validators=[
             DataRequired(),
-            Length(min=4, message=("Your message is too short.")),
+            Length(min=10, message=("The message is too short.")),
         ],
     )
-    recaptcha = RecaptchaField()
-    submit = SubmitField("Submit")
+    # recaptcha = ecaptchaField()
+    submit = SubmitField(label="Send Message")
 
 
 class LoginForm(FlaskForm):
     """Login form with username and password."""
 
-    email = StringField("Email", validators=[DataRequired(), Length(1, 64), Email()])
+    user_mail = StringField(
+        "User Email",
+        validators=[
+            DataRequired(),
+        ],
+    )
     password = PasswordField("Password", validators=[DataRequired()])
     remember_me = BooleanField("\t\n\r\x0b\x0c Remember me")
     submit = SubmitField("Log In")
