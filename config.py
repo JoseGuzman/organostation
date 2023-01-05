@@ -28,9 +28,9 @@ class Config:
     SECRET_KEY = environ.get("SECRET_KEY")  # to sign session cookies and forms
 
     # Flaks-Assets bundle
-    # LESS_BIN = "/usr/local/bin/lessc"
-    # ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
-    # ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
+    LESS_BIN = "/usr/local/bin/lessc"
+    ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
+    ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
 
     # AWS Access
     AWS_SECRET_KEY = environ.get("AWS_SECRET_KEY")

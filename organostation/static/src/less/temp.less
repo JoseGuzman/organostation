@@ -1,9 +1,31 @@
 /* text styling elements */
 @black: #1f1f1f;
-@purple: #9B18D7;
+@purple: #670067;
 @gray: #777777;
+@dark-blue: #00468b;
 
-.a {
+/*
+hyperlinks
+*/
+a {
     text-decoration: none;
-    color: @purple;
+    color: @dark-blue !important;
+}
+
+a:hover {
+    color: @purple !important;
+}
+
+header {
+    position: fixed;
+}
+
+/* Overwrite nav colors
+here we select child classes */
+.navbar-light .navbar-nav .nav-item .nav-link {
+    color: @dark-blue;
+}
+
+.nav-link:hover {
+    color: @purple !important;
 }
