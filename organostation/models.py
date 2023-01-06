@@ -3,6 +3,8 @@ models.py
 
 
 See here: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
+and maybe this too:
+https://www.digitalocean.com/community/tutorials/how-to-use-flask-sqlalchemy-to-interact-with-databases-in-a-flask-application
 
 To test table creation, run the following commands in the python shell:
 >>> from organostation.models import User
@@ -25,8 +27,8 @@ class User(db.Model):
     __tablename__ = "organostation_users"  # set name of resulting table
 
     id = db.Column(db.Integer, primary_key=True)
-    firstname = db.Column(db.String(64), index=True, unique=False, nullable=False)
-    lastname = db.Column(db.String(100), index=True, unique=False, nullable=False)
+    first_name = db.Column(db.String(64), index=True, unique=False, nullable=False)
+    last_name = db.Column(db.String(100), index=True, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
     created = db.Column(db.DateTime, default=dtime.utcnow())
