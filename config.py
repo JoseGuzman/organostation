@@ -20,14 +20,20 @@ load_dotenv(BASEDIR / ".env")
 
 class Config:
     """
-    Basic Flask configuration. It will load default configuration
+    Basic Flask configuration reads from .env file located in home's user directory.
+    It will load default configuration
     variables to access AWS.
     """
 
     FLASK_DEBUG = environ.get("FLASK_DEBUG")
     SECRET_KEY = environ.get("SECRET_KEY")  # to sign session cookies and forms
 
-    # Flaks-Assets bundle
+    # Database Configuration
+    SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI")
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_ECHO = False  # stderr
+
+    # Flask Asset Configuration
     LESS_BIN = "/usr/local/bin/lessc"
     ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
     ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
@@ -46,7 +52,7 @@ class DevConfig(Config):
     Flask config file for Development
     """
 
-    FLASK_ENV = "development"
+    FLASK_ENV = "development"  # will set DEBUG = True
     DEBUG = True
     TESTING = True
 

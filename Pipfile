@@ -8,7 +8,6 @@ python_version = "3.9"
 
 [packages]
 flask = "*"
-flask-bootstrap = "*"
 flask-assets = "*"
 lesscpy = "*"
 cssmin = "*"
@@ -19,6 +18,8 @@ pandas = "*"
 dash-bootstrap-components = "*"
 python-dotenv = "*"
 email-validator = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
 
 [dev-packages]
 black = "*"
