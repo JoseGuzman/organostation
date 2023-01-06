@@ -4,6 +4,21 @@ Assets are compiled with Flask-Assets from less files
 
 Check for aditional information
 https://hackersandslackers.com/flask-application-factory/
+
+Shell context:
+(see here: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
+Typing flask shell will permit access to the app and database:
+>>> falsk shell
+>>> Python 3.9.16 (main, Dec  7 2022, 10:15:43) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+App: organostation
+Instance: /Users/joseguzman/git/og/instance
+>>> app
+>>> <Flask 'organostation'>
+>>> db
+>>> <SQLAlchemy sqlite:////Users/joseguzman/git/og/instance/organostation_users.db>
+>>> User
+>>> User <class 'organostation.models.User'>
 """
 from flask import Flask
 from flask_assets import Environment
@@ -27,6 +42,13 @@ def create_app() -> Flask:
     # Initialize Assets Environment
     assets = Environment()  # create an assets environment for styling
     assets.init_app(myapp)  # initialize it with the app
+
+    # provide access to User model in shell
+    @myapp.shell_context_processor
+    def make_shell_context():
+        from .models import User
+
+        return {"User": User}
 
     # The app context
     with myapp.app_context():

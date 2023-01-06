@@ -4,7 +4,7 @@ models.py
 
 See here: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
 
-To test the database, run the following commands in the python shell:
+To test table creation, run the following commands in the python shell:
 >>> from organostation.models import User
 >>> u = User(username='Jose', email='jose.guzman@example.com')
 >>> u.__dict__
