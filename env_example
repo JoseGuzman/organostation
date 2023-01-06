@@ -1,0 +1,19 @@
+#=========================================================================
+# This is the inline configuration file for the OrganoStation 
+# Flask application.
+# rename it to .env and fill the 'None' values to run the application
+#=========================================================================
+
+FLASK_DEBUG = True
+SECRET_KEY = b'\xc1\x16\xe7\xb3y\xb5B\x9c\x162g\xca\xa1\xd4\xcc0\x04\xa6W\xd7d\xdfE\xc82\x12\xb7\x0f[Z\x13\x82' 
+
+# Database configuration 
+SQLALCHEMY_DATABASE_URI = 'sqlite:///organostation_users.db'
+
+# Asset Configuration
+
+# AWS Access
+AWS_SECRET_KEY = 'None'
+AWS_KEY_ID = 'None'
+AWS_REGION = 'us-central-1'
+FLASK3_BUCKET_NAME = 'None'
