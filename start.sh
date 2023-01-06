@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -d ".env" ]
+if [ -d ".venv" ]
 then
     pipenv shell
     pipenv update
