@@ -9,7 +9,7 @@ from flask import Flask
 from flask_assets import Environment
 from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()  # initialize the database as global variable
+db = SQLAlchemy()  # initialize the database as GLOBAL
 
 
 def create_app() -> Flask:
@@ -40,7 +40,7 @@ def create_app() -> Flask:
         # routes related to registered users
         # from .profile.routes import profile_bp
 
-        db.create_all()  # create database tables for our data models
+        db.create_all()  # create sql tables for our data models
 
         # Register Blueprints
         myapp.register_blueprint(home_bp)
