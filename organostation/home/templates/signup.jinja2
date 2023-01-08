@@ -25,14 +25,14 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                             <form class="form-wrapper" method="POST" , action="">
                                 {{ form.hidden_tag() }} {# CRF protection #}
                                 <div class="form-outline mb-3">
-                                    <p class="small">{{form.first_name.label}}
-                                        {{form.first_name(placeholder="Name (min 3 char)",
+                                    <p class="small">{{form.name.label}}
+                                        {{form.name(placeholder="Name (min 3 char)",
                                         class="form-control")}}
                                     </p>
                                 </div>
                                 <div class="form-outline mb-3">
-                                    <p class="small">{{form.last_name.label}}
-                                        {{form.last_name(placeholder="Surname (min 3 char)",
+                                    <p class="small">{{form.surname.label}}
+                                        {{form.surname(placeholder="Surname (min 3 char)",
                                         class="form-control")}}
                                     </p>
                                 </div>
