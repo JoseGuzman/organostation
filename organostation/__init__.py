@@ -8,7 +8,7 @@ https://hackersandslackers.com/flask-application-factory/
 Shell context:
 (see here: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
 Typing flask shell will permit access to the app and database:
->>> falsk shell
+>>> flask shell
 >>> Python 3.9.16 (main, Dec  7 2022, 10:15:43) 
 [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
 App: organostation

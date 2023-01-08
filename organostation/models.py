@@ -8,13 +8,13 @@ https://www.digitalocean.com/community/tutorials/how-to-use-flask-sqlalchemy-to-
 
 To test table creation, run the following commands in the python shell:
 >>> from organostation.models import User
->>> u = User(first_name='Jose', email='jose.guzman@example.com')
+>>> u = User(name='Jose', email='jose.guzman@example.com')
 >>> u.__dict__
 >>> {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState at 0x1088b80a0>,
-    'first_name': 'Jose',
+    'name': 'Jose',
     'email': 'jose.guzman@example.com'}
 >>> u
-username: Jose>
+name: Jose>
 """
 from datetime import datetime as dtime
 
@@ -27,8 +27,8 @@ class User(db.Model):
     __tablename__ = "organostation_users"  # set name of resulting table
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(64), index=True, unique=False, nullable=False)
-    last_name = db.Column(db.String(100), index=True, unique=False, nullable=False)
+    name = db.Column(db.String(64), index=True, unique=False, nullable=False)
+    surname = db.Column(db.String(100), index=True, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
     created = db.Column(db.DateTime, default=dtime.utcnow())
@@ -37,4 +37,4 @@ class User(db.Model):
     )
 
     def __repr__(self):
-        return f"username: {self.username}"
+        return f"username: {self.name}"
