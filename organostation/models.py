@@ -18,6 +18,8 @@ name: Jose>
 """
 from datetime import datetime as dtime
 
+from werkzeug.security import check_password_hash, generate_password_hash
+
 from . import db
 
 
@@ -30,11 +32,19 @@ class User(db.Model):
     name = db.Column(db.String(64), index=True, unique=False, nullable=False)
     surname = db.Column(db.String(100), index=True, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
-    password_hash = db.Column(db.String(128))
+    password_hash = db.Column(db.String(64))
     created = db.Column(db.DateTime, default=dtime.utcnow())
     admin = db.Column(
         db.Boolean, index=False, unique=False, nullable=False, default=False
     )
+
+    def set_password(self, password: str) -> None:
+        """Set password to a hashed password."""
+        self.password_hash = generate_password_hash(password, method="sha256")
+
+    def check_password(self, password: str) -> bool:
+        """Check hashed password."""
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
         return f"username: {self.name}"

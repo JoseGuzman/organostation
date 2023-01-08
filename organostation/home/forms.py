@@ -45,8 +45,8 @@ class LoginForm(FlaskForm):
 class SignUpForm(FlaskForm):
     """Sign up from with first_name, last_name, email, password and confirm password ."""
 
-    first_name = StringField(label="Name", validators=[DataRequired(), Length(min=3)])
-    last_name = StringField(label="Surname", validators=[DataRequired(), Length(min=3)])
+    name = StringField(label="Name", validators=[DataRequired(), Length(min=3)])
+    surname = StringField(label="Surname", validators=[DataRequired(), Length(min=3)])
     email = StringField(
         label="Email",
         validators=[DataRequired(), Length(min=6), Email(granular_message=True)],
