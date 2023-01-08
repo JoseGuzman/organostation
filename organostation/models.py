@@ -11,8 +11,8 @@ To test table creation, run the following commands in the python shell:
 >>> u = User(first_name='Jose', email='jose.guzman@example.com')
 >>> u.__dict__
 >>> {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState at 0x1088b80a0>,
- 'first_name': 'Jose',
- 'email': 'jose.guzman@example.com'}
+    'first_name': 'Jose',
+    'email': 'jose.guzman@example.com'}
 >>> u
 username: Jose>
 """
