@@ -9,6 +9,7 @@ We define routes, templates and logic of the homepage here.
 """
 from flask import Blueprint, flash, redirect, render_template, url_for
 
+from ..models import User, db
 from .forms import ContactForm, LoginForm, SignUpForm
 
 
@@ -68,6 +69,16 @@ def register():
     signup_form = SignUpForm()
     if signup_form.validate_on_submit():
         print(f"Sign-up Form: {signup_form.data}")
+        myuser = User(
+            name=signup_form.name.data,
+            surname=signup_form.surname.data,
+            email=signup_form.email.data,
+            admin=False,
+        )
+        myuser.set_password(signup_form.password.data)
+        db.session.add(myuser)
+        db.session.commit()
+        flash("User created successfully.")
         return redirect(url_for("home_bp.home"))
     else:
         print(f"Error-> {signup_form.errors}")
@@ -85,6 +96,7 @@ def login():
     if login_form.validate_on_submit():
         print(f"Contact Form: {login_form.data}")
         flash("Logged in successfully.")
+
         return redirect(url_for("home_bp.home"))
     else:
         print(f"Error-> {login_form.errors}")
