@@ -36,8 +36,14 @@ Home page for organostation.
                                     visualization app to document and analyze electrical or fluorescence signals.
                                 </p>
                                 <div class="d-flex align-items-center justify-content-center pb-4">
+                                    {% if current_user.is_authenticated %}
+                                    <p class=" mb-0 me=2">Hi {{ current_user.name}}, welcome!</p>
+                                    <a href="{{url_for('home_bp.logout') }}"> Log Out</a>
+                                    {% else %}
                                     <p class="mb-0 me-2">Don't have an account?</p>
                                     <a href="{{url_for('home_bp.register') }}">Create new</a>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>

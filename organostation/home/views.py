@@ -7,13 +7,17 @@ It creates the routes (or views) for our 'home'. Home uses a
 from the home webpage.
 We define routes, templates and logic of the homepage here.
 """
-from flask import Blueprint, flash, redirect, render_template, url_for
+from datetime import datetime as dtime
 
+from flask import Blueprint, flash, redirect, render_template, session, url_for
+from flask_login import current_user, login_required, login_user, logout_user
+
+from .. import login_manager
 from ..models import User, db
 from .forms import ContactForm, LoginForm, SignUpForm
 
 
-def flash_errors(form):
+def flash_errors(form: dict):
     """Generate flash form errors"""
     for field, errors in form.errors.items():
         for error in errors:
@@ -30,6 +34,25 @@ home_bp = Blueprint(
     static_folder="static",
     static_url_path="/home",  # local static content
 )
+
+
+@login_manager.user_loader
+def load_user(user_id: str) -> User:
+    """Flask-Login retrieves the ID of the user from the session"""
+    return User.query.get(int(user_id))
+
+
+@home_bp.before_request
+def before_request():
+    """Make sure we are connected to the database each time before a request."""
+    session["_flashes"] = []  # clear flash information
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    """Redirect unauthorized users to Login page."""
+    flash("You must be logged in to view that page.")
+    return redirect(url_for("home_bp.login"))
 
 
 @home_bp.route("/")
@@ -66,36 +89,70 @@ def contact():
 @home_bp.route("/register", methods=["GET", "POST"])
 def register():
     """Register page"""
-    signup_form = SignUpForm()
-    if signup_form.validate_on_submit():
-        print(f"Sign-up Form: {signup_form.data}")
-        myuser = User(
-            name=signup_form.name.data,
-            surname=signup_form.surname.data,
-            email=signup_form.email.data,
-            admin=False,
-        )
-        myuser.set_password(signup_form.password.data)
-        db.session.add(myuser)
-        db.session.commit()
-        flash("User created successfully.")
+    # Bypass if user is logged in
+    if current_user.is_authenticated:
         return redirect(url_for("home_bp.home"))
+
+    signup_form = SignUpForm()
+    if signup_form.validate_on_submit():  # POST validation
+        print(f"Sign-up Form: {signup_form.data}")
+        email = signup_form.data["email"]
+        existing_user = User.query.filter(User.email == email).first()
+
+        if existing_user:
+            print(f"{existing_user} exists in Database")
+            signup_form = SignUpForm(formdata=None)  # clear form
+            flash(f"Error in Email: {email} already exists", "error")
+        else:
+            myuser = User(
+                name=signup_form.name.data,
+                surname=signup_form.surname.data,
+                email=signup_form.email.data,
+                created=dtime.utcnow(),
+                admin=False,
+            )
+            myuser.set_password(signup_form.password.data)  # hash password
+            db.session.add(myuser)
+            db.session.commit()
+            login_user(myuser)  # Log in as newly created user
+            flash("User created successfully.")
+
+            return redirect(url_for("home_bp.home"))
+
     else:
         print(f"Error-> {signup_form.errors}")
         flash_errors(signup_form)
 
     return render_template(
-        "signup.jinja2", title="Register", description="Register page", form=signup_form
+        "register.jinja2",
+        title="Register",
+        description="Register page",
+        form=signup_form,
     )
 
 
 @home_bp.route("/login", methods=["GET", "POST"])
 def login():
-    """Login page with username, password and remember me option"""
+    """Login page for registered users only.
+    It contains username, password and remember me option"""
+
+    # Bypass if user is logged in
+    if current_user.is_authenticated:
+        return redirect(url_for("home_bp.home"))
+
     login_form = LoginForm()
     if login_form.validate_on_submit():
         print(f"Contact Form: {login_form.data}")
-        flash("Logged in successfully.")
+        # login user is 'user_mail'
+        myuser = User.query.filter_by(email=login_form.user_email.data).first()
+
+        if myuser and myuser.check_password(password=login_form.password.data):
+            login_user(myuser, remember=login_form.remember_me.data)
+            flash("Logged in successfully.")
+            return redirect(url_for("home_bp.home"))
+        else:
+            print("Invalid username or password")
+            flash("Invalid username or password", "error")
 
         return redirect(url_for("home_bp.home"))
     else:
@@ -105,6 +162,15 @@ def login():
     return render_template(
         "login.jinja2", form=login_form, title="Login", description="Login Access"
     )
+
+
+@home_bp.route("/logout")
+@login_required
+def logout():
+    """Logout page"""
+    logout_user()
+    flash("You have been logged out.")
+    return redirect(url_for("home_bp.home"))
 
 
 @home_bp.route("/configuration")

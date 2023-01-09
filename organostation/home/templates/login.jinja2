@@ -25,8 +25,8 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                             <form method="POST" , action="">
                                 {{ form.hidden_tag() }} {# CRF protection #}
                                 <div class="form-outline mb-3">
-                                    <p class="small">{{form.user_mail.label}}
-                                        {{form.user_mail(placeholder="Email", class="form-control")}}
+                                    <p class="small">{{form.user_email.label}}
+                                        {{form.user_email(placeholder="Email", class="form-control")}}
                                     </p>
                                 </div>
                                 <div class="form-outline mb-3">
@@ -44,7 +44,7 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                     }}
                                 </div>
                                 <div class="form-outline mb-0 d-grid">
-                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% set messages = get_flashed_messages(with_categories=true) %}
                                     {% for message in messages %}
                                     {% if "Error" not in message[1]: %}
                                     <div class="alert alert-success" role="alert">
@@ -58,7 +58,6 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                     </div>
                                     {% endif %}
                                     {% endfor %}
-                                    {% endwith %}
                                 </div>
                             </form>
                             {# Create new account #}

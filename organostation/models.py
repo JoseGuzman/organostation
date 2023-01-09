@@ -16,24 +16,32 @@ To test table creation, run the following commands in the python shell:
 >>> u
 name: Jose>
 """
-from datetime import datetime as dtime
 
+from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from . import db
 
 
-class User(db.Model):
-    """User model with username, email and password_hash."""
+class User(UserMixin, db.Model):
+    """User model with entries for name, surname, email and password_hash.
+    Upon creation, the date/time of creation will be added, and
+    not admin as default.
+
+    Inheriting from UserMixin guarantee four methods:
+    is_authenticated, is_active, is_anonymous, get_id.
+    """
 
     __tablename__ = "organostation_users"  # set name of resulting table
+    # __table_args__ = {"extend_existing": True}  # table already exists
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True, unique=False, nullable=False)
     surname = db.Column(db.String(100), index=True, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
-    password_hash = db.Column(db.String(64))
-    created = db.Column(db.DateTime, default=dtime.utcnow())
+    password_hash = db.Column(db.String(128))
+    created = db.Column(db.DateTime)
+    last_login = db.Column(db.DateTime)
     admin = db.Column(
         db.Boolean, index=False, unique=False, nullable=False, default=False
     )

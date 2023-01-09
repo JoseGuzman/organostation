@@ -27,7 +27,7 @@ class ContactForm(FlaskForm):
 class LoginForm(FlaskForm):
     """Login form with username and password."""
 
-    user_mail = StringField(
+    user_email = StringField(
         label="User Email",
         validators=[DataRequired(), Length(min=6), Email(granular_message=True)],
     )
@@ -43,7 +43,7 @@ class LoginForm(FlaskForm):
 
 
 class SignUpForm(FlaskForm):
-    """Sign up from with name, surname, email, password and confirm password ."""
+    """Sign up from with name, surname, email, password and confirm password."""
 
     name = StringField(label="Name", validators=[DataRequired(), Length(min=3)])
     surname = StringField(label="Surname", validators=[DataRequired(), Length(min=3)])
@@ -67,6 +67,12 @@ class SignUpForm(FlaskForm):
             EqualTo("password", message="Passwords must match."),
         ],
     )
-    terms = BooleanField("\t\n\r\x0b\x0c I agree to the terms and conditions.")
+
+    terms = BooleanField(
+        label="\t\n\r\x0b\x0c I agree to the terms and conditions.",
+        validators=[
+            DataRequired(message="You must agree to the terms and conditions.")
+        ],
+    )
 
     submit = SubmitField("Register")
