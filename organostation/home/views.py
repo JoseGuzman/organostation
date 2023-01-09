@@ -55,7 +55,11 @@ def unauthorized():
     return redirect(url_for("home_bp.login"))
 
 
+# =========================================================================
+#  home
+# =========================================================================
 @home_bp.route("/")
+@home_bp.route("/index.html")
 def home():
     """The homepage will be visible to all users"""
     return render_template(
@@ -65,6 +69,9 @@ def home():
     )
 
 
+# =========================================================================
+#  contact
+# =========================================================================
 @home_bp.route("/contact", methods=["GET", "POST"])
 def contact():
     """Contact form page"""
@@ -72,11 +79,11 @@ def contact():
     if contact_form.validate_on_submit():
         print(f"Contact Form: {contact_form.data}")
         flash("Message sent successfully!")
-        # Recreate form with no data to clean form #
+        # Recreate form with no data to clean form
         contact_form = ContactForm(formdata=None)
     else:
         print(f"Form Errors-> {contact_form.errors}")
-        flash_errors(contact_form)  # check get_flashed_messages() in contact.jinja2
+        flash_errors(contact_form)  # get_flashed_messages() in contact.jinja2
 
     return render_template(
         "contact.jinja2",
@@ -86,6 +93,9 @@ def contact():
     )
 
 
+# =========================================================================
+#  register
+# =========================================================================
 @home_bp.route("/register", methods=["GET", "POST"])
 def register():
     """Register page"""
@@ -131,6 +141,9 @@ def register():
     )
 
 
+# =========================================================================
+#  login
+# =========================================================================
 @home_bp.route("/login", methods=["GET", "POST"])
 def login():
     """Login page for registered users only.
@@ -164,6 +177,9 @@ def login():
     )
 
 
+# =========================================================================
+#  logout
+# =========================================================================
 @home_bp.route("/logout")
 @login_required
 def logout():
@@ -187,9 +203,3 @@ def configuration():
 def test():
     """Test page"""
     return render_template("test.jinja2", title="Test Page", description="simple test")
-
-
-@home_bp.route("/contact2")
-def contact2():
-    """Test page"""
-    return render_template("contact.html", title="Test Page", description="simple test")
