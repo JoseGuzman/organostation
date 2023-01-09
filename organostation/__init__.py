@@ -19,6 +19,7 @@ Instance: /Users/joseguzman/git/og/instance
 >>> <SQLAlchemy sqlite:////Users/joseguzman/git/og/instance/organostation_users.db>
 >>> User
 >>> User <class 'organostation.models.User'>
+>>> User.query.all()
 """
 from flask import Flask
 from flask_assets import Environment
@@ -60,15 +61,13 @@ def create_app() -> Flask:
 
         # routes related to unregistered users
         from .home.views import home_bp
-
-        # from .guest.routes import guest_bp
-        # routes related to registered users
-        # from .profile.routes import profile_bp
+        from .tutorials.views import tutorials_bp
 
         db.create_all()  # create sql tables for our data models
 
         # Register Blueprints
         myapp.register_blueprint(home_bp)
+        myapp.register_blueprint(tutorials_bp)
 
         # dashboards
 

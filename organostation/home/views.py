@@ -3,8 +3,8 @@ views.py
 Created: Sun Dec 25 21:10:17 CET 2022
 
 It creates the routes (or views) for our 'home'. Home uses a
-'home_bp' blueprint that define access to basic resources
-from the home webpage.
+'home_bp' blueprint that define access to the the homepage 
+and autentification resources.
 We define routes, templates and logic of the homepage here.
 """
 from datetime import datetime as dtime
@@ -17,13 +17,12 @@ from ..models import User, db
 from .forms import ContactForm, LoginForm, SignUpForm
 
 
-def flash_errors(form: dict):
+def flash_errors(form: dict) -> None:
     """Generate flash form errors"""
     for field, errors in form.errors.items():
         for error in errors:
             flash(
-                "Error in %s field - %s" % (getattr(form, field).label.text, error),
-                "error",
+                f"Error in {getattr(form, field).label.text} field - {error}", "error"
             )
 
 
@@ -44,7 +43,7 @@ def load_user(user_id: str) -> User:
 
 @home_bp.before_request
 def before_request():
-    """Make sure we are connected to the database each time before a request."""
+    """Make sure we clean get_flashed_messages() before a request is made."""
     session["_flashes"] = []  # clear flash information
 
 
@@ -178,13 +177,15 @@ def login():
 
 
 # =========================================================================
-#  user
+#  profile
 # =========================================================================
-@home_bp.route("/user/<string:email>", methods=["GET"])
+@home_bp.route("/profile/<string:email>", methods=["GET"])
 @login_required
-def user(email: str):
+def profile(email: str):
+    """Profile page for registered users only.
+    It allows updating user information."""
     myuser = User.query.filter_by(email=email).first_or_404()
-    return render_template("profile.jinja2", user=myuser)
+    return render_template("profile2.jinja2", user=myuser)
 
 
 # =========================================================================
@@ -207,6 +208,12 @@ def configuration():
         title="Specifications",
         description="technical specifications",
     )
+
+
+@home_bp.route("/tutorials")
+@login_required
+def tutorials():
+    return render_template("tutorial.jinja2")
 
 
 @home_bp.route("/test")

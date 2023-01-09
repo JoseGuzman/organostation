@@ -4,26 +4,26 @@
 
 {% block content %}
 <div class="container">
-    <h1>User Profile</h1>
+    <h1>{{user.name}} {{user.surname }} Profile</h1>
     <ul id="user.username">
         <li>
-            <span class="field-name">Name:</span>
+            <span class="field-name"><strong>Name:</strong></span>
             <span class="field-value">{{ user.name }}</span>
         </li>
         <li>
-            <span class="field-name">Surname:</span>
+            <span class="field-name"><strong>Surname:</strong></span>
             <span class="field-value">{{ user.surname }}</span>
         </li>
         <li>
-            <span class="field-name">Email:</span>
+            <span class="field-name"><strong>Email:</strong></span>
             <span class="field-value">{{ user.email }}</span>
         </li>
         <li>
-            <span class="field-name">Created:</span>
+            <span class="field-name"><strong>Created:</strong></span>
             <span class="field-value">{{ user.created }}</span>
         </li>
         <li>
-            <span class="field-name">Admin:</span>
+            <span class="field-name"><strong>Admin:</strong></span>
             <span class="field-value">{{ user.admin }}</span>
         </li>
     </ul>
