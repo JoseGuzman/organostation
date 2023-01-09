@@ -178,6 +178,16 @@ def login():
 
 
 # =========================================================================
+#  user
+# =========================================================================
+@home_bp.route("/user/<string:email>", methods=["GET"])
+@login_required
+def user(email: str):
+    myuser = User.query.filter_by(email=email).first_or_404()
+    return render_template("profile.jinja2", user=myuser)
+
+
+# =========================================================================
 #  logout
 # =========================================================================
 @home_bp.route("/logout")

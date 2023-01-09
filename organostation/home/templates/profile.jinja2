@@ -1,0 +1,32 @@
+{% extends "layout.jinja2" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>User Profile</h1>
+    <ul id="user.username">
+        <li>
+            <span class="field-name">Name:</span>
+            <span class="field-value">{{ user.name }}</span>
+        </li>
+        <li>
+            <span class="field-name">Surname:</span>
+            <span class="field-value">{{ user.surname }}</span>
+        </li>
+        <li>
+            <span class="field-name">Email:</span>
+            <span class="field-value">{{ user.email }}</span>
+        </li>
+        <li>
+            <span class="field-name">Created:</span>
+            <span class="field-value">{{ user.created }}</span>
+        </li>
+        <li>
+            <span class="field-name">Admin:</span>
+            <span class="field-value">{{ user.admin }}</span>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
