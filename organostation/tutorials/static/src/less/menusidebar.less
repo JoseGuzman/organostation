@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@black: #1f1f1f;
+@purple: #670067;
+@gray: #777777;
+@lightgray: #FAFAFA;
+@dark-blue: #00468b;
 
 * {
     margin: 0;
@@ -8,66 +12,74 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
+/*body {
     background-color: #eee;
 }
+*/
 
-.btn {
+/**************************************************************************
+    Button to open Table of Contents 
+*************************************************************************/
+.mybtn {
     position: absolute;
-    top: 10px;
+    top: 100px;
     left: 45px;
     height: 37px;
     width: 37px;
     text-align: center;
-    background: #1b1b1b;
+    background: @dark-blue;
     border-radius: 3px;
     cursor: pointer;
     transition: left 0.4s ease;
 }
 
-.btn.click {
+.mybtn.click {
     left: 260px;
 }
 
-.btn span {
+.mybtn span {
     color: white;
     font-size: 15px;
     line-height: 36px;
 }
 
-.btn.click span:before {
+.mybtn.click span:before {
     content: '\f00d';
 }
 
-.sidebar {
+/**************************************************************************
+    Side menubar for  Table of Contents 
+*************************************************************************/
+.menusidebar {
     position: fixed;
     width: 250px;
     height: 100%;
     left: -250px;
-    background: #1b1b1b;
+    background: @lightgray;
     transition: left 0.4s ease;
 }
 
-.sidebar.show {
+.menusidebar.show {
     left: 0px;
 }
 
-.sidebar .text {
+/* Table of context text */
+.menusidebar .text {
     color: white;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 65px;
     text-align: center;
-    background: #1e1e1e;
+    background: @dark-blue;
     letter-spacing: 1px;
 }
 
 nav ul {
-    background: #1b1b1b;
+    /*background: #1b1b1b;*/
     height: 100%;
     width: 100%;
     list-style: none;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 nav ul li {
@@ -92,14 +104,14 @@ nav ul li a {
 }
 
 nav ul li.active a {
-    color: #FC5404;
-    background: #1e1e1e;
-    border-left-color: #FC5404;
+    color: @purple;
+    /* background: #1e1e1e;*/
+    border-left-color: @purple;
 }
 
-nav ul li a:hover {
+/*nav ul li a:hover {
     background: #1e1e1e;
-}
+}*/
 
 .feat-show {
     transition: all 0.5s;
@@ -132,18 +144,14 @@ nav ul ul li a {
 
 nav ul li.active ul li a {
     color: #e6e6e6;
-    background: #1b1b1b;
+    /* background: #1b1b1b;*/
     border-left-color: transparent;
 }
 
-a:hover {
-    color: #FC5404 !important;
-}
-
-nav ul ul li a:hover {
-    color: #FC5404 !important;
+/*nav ul ul li a:hover {
+    color: @purple !important;
     background: #1e1e1e !important;
-}
+}*/
 
 nav ul li a span {
     position: absolute;
@@ -158,12 +166,13 @@ nav ul li a span.rotate {
     transform: translateY(-50%) rotate(-180deg);
 }
 
-.content {
+/* Text for tutorial contents */
+.tutorial_content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #202020;
+    color: @black;
     z-index: -1;
-    text-align: center;
+    /*text-align: center;*/
 }

@@ -35,16 +35,16 @@ home_bp = Blueprint(
 )
 
 
-@login_manager.user_loader
-def load_user(user_id: str) -> User:
-    """Flask-Login retrieves the ID of the user from the session"""
-    return User.query.get(int(user_id))
-
-
 @home_bp.before_request
 def before_request():
     """Make sure we clean get_flashed_messages() before a request is made."""
     session["_flashes"] = []  # clear flash information
+
+
+@login_manager.user_loader
+def load_user(user_id: str) -> User:
+    """Flask-Login retrieves the ID of the user from the session"""
+    return User.query.get(int(user_id))
 
 
 @login_manager.unauthorized_handler
@@ -186,7 +186,7 @@ def profile(email: str):
     """Profile page for registered users only.
     It allows updating user information."""
     myuser = User.query.filter_by(email=email).first_or_404()
-    return render_template("profile2.jinja2", title=myuser.name, user=myuser)
+    return render_template("profile.jinja2", title=myuser.name, user=myuser)
 
 
 # =========================================================================

@@ -6,13 +6,15 @@ Created: Wed Dec 14 14:51:46 CET 2022
 CSS and JS bundles that will be compiled and served by Flask-Assets.
 
 """
+from flask import current_app as myapp
 from flask_assets import Bundle, Environment
 
 
 def compile_static_assets(assets: Environment) -> None:
-    """Compile static assets."""
+    """Compile static assets. Cascading Style Sheets (CSS) and JavaScript that
+    will override standard Bootstrap5.0 CSS"""
 
-    # Cascading Style Sheets that override Bootstrap
+    # Cascading Style Sheets will override Bootstrap CSS
     css_bundle = Bundle(
         "src/less/*.less",
         filters="less, cssmin",
@@ -20,13 +22,27 @@ def compile_static_assets(assets: Environment) -> None:
         extra={"rel": "text/css"},
     )
 
-    # JS
+    # Tutorials assets bundle will add customized CSS
+    tutorials_css_bundle = Bundle(
+        "src/less/*.less",
+        "tutorials_bp/src/less/*.less",
+        filters="less, cssmin",
+        output="dist/css/tutorials.min.css",
+        extra={"rel": "text/css"},
+    )
+
+    # JavaScript Standard
     js_bundle = Bundle("src/js/main.js", filters="jsmin", output="dist/js/main.min.js")
+
+    # JavaScript Tutorials
 
     # Register bundles
     assets.register("main_styles", css_bundle)
-    # assets.register("main_js", js_bundle)
+    assets.register("main_js", js_bundle)
+    assets.register("tutorials_styles", tutorials_css_bundle)
 
-    # Build less styles
-    css_bundle.build()
-    # js_bundle.build()
+    # Build less styles and JavaScript if in development
+    if myapp.config["FLASK_ENV"] == "development":
+        css_bundle.build()
+        tutorials_css_bundle.build()
+        js_bundle.build()
