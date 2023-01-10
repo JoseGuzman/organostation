@@ -12,29 +12,34 @@ It also contains a visualization app to document and analyze electrical or fluor
 |-- Pipfile
 |-- Pipfile.lock
 |-- README.md
-|-- config.py
 |-- organostation
 |   |-- __init__.py
+|   |-- assets.py
+|   |-- models.py
 |   |-- dashboards
 |   |   |-- testboard
 |   |   `-- visualoid
-|   |-- profile 
-|   |   |-- routes.py
+|   |-- home
+|   |   |-- views.py
+|   |   |-- forms.py
 |   |   |-- static
 |   |   `-- templates
-|   |-- premium
+|   |-- tutorials 
+|   |   |-- views.py
 |   |   |-- static
 |   |   `-- templates
 |   |-- static
 |   `-- templates
 |       |-- blueprintinfo.jinja2
-|       |-- contact.jinja2
 |       |-- footer.jinja2
 |       |-- home.jinja2
 |       |-- layout.jinja2
 |       `-- navigation.jinja2
+|-- env_example 
+|-- config.py
 |-- requirements.txt
 |-- run.sh
+|-- start.sh
 `-- wsgi.py
 ```
 

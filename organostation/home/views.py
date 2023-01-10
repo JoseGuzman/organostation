@@ -185,7 +185,7 @@ def profile(email: str):
     """Profile page for registered users only.
     It allows updating user information."""
     myuser = User.query.filter_by(email=email).first_or_404()
-    return render_template("profile2.jinja2", user=myuser)
+    return render_template("profile2.jinja2", title=myuser.name, user=myuser)
 
 
 # =========================================================================
