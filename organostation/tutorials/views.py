@@ -39,10 +39,10 @@ def unauthorized():
 # =========================================================================
 # tutorials
 # =========================================================================
-@tutorials_bp.route("/")
+@tutorials_bp.route("/home")
 @login_required
 def home():
-    """The homepage will be visible to all users"""
+    """Tutorials homepage"""
     return render_template(
         "tutorial.jinja2",  # uses layout and navigation jijna2 templates
     )

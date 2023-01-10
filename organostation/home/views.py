@@ -9,7 +9,7 @@ We define routes, templates and logic of the homepage here.
 """
 from datetime import datetime as dtime
 
-from flask import Blueprint, flash, redirect, render_template, session, url_for
+from flask import Blueprint, abort, flash, redirect, render_template, session, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from .. import login_manager
@@ -51,7 +51,8 @@ def before_request():
 def unauthorized():
     """Redirect unauthorized users to Login page."""
     flash("You must be logged in to view that page.")
-    return redirect(url_for("home_bp.login"))
+    abort(403)
+    # return redirect(url_for("403.jinja2"), 403)
 
 
 # =========================================================================
@@ -208,12 +209,6 @@ def configuration():
         title="Specifications",
         description="technical specifications",
     )
-
-
-@home_bp.route("/tutorials")
-@login_required
-def tutorials():
-    return render_template("tutorial.jinja2")
 
 
 @home_bp.route("/test")

@@ -37,7 +37,7 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
                         <i class="fa-solid fa-user"></i> {{ current_user.name}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url_for('home_bp.tutorials') }}">
+                        <a class="dropdown-item" href="{{ url_for('tutorials_bp.home') }}">
                             <i class="fa-solid fa-chalkboard-user"></i> Tutorials</a>
                         <a class="dropdown-item" href="{{ url_for('home_bp.profile', email = current_user.email) }}">
                             <i class=" fa-regular fa-address-card"></i> User Account</a>
