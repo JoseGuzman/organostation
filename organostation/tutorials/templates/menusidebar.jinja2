@@ -16,7 +16,7 @@
         <li>
             <a href="#" id="1">1. Before we start<span class="fas fa-caret-down"></span></a>
             <ul class="item-show-1">
-                <li><a href="{{url_for('tutorials_bp.test')}}">Contact us</a></li>
+                <li><a href="#">Contact us</a></li>
                 <li><a href="#">Our Team</a></li>
             </ul>
         </li>
@@ -53,17 +53,7 @@
         <hr>
     </ul>
 </nav>
-<div class="tutorial_content">
-    <div class="content">
-        <p>
-            As part of our system installation service, we provide extensive and comprehensive training, ensuring the
-            user
-            feels confident and capable of operating the system safely. We will provide follow-up phone and email
-            support as
-            well as additional site visits as necessary.
-        </p>
-        Main content goes here
-        <a href="https://bbbootstrap.com/snippets/sidebar-menu-sub-menus-and-toggle-button-27928347">Link</a>
-    </div>
+<div class="tutorial_content" role="main">
+    {% block tutorial_content %}{% endblock %}
 </div>
 {% endblock %}

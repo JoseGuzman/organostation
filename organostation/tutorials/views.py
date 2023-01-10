@@ -46,3 +46,12 @@ def home():
     return render_template(
         "tutorial.jinja2",  # uses layout and navigation jijna2 templates
     )
+
+
+@tutorials_bp.route("/lecture1")
+@login_required
+def test():
+    """Tutorials homepage"""
+    return render_template(
+        "lecture1.jinja2",  # uses layout and navigation jijna2 templates
+    )
