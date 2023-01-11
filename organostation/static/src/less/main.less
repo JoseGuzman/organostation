@@ -1,5 +1,3 @@
-@import url('https://fonts.cdnfonts.com/css/montserrat');
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import 'variables.less';
@@ -57,17 +55,11 @@ nav-link
     height: 40px;
     font-family: 'Munito', sans-serif !important;
     font-size: small;
+    background-color: @baby-blue;
 
 }
 
-.navbar-brand .navbar-light .navbar-nav .nav-item .nav-link {
-    text-decoration: none;
-    color: @dark-blue !important;
-    font-family: 'Munito', sans-serif !important;
-    font-size: small;
-}
-
-.dropdown-menu {
+.navbar-brand .navbar-nav .nav-item .nav-link {
     text-decoration: none;
     color: @dark-blue !important;
     font-family: 'Munito', sans-serif !important;
@@ -84,7 +76,6 @@ nav-link
     color: @purple !important;
 }
 
-
 .navbar-brand:visited {
     text-decoration: none;
     color: @dark-blue !important;
@@ -93,6 +84,25 @@ nav-link
 .navbar-brand:hover {
     text-decoration: none;
     color: @purple !important;
+}
+
+.dropdown-menu {
+    text-decoration: none;
+    color: @dark-blue !important;
+    font-family: 'Munito', sans-serif !important;
+    font-size: small;
+
+}
+
+.dropdown-item:visited {
+    text-decoration: none;
+    color: @dark-blue !important;
+}
+
+.dropdown-item:hover {
+    text-decoration: none;
+    color: @purple !important;
+    background-color: @baby-blue !important;
 }
 
 /************************************************************************** 
@@ -104,4 +114,5 @@ Footer
     -moz-box-shadow: 0 -6px 4px -4px #999;
     box-shadow: 0 -6px 4px -4px #999;
     font-size: small;
+    background-color: @baby-blue;
 }

@@ -4,11 +4,13 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/tutorials.min.css') }}" />
+
 <div class="mybtn">
     <span class="fas fa-bars"></span>
 </div>
+
 <nav class="menusidebar">
-    <div class="text me-3 me-lg-0">
+    <div class="toc me-3 me-lg-0">
         Table of Contents
     </div>
     <ul class="main_side">
@@ -53,6 +55,7 @@
         <hr>
     </ul>
 </nav>
+{# Here we introduce the different tutorials #}
 <div class="tutorial_content" role="main">
     {% block tutorial_content %}{% endblock %}
 </div>
