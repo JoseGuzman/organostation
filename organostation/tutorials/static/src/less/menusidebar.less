@@ -18,7 +18,7 @@
 */
 
 /**************************************************************************
-    Button to open Table of Contents 
+    Custom button to open Table of Contents 
 *************************************************************************/
 .mybtn {
     position: absolute;
@@ -74,8 +74,19 @@
     letter-spacing: 1px;
 }
 
+.menusidebar .ul .li .a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 14px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
 nav ul {
-    /*background: #1b1b1b;*/
     height: 100%;
     width: 100%;
     list-style: none;
@@ -105,13 +116,13 @@ nav ul li a {
 
 nav ul li.active a {
     color: @purple;
-    /* background: #1e1e1e;*/
+    background: #1e1e1e;
     border-left-color: @purple;
 }
 
-/*nav ul li a:hover {
+nav ul li a:hover {
     background: #1e1e1e;
-}*/
+}
 
 .feat-show {
     transition: all 0.5s;
@@ -144,14 +155,14 @@ nav ul ul li a {
 
 nav ul li.active ul li a {
     color: #e6e6e6;
-    /* background: #1b1b1b;*/
+    // background: #1b1b1b;
     border-left-color: transparent;
 }
 
-/*nav ul ul li a:hover {
+nav ul ul li a:hover {
     color: @purple !important;
     background: #1e1e1e !important;
-}*/
+}
 
 nav ul li a span {
     position: absolute;
@@ -166,7 +177,7 @@ nav ul li a span.rotate {
     transform: translateY(-50%) rotate(-180deg);
 }
 
-/* Text for tutorial contents */
+
 .tutorial_content {
     position: absolute;
     top: 50%;
@@ -174,5 +185,5 @@ nav ul li a span.rotate {
     transform: translate(-50%, -50%);
     color: @black;
     z-index: -1;
-    /*text-align: center;*/
+    //text-align: center;
 }

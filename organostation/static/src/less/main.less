@@ -1,3 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/montserrat');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import 'variables.less';
 
@@ -9,20 +12,26 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/*
-hyperlinks
-*/
+/************************************************************************** 
+// hyperlink behaviour
+**************************************************************************/
 a {
     text-decoration: none;
     color: @dark-blue !important;
 }
 
+// mouser over link
 a:hover {
+    text-decoration: underline;
+    color: @purple !important;
+}
+
+a:visited {
     color: @purple !important;
 }
 
 
-/* for a customized header  use <header></header> in layout.jinja2*/
+// for a customized header  use <header></header> in layout.jinja2
 header {
     position: fixed;
     width: 100%;
@@ -33,12 +42,66 @@ header {
     padding: 1em;
 }
 
-/* Overwrite nav colors
-here we select child classes */
-.navbar-light .navbar-nav .nav-item .nav-link {
-    color: @dark-blue;
+/************************************************************************** 
+navigation bar
+nav-link
+**************************************************************************/
+// menubar shadow: offset-x | offset-y | blur-radius | spread-radius | color 
+.navbar {
+    -webkit-box-shadow: 0 6px 4px -4px #999;
+    -moz-box-shadow: 0 6px 4px -4px #999;
+    box-shadow: 0 6px 4px -4px #999;
+}
+
+.navbar {
+    height: 40px;
+    font-family: 'Munito', sans-serif !important;
+    font-size: small;
+
+}
+
+.navbar-brand .navbar-light .navbar-nav .nav-item .nav-link {
+    text-decoration: none;
+    color: @dark-blue !important;
+    font-family: 'Munito', sans-serif !important;
+    font-size: small;
+}
+
+.dropdown-menu {
+    text-decoration: none;
+    color: @dark-blue !important;
+    font-family: 'Munito', sans-serif !important;
+    font-size: small;
+}
+
+.nav-link:visited {
+    text-decoration: none;
+    color: @dark-blue !important;
 }
 
 .nav-link:hover {
+    text-decoration: none;
     color: @purple !important;
+}
+
+
+.navbar-brand:visited {
+    text-decoration: none;
+    color: @dark-blue !important;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: @purple !important;
+}
+
+/************************************************************************** 
+Footer
+**************************************************************************/
+// menubar shadow: offset-x | offset-y | blur-radius | spread-radius | color 
+.myfooter {
+    -webkit-box-shadow: 0 -6px 4px -4px #999;
+    -moz-box-shadow: 0 -6px 4px -4px #999;
+    box-shadow: 0 -6px 4px -4px #999;
+    font-size: small;
 }

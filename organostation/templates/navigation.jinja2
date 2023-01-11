@@ -1,15 +1,20 @@
 {#
-Navigation bar with Font Awesome Icons. Check this tutorial
+This is the main menu bar for the organostation website.It includes
+icons fromh Font Awesome Icons (prefix fa).
+
+Check this tutorial
 https://mdbootstrap.com/docs/standard/navigation/navbar/
+
 #}
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="{{ url_for('home_bp.home') }}">OrganoStation</a>
+        <a class="navbar-brand" href="{{ url_for('home_bp.home') }}">
+            <img src="{{url_for('static', filename='/img/brain3.jpeg' )}}" style=" height: 30px;"> OrganoStation</a>
 
-        <!-- Toggle button -->
+        <!-- Toggle button when screen is small-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>

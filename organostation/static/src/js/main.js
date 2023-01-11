@@ -1,5 +1,5 @@
 //=========================================================================
-// Function to hide/show the left menu bar
+// Function to hide/show the left side bar (menusidebar)
 //=========================================================================
 
 $('.mybtn').click(function () {
