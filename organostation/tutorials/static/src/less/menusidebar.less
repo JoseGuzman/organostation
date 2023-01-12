@@ -73,9 +73,27 @@
     text-align: center;
     background: @dark-blue !important;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.menusidebar .ul .li .a {
+nav ul {
+    /*background: #1b1b1b;*/
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding-left: 5px;
+}
+
+nav ul li {
+    line-height: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
     position: relative;
     color: white;
     text-decoration: none;
@@ -87,14 +105,101 @@
     border-left: 3px solid transparent;
 }
 
-.menusidebar ul li a:hover {
-    background: @baby-blue;
+.menusidebar ul li.active a {
+    color: @purple;
+    /* background: #1e1e1e;*/
+    border-left-color: @purple;
 }
 
+.menusidebar ul {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding-left: 5px;
+}
 
-.tutorial_content {
+.menusidebar .ul .li .a {
+    position: relative;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 14px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+.menusidebar ul li a:visited {
+    text-decoration: none;
+    color: @dark-blue !important;
+}
+
+// here start
+.menusidebar ul li a:hover {
+    background: @dark-blue;
+    text-decoration: none;
+    color: white !important;
+}
+
+.feat-show {
+    transition: all 0.5s;
+}
+
+nav ul li.active ul {
+    transition: all 0.5s;
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul.show {
+    display: block;
+    transition: all 0.5s;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-top: none;
+}
+
+nav ul ul li a {
+    font-size: 12px;
+    color: #e6e6e6;
+
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    /* background: #1b1b1b;*/
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: white !important;
+    background: @dark-blue !important;
+}
+
+// to rotate fa-caret-down we modify span
+.menusidebar ul li a span {
     position: absolute;
     top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    transition: transform 0.4s;
+}
+
+.menusidebar ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+// here end
+.tutorial_content {
+    position: absolute;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: @black;
