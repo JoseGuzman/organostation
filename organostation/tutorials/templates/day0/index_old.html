@@ -1,0 +1,1259 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Day 0: Before we start</title>
+	<style>
+		/* cspell:disable-file */
+		/* webkit printing magic: print all background colors */
+		html {
+			-webkit-print-color-adjust: exact;
+		}
+
+		* {
+			box-sizing: border-box;
+			-webkit-print-color-adjust: exact;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		@media only screen {
+			body {
+				margin: 2em auto;
+				max-width: 900px;
+				color: rgb(55, 53, 47);
+			}
+		}
+
+		body {
+			line-height: 1.5;
+			white-space: pre-wrap;
+		}
+
+		a,
+		a.visited {
+			color: inherit;
+			text-decoration: underline;
+		}
+
+		.pdf-relative-link-path {
+			font-size: 80%;
+			color: #444;
+		}
+
+		h1,
+		h2,
+		h3 {
+			letter-spacing: -0.01em;
+			line-height: 1.2;
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+
+		.page-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 0.75em;
+		}
+
+		h1 {
+			font-size: 1.875rem;
+			margin-top: 1.875rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+		}
+
+		.source {
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			padding: 1.5em;
+			word-break: break-all;
+		}
+
+		.callout {
+			border-radius: 3px;
+			padding: 1rem;
+		}
+
+		figure {
+			margin: 1.25em 0;
+			page-break-inside: avoid;
+		}
+
+		figcaption {
+			opacity: 0.5;
+			font-size: 85%;
+			margin-top: 0.5em;
+		}
+
+		mark {
+			background-color: transparent;
+		}
+
+		.indented {
+			padding-left: 1.5em;
+		}
+
+		hr {
+			background: transparent;
+			display: block;
+			width: 100%;
+			height: 1px;
+			visibility: visible;
+			border: none;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		@media only print {
+			img {
+				max-height: 100vh;
+				object-fit: contain;
+			}
+		}
+
+		@page {
+			margin: 1in;
+		}
+
+		.collection-content {
+			font-size: 0.875rem;
+		}
+
+		.column-list {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.column {
+			padding: 0 1em;
+		}
+
+		.column:first-child {
+			padding-left: 0;
+		}
+
+		.column:last-child {
+			padding-right: 0;
+		}
+
+		.table_of_contents-item {
+			display: block;
+			font-size: 0.875rem;
+			line-height: 1.3;
+			padding: 0.125rem;
+		}
+
+		.table_of_contents-indent-1 {
+			margin-left: 1.5rem;
+		}
+
+		.table_of_contents-indent-2 {
+			margin-left: 3rem;
+		}
+
+		.table_of_contents-indent-3 {
+			margin-left: 4.5rem;
+		}
+
+		.table_of_contents-link {
+			text-decoration: none;
+			opacity: 0.7;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid rgba(55, 53, 47, 0.09);
+			border-collapse: collapse;
+		}
+
+		table {
+			border-left: none;
+			border-right: none;
+		}
+
+		th,
+		td {
+			font-weight: normal;
+			padding: 0.25em 0.5em;
+			line-height: 1.5;
+			min-height: 1.5em;
+			text-align: left;
+		}
+
+		th {
+			color: rgba(55, 53, 47, 0.6);
+		}
+
+		ol,
+		ul {
+			margin: 0;
+			margin-block-start: 0.6em;
+			margin-block-end: 0.6em;
+		}
+
+		li>ol:first-child,
+		li>ul:first-child {
+			margin-block-start: 0.6em;
+		}
+
+		ul>li {
+			list-style: disc;
+		}
+
+		ul.to-do-list {
+			text-indent: -1.7em;
+		}
+
+		ul.to-do-list>li {
+			list-style: none;
+		}
+
+		.to-do-children-checked {
+			text-decoration: line-through;
+			opacity: 0.375;
+		}
+
+		ul.toggle>li {
+			list-style: none;
+		}
+
+		ul {
+			padding-inline-start: 1.7em;
+		}
+
+		ul>li {
+			padding-left: 0.1em;
+		}
+
+		ol {
+			padding-inline-start: 1.6em;
+		}
+
+		ol>li {
+			padding-left: 0.2em;
+		}
+
+		.mono ol {
+			padding-inline-start: 2em;
+		}
+
+		.mono ol>li {
+			text-indent: -0.4em;
+		}
+
+		.toggle {
+			padding-inline-start: 0em;
+			list-style-type: none;
+		}
+
+		/* Indent toggle children */
+		.toggle>li>details {
+			padding-left: 1.7em;
+		}
+
+		.toggle>li>details>summary {
+			margin-left: -1.1em;
+		}
+
+		.selected-value {
+			display: inline-block;
+			padding: 0 0.5em;
+			background: rgba(206, 205, 202, 0.5);
+			border-radius: 3px;
+			margin-right: 0.5em;
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			white-space: nowrap;
+		}
+
+		.collection-title {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.simple-table {
+			margin-top: 1em;
+			font-size: 0.875rem;
+			empty-cells: show;
+		}
+
+		.simple-table td {
+			height: 29px;
+			min-width: 120px;
+		}
+
+		.simple-table th {
+			height: 29px;
+			min-width: 120px;
+		}
+
+		.simple-table-header-color {
+			background: rgb(247, 246, 243);
+			color: black;
+		}
+
+		.simple-table-header {
+			font-weight: 500;
+		}
+
+		time {
+			opacity: 0.5;
+		}
+
+		.icon {
+			display: inline-block;
+			max-width: 1.2em;
+			max-height: 1.2em;
+			text-decoration: none;
+			vertical-align: text-bottom;
+			margin-right: 0.5em;
+		}
+
+		img.icon {
+			border-radius: 3px;
+		}
+
+		.user-icon {
+			width: 1.5em;
+			height: 1.5em;
+			border-radius: 100%;
+			margin-right: 0.5rem;
+		}
+
+		.user-icon-inner {
+			font-size: 0.8em;
+		}
+
+		.text-icon {
+			border: 1px solid #000;
+			text-align: center;
+		}
+
+		.page-cover-image {
+			display: block;
+			object-fit: cover;
+			width: 100%;
+			max-height: 30vh;
+		}
+
+		.page-header-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.page-header-icon-with-cover {
+			margin-top: -0.72em;
+			margin-left: 0.07em;
+		}
+
+		.page-header-icon img {
+			border-radius: 3px;
+		}
+
+		.link-to-page {
+			margin: 1em 0;
+			padding: 0;
+			border: none;
+			font-weight: 500;
+		}
+
+		p>.user {
+			opacity: 0.5;
+		}
+
+		td>.user,
+		td>time {
+			white-space: nowrap;
+		}
+
+		input[type="checkbox"] {
+			transform: scale(1.5);
+			margin-right: 0.6em;
+			vertical-align: middle;
+		}
+
+		p {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+
+		.image {
+			border: none;
+			margin: 1.5em 0;
+			padding: 0;
+			border-radius: 0;
+			text-align: center;
+		}
+
+		.code,
+		code {
+			background: rgba(135, 131, 120, 0.15);
+			border-radius: 3px;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			font-size: 85%;
+			tab-size: 2;
+		}
+
+		code {
+			color: #eb5757;
+		}
+
+		.code {
+			padding: 1.5em 1em;
+		}
+
+		.code-wrap {
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+
+		.code>code {
+			background: none;
+			padding: 0;
+			font-size: 100%;
+			color: inherit;
+		}
+
+		blockquote {
+			font-size: 1.25em;
+			margin: 1em 0;
+			padding-left: 1em;
+			border-left: 3px solid rgb(55, 53, 47);
+		}
+
+		.bookmark {
+			text-decoration: none;
+			max-height: 8em;
+			padding: 0;
+			display: flex;
+			width: 100%;
+			align-items: stretch;
+		}
+
+		.bookmark-title {
+			font-size: 0.85em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 1.75em;
+			white-space: nowrap;
+		}
+
+		.bookmark-text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.bookmark-info {
+			flex: 4 1 180px;
+			padding: 12px 14px 14px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.bookmark-image {
+			width: 33%;
+			flex: 1 1 180px;
+			display: block;
+			position: relative;
+			object-fit: cover;
+			border-radius: 1px;
+		}
+
+		.bookmark-description {
+			color: rgba(55, 53, 47, 0.6);
+			font-size: 0.75em;
+			overflow: hidden;
+			max-height: 4.5em;
+			word-break: break-word;
+		}
+
+		.bookmark-href {
+			font-size: 0.75em;
+			margin-top: 0.25em;
+		}
+
+		.sans {
+			font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+
+		.code {
+			font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+		}
+
+		.serif {
+			font-family: Lyon-Text, Georgia, ui-serif, serif;
+		}
+
+		.mono {
+			font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+		}
+
+		.pdf .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+		}
+
+		.pdf .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.pdf .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+		}
+
+		.pdf .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.highlight-default {
+			color: rgba(55, 53, 47, 1);
+		}
+
+		.highlight-gray {
+			color: rgba(120, 119, 116, 1);
+			fill: rgba(120, 119, 116, 1);
+		}
+
+		.highlight-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(159, 107, 83, 1);
+		}
+
+		.highlight-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(217, 115, 13, 1);
+		}
+
+		.highlight-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 145, 47, 1);
+		}
+
+		.highlight-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(68, 131, 97, 1);
+		}
+
+		.highlight-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(51, 126, 169, 1);
+		}
+
+		.highlight-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(144, 101, 176, 1);
+		}
+
+		.highlight-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(193, 76, 138, 1);
+		}
+
+		.highlight-red {
+			color: rgba(212, 76, 71, 1);
+			fill: rgba(212, 76, 71, 1);
+		}
+
+		.highlight-gray_background {
+			background: rgba(241, 241, 239, 1);
+		}
+
+		.highlight-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+
+		.highlight-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+
+		.highlight-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+
+		.highlight-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+
+		.highlight-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+
+		.highlight-purple_background {
+			background: rgba(244, 240, 247, 0.8);
+		}
+
+		.highlight-pink_background {
+			background: rgba(249, 238, 243, 0.8);
+		}
+
+		.highlight-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+
+		.block-color-default {
+			color: inherit;
+			fill: inherit;
+		}
+
+		.block-color-gray {
+			color: rgba(120, 119, 116, 1);
+			fill: rgba(120, 119, 116, 1);
+		}
+
+		.block-color-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(159, 107, 83, 1);
+		}
+
+		.block-color-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(217, 115, 13, 1);
+		}
+
+		.block-color-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 145, 47, 1);
+		}
+
+		.block-color-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(68, 131, 97, 1);
+		}
+
+		.block-color-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(51, 126, 169, 1);
+		}
+
+		.block-color-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(144, 101, 176, 1);
+		}
+
+		.block-color-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(193, 76, 138, 1);
+		}
+
+		.block-color-red {
+			color: rgba(212, 76, 71, 1);
+			fill: rgba(212, 76, 71, 1);
+		}
+
+		.block-color-gray_background {
+			background: rgba(241, 241, 239, 1);
+		}
+
+		.block-color-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+
+		.block-color-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+
+		.block-color-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+
+		.block-color-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+
+		.block-color-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+
+		.block-color-purple_background {
+			background: rgba(244, 240, 247, 0.8);
+		}
+
+		.block-color-pink_background {
+			background: rgba(249, 238, 243, 0.8);
+		}
+
+		.block-color-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+
+		.select-value-color-pink {
+			background-color: rgba(245, 224, 233, 1);
+		}
+
+		.select-value-color-purple {
+			background-color: rgba(232, 222, 238, 1);
+		}
+
+		.select-value-color-green {
+			background-color: rgba(219, 237, 219, 1);
+		}
+
+		.select-value-color-gray {
+			background-color: rgba(227, 226, 224, 1);
+		}
+
+		.select-value-color-opaquegray {
+			background-color: rgba(255, 255, 255, 0.0375);
+		}
+
+		.select-value-color-orange {
+			background-color: rgba(250, 222, 201, 1);
+		}
+
+		.select-value-color-brown {
+			background-color: rgba(238, 224, 218, 1);
+		}
+
+		.select-value-color-red {
+			background-color: rgba(255, 226, 221, 1);
+		}
+
+		.select-value-color-yellow {
+			background-color: rgba(253, 236, 200, 1);
+		}
+
+		.select-value-color-blue {
+			background-color: rgba(211, 229, 239, 1);
+		}
+
+		.checkbox {
+			display: inline-flex;
+			vertical-align: text-bottom;
+			width: 16;
+			height: 16;
+			background-size: 16px;
+			margin-left: 2px;
+			margin-right: 5px;
+		}
+
+		.checkbox-on {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+
+		.checkbox-off {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+	</style>
+</head>
+
+<body>
+	<article id="11ce3b4a-e7c0-4e6c-bdc0-02a909a22922" class="page sans">
+		<header><img class="page-cover-image"
+				src="https://images.unsplash.com/photo-1648737153811-69a6d8c528bf?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"
+				style="object-position:center 82.62%" />
+			<div class="page-header-icon page-header-icon-with-cover"><span class="icon">📖</span></div>
+			<h1 class="page-title">Day 0: Before we start</h1>
+		</header>
+		<div class="page-body">
+			<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+				id="5da6ba1a-4f50-470c-a850-5bcab98f89cf">
+				<div style="font-size:1.5em"><span class="icon">⚠️</span></div>
+				<div style="width:100%">This guide contain the minimal <mark class="highlight-blue"><strong>Hardware
+							requirements</strong></mark> to start an experiment with our customised recording system.
+					Please, check it <strong><mark class="highlight-orange_background">BEFORE</mark></strong> we arrive
+					at your destination. In addition, both <mark
+						class="highlight-blue"><strong>Maintenance</strong></mark> and <mark
+						class="highlight-blue"><strong>Solutions and Drugs</strong></mark> must be ready to use on the
+					recording day of our training (<a
+						href="https://www.notion.so/Day-3-Sample-preparation-and-recording-7dd7192a08b44b8ca6916649621f3cec"><span
+							class="icon">📖</span>Day 3: Sample preparation and recording</a> ). Feel free to download
+					this guide and ensure that all elements in the Checklist are available.</div>
+			</figure>
+			<nav id="8bd36c54-7c8b-46af-ab2a-7ede312c0ad4" class="block-color-gray table_of_contents">
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#3a21db48-6130-4a21-9790-581c7db370f9">Checklist</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#92780388-2199-445f-9903-d435f5d0f23b"><mark class="highlight-blue">1. Hardware
+							requirements</mark></a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#38d19187-7eab-4187-b5c1-590839bc54d4">1. 1 Dedicated location</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#2d9d8220-52d7-410f-b58b-91d51a565b28">1. 2 Power supply </a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#abd90a91-d899-48be-843a-865dc2ae5bf7"><mark class="highlight-blue">2. Maintenance
+						</mark></a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#c1d336ce-943d-44eb-ac5e-c1111759fe56">2.1 Carbogen bottle </a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#ad54e2fb-7684-41c2-a977-15340628e1ff">2. 2 Pressure adaptor</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#6e11c6ce-9df1-4722-9aea-ea8861ee7f2c">2. 3 Filter-candle tubing</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#2f59f0f1-34c3-4587-bef0-ae85a42f80e5"><mark class="highlight-blue">3. Solutions and
+							Drugs</mark></a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#b8869c2b-11d3-4d86-94a9-827a827a72f4">3. 1 Agarose 4% (w/v) in PBS </a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#e8d5a718-676e-4a6d-aad8-e62607dc5c20">3. 2 Artificial CerebroSpinal Fluid (ACSF)</a>
+				</div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#343fd813-c6e6-4cec-9890-3b68473b91ea">3. 3 Other Drugs</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#a6cc7725-7c60-4459-a41c-a32432fe79bd"><mark class="highlight-blue">4. Software
+							requirements (optional)</mark></a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#0267f796-4cf0-41ef-9f33-cf8b917a5cda">References</a></div>
+			</nav>
+			<h1 id="3a21db48-6130-4a21-9790-581c7db370f9" class="">Checklist</h1>
+			<ul id="44ef985f-7ccc-4991-af81-49e4b7a19dd3" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">3- to 6-month-old
+						organoids cultured in BrainPhys</span>
+				</li>
+			</ul>
+			<ul id="ad536f52-7bd0-4072-8bc7-ab071df1b23e" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Dedicated location
+						for equipment (avoid direct irradiation)</span>
+				</li>
+			</ul>
+			<ul id="fcf48514-2672-4b5f-b0b7-c4f55273ae61" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Two dedicated power
+						sockets or outlet power strips</span>
+				</li>
+			</ul>
+			<ul id="68fc99c0-8307-4448-b74a-8fb9966c9e7e" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Carbogen bottle
+						(10L or 50L)</span>
+				</li>
+			</ul>
+			<ul id="2539a975-c889-4201-bdc9-201d648a06ce" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Pressure adaptor
+						(from 200 Bar to 1-2 Bar)</span>
+				</li>
+			</ul>
+			<ul id="023938f9-116a-4696-88f4-81f41e8327fd" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Filter-candle
+						tubes</span>
+				</li>
+			</ul>
+			<ul id="9a6a1e64-9e32-4cfc-b476-b007d10d4645" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Silicon tubes and
+						plastic clamps</span>
+				</li>
+			</ul>
+			<ul id="b5d7ce92-a772-4f89-ae64-f2b2c96de369" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">1-2 mL stocks of 4%
+						agarose (Biozime) in Phosphate buffer saline (PBS)</span>
+				</li>
+			</ul>
+			<ul id="6c494daa-256e-4b16-a5da-f147c06ca877" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">1 litter fresh
+						prepared artificial cerebrospinal fluid (ACSF)</span>
+				</li>
+			</ul>
+			<ul id="cf10744e-57bd-417a-9221-5208621cb88e" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">0.1 mL frozen
+						aliquots with pharmacological agents</span>
+				</li>
+			</ul>
+			<ul id="d5b93353-6ae4-4057-906a-411fcfada343" class="to-do-list">
+				<li>
+					<div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Python ≥ 3.6 and
+						Matlab (version &gt; R2016b)<strong> </strong>with toolboxes (optional)</span>
+				</li>
+			</ul>
+			<p id="a24bb017-bcc7-44d4-8c0c-25d8d450b66b" class="">
+			</p>
+			<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+				id="338b259a-36fb-48a0-ab94-7be85a564754">
+
+
+				<div style="font-size:1.5em"><span class="icon">⚠️</span></div>
+				<div style="width:100%">3 to 6 months old (after embryonic body) organoids must be cultured in neuronal
+					maturation medium in BrainPhys (Bardy et al., 2015) for at least <strong>three weeks before the
+						recordings</strong>. Check <strong><mark class="highlight-blue">Solutions and
+							Drugs</mark></strong> below for details. </div>
+			</figure>
+			<h1 id="92780388-2199-445f-9903-d435f5d0f23b" class=""><mark class="highlight-blue">1. Hardware
+					requirements</mark></h1>
+			<p id="d9c3faaf-3ee2-43c6-95e9-4719962a37b6" class="">Please, ask your building facility to assist you when
+				installing the system for the first time. The equipment is heavy, but it is possible to move it with the
+				help of a hand pallet trolley. </p>
+			<h3 id="38d19187-7eab-4187-b5c1-590839bc54d4" class="">1. 1 Dedicated location</h3>
+			<div id="5d0b08f3-ed08-41e5-b376-9f33b653bdac" class="column-list">
+				<div id="410fe6e0-7e47-47c6-925b-408bee06536d" style="width:50%" class="column">
+					<figure id="e949c08f-b91c-4abb-a087-4d909c2284e0" class="image"><a href="table.png"><img
+								style="width:1622px" src="table.png" /></a></figure>
+				</div>
+				<div id="3d93fdf5-5ed4-4331-8c4f-d97fc5f8c7f5" style="width:50%" class="column">
+					<p id="9f1550cf-b3c7-4376-9eae-ab0e74e097e9" class="">Depending on your model, you will have a 600 x
+						600 cm (Width x Length) for the <strong><mark class="highlight-blue_background">recording
+								system</mark></strong>, or a 600 x 900 cm table passive isolator table for the
+						<strong><mark class="highlight-blue_background">recording workstation</mark></strong> (see
+						figure). Note that the table requires a surrounding distance of ~ 20 cm for electrical and
+						mechanical isolation.</p>
+					<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+						id="c8cc6eac-f71b-4c22-94c2-8a8886df5811">
+						<div style="font-size:1.5em"><span class="icon">⚠️</span></div>
+						<div style="width:100%">Computers, cell phones, or any other radio-emitting devices should not
+							be exposed to the entry of the Faraday Cage, as they may interfere with the signals.</div>
+					</figure>
+				</div>
+			</div>
+			<p id="29da9cdb-b185-443a-b0bb-ffe7ca864e5d" class="">A pump will be used to pressurize the passive
+				vibration table. We recommend filling the tables with 60 psi (415 kPa or 4,15 bars).</p>
+			<h3 id="2d9d8220-52d7-410f-b58b-91d51a565b28" class="">1. 2 Power supply </h3>
+			<p id="d5bf8356-9b89-437b-b315-d446c50e412b" class="">It is recommended to use <em>different security
+					sockets </em>for the recording system and the computer. If possible, two independent extra long
+				power strips are advisable. </p>
+			<h1 id="abd90a91-d899-48be-843a-865dc2ae5bf7" class=""><mark class="highlight-blue">2. Maintenance </mark>
+			</h1>
+			<h3 id="c1d336ce-943d-44eb-ac5e-c1111759fe56" class="">2.1 Carbogen bottle </h3>
+			<div id="e7d18aa0-7aee-4a20-a1cb-1cab8c5173c8" class="column-list">
+				<div id="7db0872e-acae-4f06-b59c-6eeb1959d633" style="width:37.5%" class="column">
+					<figure id="da1d1451-f98f-437e-84f0-2a982e3ed4a7" class="image"><a href="carbogen.png"><img
+								style="width:1040px" src="carbogen.png" /></a></figure>
+				</div>
+				<div id="cdc0e4d2-8f8f-43b2-a236-5d29b189e24e" style="width:62.5%" class="column">
+					<p id="e2bf370b-066e-4f5b-abdc-12ea39f622c5" class="">A mixture of 5% CO2 and 95 % O2 (carbogen,
+						available for example, <a
+							href="https://www.linde-gas.de/shop/de/de-ig/carbogen-lab-50l-200-bar-4040152">here</a>)
+						must be continuously supplied to the tissue to maintaining the pH and appropriate oxygenation
+						levels. Commercially available bottles containing 50L or 10 L of carbogen at 200 bars are
+						available. </p>
+					<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+						id="09155c66-226f-444d-8f76-cbda3278008f">
+						<div style="font-size:1.5em"><span class="icon">⚠️</span></div>
+						<div style="width:100%">carbogen is highly flammable. Check the safety regulations of your
+							institution carefully.</div>
+					</figure>
+				</div>
+			</div>
+			<p id="71d1021e-edfd-48c3-8fd1-81d5d934d26f" class="">
+			</p>
+			<h3 id="ad54e2fb-7684-41c2-a977-15340628e1ff" class="">2. 2 Pressure adaptor</h3>
+			<p id="4126719d-b801-4e3e-bcd8-0670f7b7072c" class="">If your facility does not provide it, you will need an
+				adaptor to reduce the pressure of the carbogen bottle (200 Bar) to pressure of application necessary to
+				operate the recording system (to ~ 1-2 bar pressure). Please, also follow the local regulation (in
+				Europe we follow ISO 5171 regulation). Be sure that:</p>
+			<div id="658efe48-629a-45cd-82c8-63fb7f75c5ec" class="column-list">
+				<div id="3a6f8ee3-8875-44fe-baad-425b1698b27e" style="width:56.25%" class="column">
+					<figure id="6dbab71b-f62d-418c-add7-9e345d4c6e89" class="image"><a href="carbogen_adaptor.jpeg"><img
+								style="width:640px" src="carbogen_adaptor.jpeg" /></a></figure>
+				</div>
+				<div id="94dab2e2-cb70-43fb-bf08-f4798c4239d8" style="width:43.74999999999999%" class="column">
+					<ol type="1" id="a9849be4-5ba9-4d8c-a7ef-9c7798f94601" class="numbered-list" start="1">
+						<li>The adaptor is suitable for conducting flammable gas.</li>
+					</ol>
+					<ol type="1" id="50b3d3bb-f214-452f-a329-72bc2391c47b" class="numbered-list" start="2">
+						<li>Input pressure is 200 bar (in Europe DIN-477-1).</li>
+					</ol>
+					<ol type="1" id="b75725d7-10fd-40ad-b347-e4c1147fafd8" class="numbered-list" start="3">
+						<li>Output pressure is in the range of 1-2 bars.</li>
+					</ol>
+					<ol type="1" id="c5eb9dbf-13b4-4e78-9d00-e490537076f7" class="numbered-list" start="4">
+						<li>Output size of the adaptor (possibly diameter of 6 or 8 mm).</li>
+					</ol>
+				</div>
+			</div>
+			<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+				id="76f68ccd-bf50-438a-92e1-615eecd1f6b4">
+				<div style="font-size:1.5em"><span class="icon">☝🏼</span></div>
+				<div style="width:100%">You can order a suitable adaptor <a
+						href="https://www.medicalgasinstallers.com/product/western-medical-m1-280-pg-single-stage-adjustable-0-100-psi-carbon-dioxide-oxygen-mixture-pressure-regulator/">here</a>
+					that outputs up to 100 psi (~ 6.8 bar).</div>
+			</figure>
+			<h3 id="6e11c6ce-9df1-4722-9aea-ea8861ee7f2c" class="">2. 3 Filter-candle tubing</h3>
+			<p id="4a9ce9cb-462a-4220-9c6b-60ecd045f1ea" class="">Carbogen must be applied to the tissue through
+				standard silicon cables via micro-filter candles. (e.g. models 18114 or 18124 in Robusglass, see this <a
+					href="https://www.robuglas.com/en/laboratory-equipment/filter-candles-with-tube/micro-filter-candles-cylindrical-shape.html">link</a>).
+				Be sure you have several meters of ROTILABO silicon tubes of different diameters (available for example
+				<a
+					href="https://www.carlroth.com/com/en/hoses-for-peristaltic-pumps/tube-rotilabo-silicone-standard-design/p/n875.1">here</a>).
+				Finally, you may also need <a
+					href="https://www.amazon.com/Bel-Art-Acetal-Mid-Range-Plastic-F18228-0000/dp/B002VA5U3E">tubing
+					clamps</a> to regulate the gas influx.</p>
+			<figure id="7e973a15-7e67-498e-b3e5-d510a906969c" class="image"><a href="filter_candle.jpg"><img
+						style="width:1280px" src="filter_candle.jpg" /></a></figure>
+			<h1 id="2f59f0f1-34c3-4587-bef0-ae85a42f80e5" class=""><mark class="highlight-blue">3. Solutions and
+					Drugs</mark></h1>
+			<p id="1d758979-408e-4ee3-a180-40eab08cb3f4" class="">It is critical to keep the cultures in BrainPhys
+				Neuronal medium for at least three weeks before starting the recordings (see formulation in <a
+					href="https://pubmed.ncbi.nlm.nih.gov/35084981/">Eichmüller et al., 2022</a>). The standard culture
+				in a high-nutrient formulation (e.g.., Diff + Vitamin A from <a
+					href="https://pubmed.ncbi.nlm.nih.gov/25035496/">Lancaster et al., 2014</a>) can be slowly replaced
+				by increasing amounts of BrainPhys solutions. For example:</p>
+			<table id="df96d7fb-20f6-4d36-8824-808680c12f25" class="simple-table">
+				<tbody>
+					<tr id="b24c2cb9-aeb3-435f-9532-f05d6a86e1f9">
+						<td id="o{t=" class="">before day 40</td>
+						<td id="P{n~" class="" style="width:306px">100% high nutrient solution</td>
+					</tr>
+					<tr id="4c862148-9ad2-4c92-b0be-8e197ab7f639">
+						<td id="o{t=" class="">day 40</td>
+						<td id="P{n~" class="" style="width:306px">80/20 ratio high/low nutrient solution</td>
+					</tr>
+					<tr id="3ad797cc-b8bd-4f35-8354-36a9d9695610">
+						<td id="o{t=" class="">day 43</td>
+						<td id="P{n~" class="" style="width:306px">60/40 ratio high/low nutrient solution</td>
+					</tr>
+					<tr id="cf57f94e-9aae-4f90-be51-da4225c41d20">
+						<td id="o{t=" class="">day 46</td>
+						<td id="P{n~" class="" style="width:306px">40/60 ratio high/low nutrient solution</td>
+					</tr>
+					<tr id="fdd646a3-3409-40c5-9653-31b9553bbff9">
+						<td id="o{t=" class="">day 49</td>
+						<td id="P{n~" class="" style="width:306px">20/80 ratio high/low nutrient solution</td>
+					</tr>
+					<tr id="f3bbbaae-73a5-4c3f-9107-e64cda6ef267">
+						<td id="o{t=" class="">day 52 onwards</td>
+						<td id="P{n~" class="" style="width:306px">100 % low nutrient solution </td>
+					</tr>
+				</tbody>
+			</table>
+			<p id="2c450fe0-2705-4412-9ca7-561d9d5c4e9b" class="">
+			</p>
+			<ol type="1" id="2b44d521-3f33-478b-bc3c-8adc3633074a" class="numbered-list" start="1">
+				<li><strong>BrainPhys low-nutrient formulation (250 mL) </strong>
+					<ul id="1e1ea063-eab9-4a49-908d-a8e95caae364" class="bulleted-list">
+						<li style="list-style-type:disc">235.3 mL BrainPhys Neuronal medium (Stem Cell Technologies,
+							<mark class="highlight-red_background"><a
+									href="https://www.stemcell.com/products/brainphys-neuronal-medium.html"><strong>Cat.
+										No. 05790</strong></a></mark><strong> </strong>)</li>
+					</ul>
+					<ul id="d8ac559a-24e7-47cc-a3ec-fbb3bc8e1be7" class="bulleted-list">
+						<li style="list-style-type:disc">5 mL B-27 supplement 50X (Gibco, <mark
+								class="highlight-red_background"><strong><a
+										href="https://www.thermofisher.com/order/catalog/product/17504044">Cat. No.
+										17504044</a></strong></mark>)</li>
+					</ul>
+					<ul id="9c66d8fe-11c1-459a-b3ee-21d35e2472c5" class="bulleted-list">
+						<li style="list-style-type:disc">2.5 mL N2 supplement 100X (Gibco, <mark
+								class="highlight-red_background"><a
+									href="https://www.thermofisher.com/order/catalog/product/17502048"><strong>Cat. No.
+										17502048</strong></a></mark>)</li>
+					</ul>
+					<ul id="7fe73ace-dc27-4acc-b95e-11626bded30d" class="bulleted-list">
+						<li style="list-style-type:disc">2.5 mL Matrigel (Corning , <mark
+								class="highlight-red_background"><strong><a
+										href="https://ecatalog.corning.com/life-sciences/b2b/US/en/Surfaces/Extracellular-Matrices-ECMs/Corning%C2%AE-Matrigel%C2%AE-Matrix/p/356234">Cat.
+										No. 356234</a></strong></mark>)</li>
+					</ul>
+					<ul id="40a67037-d522-4000-ae80-3efa177de484" class="bulleted-list">
+						<li style="list-style-type:disc">2.5 mL Penicilin/Streptomycin (Gibco,<mark
+								class="highlight-red_background"> </mark><mark class="highlight-red_background"><a
+									href="https://www.thermofisher.com/order/catalog/product/15070063"><strong>Cat. No.
+										15070063</strong></a></mark>)</li>
+					</ul>
+					<ul id="312c63eb-d604-47e0-bb26-60903a0b0ada" class="bulleted-list">
+						<li style="list-style-type:disc">1.7 mL 20% D-glucose stock solution (lead a final concentration
+							of 10 mM Glucose)</li>
+					</ul>
+					<ul id="94cd85b5-9b7f-4b71-a0ad-b9628c6bc452" class="bulleted-list">
+						<li style="list-style-type:disc">0.5 mL lipid concentrate (Gibco, <mark
+								class="highlight-red_background"><a
+									href="https://www.thermofisher.com/order/catalog/product/11905031"><strong>Cat. No.
+										11905031</strong></a></mark>)</li>
+					</ul>
+					<ul id="edc7534e-a686-4f6c-aa22-567007e18523" class="bulleted-list">
+						<li style="list-style-type:disc">1.25 uL of 200 mM stock solution of Ascorbic Acid</li>
+					</ul>
+					<p id="735f162c-463a-424e-86b2-5dedcf60849e" class="">
+					</p>
+				</li>
+			</ol>
+			<ol type="1" id="e167e9ea-0a14-41ce-af0b-ac476571908f" class="numbered-list" start="2">
+				<li><strong>Diff + Vitamin A high-nutrient formulation (250 mL)</strong>
+					<ul id="5caaeda1-73ce-4f80-8c86-51071a0a0750" class="bulleted-list">
+						<li style="list-style-type:disc">125 mL Neurobasal medium (Thermofischer<strong> </strong>)</li>
+					</ul>
+					<ul id="0b928360-0d49-461f-8560-0f455920391d" class="bulleted-list">
+						<li style="list-style-type:disc">125 mL DMEM/F12 (with HEPES, Glutamine)</li>
+					</ul>
+					<ul id="5fe05f64-7d5d-43d7-99e5-cc6f559e7d07" class="bulleted-list">
+						<li style="list-style-type:disc">5 mL B-27 supplement 50X (Gibco, <mark
+								class="highlight-red_background"><strong><a
+										href="https://www.thermofisher.com/order/catalog/product/17504044">Cat. No.
+										17504044</a></strong></mark>)</li>
+					</ul>
+					<ul id="b334cd76-f54d-420f-b638-0e3674707c93" class="bulleted-list">
+						<li style="list-style-type:disc">2.5 mL Penicilin/Streptomycin (Gibco,<mark
+								class="highlight-red_background"> </mark><mark class="highlight-red_background"><a
+									href="https://www.thermofisher.com/order/catalog/product/15070063"><strong>Cat. No.
+										15070063</strong></a></mark>)</li>
+					</ul>
+					<ul id="1cb8151a-8266-40fc-ba46-9fb065ef8ccf" class="bulleted-list">
+						<li style="list-style-type:disc">2.5 mL Matrigel (Corning , <mark
+								class="highlight-red_background"><strong><a
+										href="https://ecatalog.corning.com/life-sciences/b2b/US/en/Surfaces/Extracellular-Matrices-ECMs/Corning%C2%AE-Matrigel%C2%AE-Matrix/p/356234">Cat.
+										No. 356234</a></strong></mark>)</li>
+					</ul>
+					<ul id="8fcf85ba-a452-47dc-bdbc-43a6e9e50484" class="bulleted-list">
+						<li style="list-style-type:disc">2.5 mL Glutamax</li>
+					</ul>
+					<ul id="6dc67868-b97e-4ca7-964f-d817bb27174a" class="bulleted-list">
+						<li style="list-style-type:disc">1.25 mL N2 supplement 100X (Gibco, <mark
+								class="highlight-red_background"><a
+									href="https://www.thermofisher.com/order/catalog/product/17502048"><strong>Cat. No.
+										17502048</strong></a></mark>)</li>
+					</ul>
+					<ul id="4ac7d7f8-d474-4232-840a-d99393fe7144" class="bulleted-list">
+						<li style="list-style-type:disc">1.25 mL MEM-Non essential aminoacids</li>
+					</ul>
+					<ul id="4c8bc94d-5dec-4cd5-a271-f51d14277924" class="bulleted-list">
+						<li style="list-style-type:disc">62.5 uL Insulin solution (9.5 - 12 mg/mL)</li>
+					</ul>
+					<ul id="469ecf6a-b30b-4492-8ab9-1701f1cdf559" class="bulleted-list">
+						<li style="list-style-type:disc">87.5 uL beta mercapto-ethanol (1:100 dilution in DMEM/F12)</li>
+					</ul>
+					<p id="2f1f607c-dc8c-4aa0-881d-ecc13e1f94b8" class="">
+					</p>
+				</li>
+			</ol>
+			<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+				id="d3ca484a-d765-41ac-a91c-568e75a6533d">
+				<div style="font-size:1.5em"><span class="icon">☝🏼</span></div>
+				<div style="width:100%">Note that organoids in Brainphys tend to be smaller than in standard culture
+					medium (e.g., Diff+ A, see below). However, BrainPhys medium is essencial for recording electrical
+					activity and calcium waves (Zabolocki et al., 2022). </div>
+			</figure>
+			<p id="d1d74653-c01a-43e1-80d4-923601f61a40" class="">
+			</p>
+			<h3 id="b8869c2b-11d3-4d86-94a9-827a827a72f4" class="">3. 1 Agarose 4% (w/v) in PBS </h3>
+			<p id="7c158300-be9a-496b-875c-f017734a464c" class="">Prepare 4% (m/v) low-melt agarose (Biozime, <mark
+					class="highlight-red_background"><a
+						href="https://www.biozym.com/biochemikalien/agarosen/standard-und-spezialagarosen/7857/biozym-sieve-geneticpure-agarose?number=850084">Cat.
+						No. 850080</a></mark>) in Phosphate Buffer Saline (PBS). We can store them in 1-2 mL stocks in
+				Eppendorf tubes of 1.5 to 2 mL before warming them at ~ 40 degrees and embedding the tissue. If you do
+				not have commercially available PBS, use the recipe below. </p>
+			<figure id="8d07834e-7913-4d0c-b4cf-5d909b1cc58f" class="image"><a href="PBS_receipt.png"><img
+						style="width:1570px" src="PBS_receipt.png" /></a></figure>
+			<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+				id="1cfef570-011a-4554-a17c-a1ab7a0da860">
+				<div style="font-size:1.5em"><span class="icon">⚠️</span></div>
+				<div style="width:100%">The type of agarose is key. Use a dense formulation (500 g/cm2) from <a
+						href="https://www.biozym.com/biochemikalien/agarosen/standard-und-spezialagarosen/7857/biozym-sieve-geneticpure-agarose?number=850080">this
+						provider</a></div>
+			</figure>
+			<h3 id="e8d5a718-676e-4a6d-aad8-e62607dc5c20" class="">3. 2 Artificial CerebroSpinal Fluid (ACSF)</h3>
+			<p id="f73bcc94-0b18-4051-8ef4-c3e0e1928c71" class="">ACSF should be daily prepared (e.g., from a calcium
+				and magnesium-free 10X stock prepared weekly). CaCl2 and MgCl2 should be added immediately before the
+				experiment and bubbled in Carbogen at least 30 minutes before the experiment. Follow the recipe below.
+			</p>
+			<figure id="652485ad-69f3-46ee-8a32-6df4eb18adff" class="image"><a href="ACSF_receipt.png"><img
+						style="width:1322px" src="ACSF_receipt.png" /></a></figure>
+			<h3 id="343fd813-c6e6-4cec-9890-3b68473b91ea" class="">3. 3 Other Drugs</h3>
+			<p id="3a391429-9e6c-4c17-85be-da04a8a744fb" class="">If you want to test the effects of synaptic blockers,
+				it is convenient to have frozen (-20 deg.) aliquots containing drugs of interest. For example:</p>
+			<figure id="9c03fa15-d317-480b-af2c-ace75cb88922" class="image"><a href="drug_concentrations.png"><img
+						style="width:2068px" src="drug_concentrations.png" /></a></figure>
+			<h1 id="a6cc7725-7c60-4459-a41c-a32432fe79bd" class=""><mark class="highlight-blue">4. Software requirements
+					(optional)</mark></h1>
+			<p id="626921e6-90ea-4d16-94f1-88eb3e3ff684" class="">It is advisable to have a system with <strong>Python
+					(version ≥ 3.6)</strong> and if spike sorting is required <strong>Matlab (version &gt;
+					R2016b)</strong> with the following toolboxes:
+			<div class="indented">
+				<p id="a9201904-c5a7-4081-b59f-6c550d99313f" class="">1) parallel computing </p>
+				<p id="aa29ccb6-2ac0-4b15-8881-0f811c4347dd" class="">2) signal-processing </p>
+				<p id="7d4961c5-6027-4618-812f-17ed6f6e408a" class="">3) statistics and machine learning</p>
+			</div>
+			</p>
+			<h1 id="0267f796-4cf0-41ef-9f33-cf8b917a5cda" class="">References</h1>
+			<ol type="1" id="0ccc0453-dade-451d-9361-da0fdc4b0573" class="numbered-list" start="1">
+				<li>Bardy C, van den Hurk M, Eames T, Marchand C, Hernandez RV, Kellogg M, Gorris M, Galet B, Palomares
+					V, Brown J, Bang AG, Mertens J, Böhnke L, Boyer L, Simon S, Gage FH. Neuronal medium that supports
+					basic synaptic functions and activity of human neurons in vitro. Proc Natl Acad Sci U S A. 2015 May
+					19;112(20):E2725-34. doi: 10.1073/pnas.1504393112. Epub 2015 Apr 13. Erratum in: Proc Natl Acad Sci
+					U S A. 2015 Jun 23;112(25):E3312. PMID: 25870293; PMCID: PMC4443325.</li>
+			</ol>
+			<ol type="1" id="beb55ca3-623a-4d40-9b48-eaf04ee0a84e" class="numbered-list" start="2">
+				<li>Eichmüller OL, Corsini NS, Vértesy Á, Morassut I, Scholl T, Gruber VE, Peer AM, Chu J, Novatchkova
+					M, Hainfellner JA, Paredes MF, Feucht M, Knoblich JA. <em>Amplification of human interneuron
+						progenitors promotes brain tumors and neurological defects. </em>Science. 2022 Jan
+					28;375(6579):eabf5546. doi: 10.1126/science.abf5546. Epub 2022 Jan 28. PMID: 35084981. </li>
+			</ol>
+			<ol type="1" id="47042c9d-ec94-474c-91e0-33c07ac483e7" class="numbered-list" start="3">
+				<li>Lancaster MA, Knoblich JA. Organogenesis in a dish: modeling development and disease using organoid
+					technologies. Science. 2014 Jul 18;345(6194):1247125. doi: 10.1126/science.1247125. Epub 2014 Jul
+					17. PMID: 25035496.</li>
+			</ol>
+			<ol type="1" id="0100d985-2c73-4655-89e8-2ee562b6e0ab" class="numbered-list" start="4">
+				<li>Zabolocki M, McCormack K, van den Hurk M, Milky B, Shoubridge AP, Adams R, Tran J, Mahadevan-Jansen
+					A, Reineck P, Thomas J, Hutchinson MR, Mak CKH, Añonuevo A, Chew LH, Hirst AJ, Lee VM, Knock E,
+					Bardy C. BrainPhys neuronal medium optimized for imaging and optogenetics in vitro. Nat Commun. 2020
+					Nov 3;11(1):5550. doi: 10.1038/s41467-020-19275-x. PMID: 33144563; PMCID: PMC7642238.</li>
+			</ol>
+			<p id="4293c3ff-634f-423e-bd06-45b4d24bdb55" class="">
+			</p>
+		</div>
+	</article>
+</body>
+
+</html>

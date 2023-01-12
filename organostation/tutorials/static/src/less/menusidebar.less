@@ -5,10 +5,10 @@
 @baby-blue: #EAF0F6;
 
 * {
-    margin: 0;
-    padding: 0;
+    //    margin: 0;
+    //    padding: 0;
     user-select: none;
-    box-sizing: border-box;
+    //    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -21,9 +21,9 @@
     Custom button to open Table of Contents 
 *************************************************************************/
 .mybtn {
-    position: absolute;
+    position: fixed;
     top: 110px;
-    left: 45px;
+    left: 255px;
     height: 37px;
     width: 37px;
     text-align: center;
@@ -53,19 +53,20 @@
 *************************************************************************/
 .menusidebar {
     position: fixed;
+    top: 40px;
     width: 250px;
     height: 100%;
-    left: -250px;
+    left: -0px;
     background: @myligthgray;
     transition: left 0.4s ease;
 }
 
 .menusidebar.show {
-    left: 0px;
+    left: -250px;
 }
 
 /* Table of Context text */
-.menusidebar .toc {
+.menusidebar .tableofcontents {
     color: white;
     font-size: 15px;
     font-weight: 600;
@@ -76,7 +77,7 @@
     text-transform: uppercase;
 }
 
-nav ul {
+.menusidebar ul {
     /*background: #1b1b1b;*/
     height: 100%;
     width: 100%;
@@ -84,18 +85,23 @@ nav ul {
     padding-left: 5px;
 }
 
-nav ul li {
+.menusidebar ul li {
     line-height: 50px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-nav ul li:last-child {
+.menusidebar ul li:last-child {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-nav ul li a {
+.menusidebar ul li.active a {
+    color: @purple;
+    border-left-color: @purple;
+}
+
+.menusidebar ul li a {
     position: relative;
-    color: white;
+    color: whitesmoke;
     text-decoration: none;
     font-size: 13px;
     padding-left: 14px;
@@ -103,19 +109,13 @@ nav ul li a {
     display: block;
     width: 100%;
     border-left: 3px solid transparent;
+    border-left-color: @dark-blue;
 }
 
-.menusidebar ul li.active a {
-    color: @purple;
-    /* background: #1e1e1e;*/
-    border-left-color: @purple;
-}
 
-.menusidebar ul {
-    height: 100%;
-    width: 100%;
-    list-style: none;
-    padding-left: 5px;
+.menusidebar ul.show {
+    display: block;
+    transition: all 0.5s;
 }
 
 .menusidebar .ul .li .a {
@@ -130,56 +130,60 @@ nav ul li a {
     border-left: 3px solid transparent;
 }
 
-.menusidebar ul li a:visited {
+/*.menusidebar ul li a {
     text-decoration: none;
     color: @dark-blue !important;
+    border-left-color: @dark-blue;
 }
+*/
 
-// here start
+// ok 
 .menusidebar ul li a:hover {
     background: @dark-blue;
     text-decoration: none;
-    color: white !important;
+    color: whitesmoke !important;
+    border-left-color: whitesmoke;
 }
+
+
 
 .feat-show {
     transition: all 0.5s;
 }
 
-nav ul li.active ul {
+.menusidebar ul li.active ul {
     transition: all 0.5s;
 }
 
-nav ul ul {
+.menusidebar ul ul {
     position: static;
     display: none;
 }
 
-nav ul.show {
-    display: block;
-    transition: all 0.5s;
-}
-
-nav ul ul li {
+.menusidebar ul ul li {
     line-height: 42px;
     border-top: none;
 }
 
-nav ul ul li a {
+.menusidebar ul ul li a {
     font-size: 12px;
     color: #e6e6e6;
 
 }
 
-nav ul li.active ul li a {
-    color: #e6e6e6;
-    /* background: #1b1b1b;*/
+.menusidebar ul li.active ul li a {
+    color: whitesmoke;
     border-left-color: transparent;
 }
 
-nav ul ul li a:hover {
-    color: white !important;
-    background: @dark-blue !important;
+.menusidebar ul ul li a:hover {
+    color: whitesmoke;
+    background: @dark-blue;
+}
+
+.menusidebar ul ul li a:visited {
+    color: whitesmoke;
+    background: @dark-blue;
 }
 
 // to rotate fa-caret-down we modify span
@@ -196,12 +200,13 @@ nav ul ul li a:hover {
     transform: translateY(-50%) rotate(-180deg);
 }
 
-// here end
 .tutorial_content {
     position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    bottom: -15%;
+    left: 25%;
+    right: 5%;
+    //transform: translate(-50%, -50%);
     color: @black;
     z-index: -1;
     //text-align: center;

@@ -1,25 +1,28 @@
+{#
+CSS and left menubar (menusidebar) for the tutorials.
+It contains the table of contents.
+#}
 {% extends "layout.jinja2" %}
 
-{% block title %} {{ title }} {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/tutorials.min.css') }}" />
 
+{# menu button #}
 <div class="mybtn">
     <span class="fas fa-bars"></span>
 </div>
-
+{# Customized left menu: menusidebar #}
 <nav class="menusidebar">
-    <div class="toc me-3 me-lg-0">
-        Table of Contents
-    </div>
+    <div class="tableofcontents me-3 me-lg-0">
+        Table of Contents</div>
     <ul class="main_side">
         <li class="active"><a href="#">Dashboard</a></li>
         <li>
             <a href="#" id="1">1. Before we start<span class="fas fa-caret-down"></span></a>
             <ul class="item-show-1">
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our Team</a></li>
+                <li><a href="{{ url_for('tutorials_bp.lectures', lecture_id=0) }}">Checklist</a></li>
+                <li><a href="#content">Contents</a></li>
             </ul>
         </li>
         <li>
@@ -57,6 +60,7 @@
 </nav>
 {# Here we introduce the different tutorials #}
 <div class="tutorial_content" role="main">
-    {% block tutorial_content %}{% endblock %}
+    {% block tutorial_content %}
+    {% endblock %}
 </div>
 {% endblock %}

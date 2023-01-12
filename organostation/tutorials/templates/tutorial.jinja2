@@ -4,19 +4,20 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/tutorials.min.css') }}" />
+
 <div class="mybtn">
     <span class="fas fa-bars"></span>
 </div>
 <nav class="menusidebar">
-    <div class="text me-3 me-lg-0">
-        Table of Contents
-    </div>
+    <div class="tableofcontents me-3 me-lg-0">
+        Table of Contents</div>
     <ul class="main_side">
-        <li class="active"><a href="#">Dashboard</a></li>
+        <li class="active"><a href="{{url_for('tutorials_bp.home')}}">Dashboard</a></li>
         <li>
-            <a href="#" id="1">1. Before we start<span class="fas fa-caret-down"></span></a>
+            <a href="{{ url_for('tutorials_bp.lectures', lecture_id=0) }}" id="1">1. Before we start<span
+                    class="fas fa-caret-down"></span></a>
             <ul class="item-show-1">
-                <li><a href="{{url_for('tutorials_bp.test')}}">Contact us</a></li>
+                <li><a href="#">Contact us</a></li>
                 <li><a href="#">Our Team</a></li>
             </ul>
         </li>

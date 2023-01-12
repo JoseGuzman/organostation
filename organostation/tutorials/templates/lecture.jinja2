@@ -1,0 +1,22 @@
+{#
+This is the main layout for the lectures. It uses the
+nav and footer menues from the layout.jijna2. Then,
+it loads the CSS and loads the left menu from menusidebar.jinja2
+
+The routes must provide a variable 'mytarget' with the location
+of the index.html located in every subfolder (e.g., day0/index.html)
+#}
+{% extends "menusidebar.jinja2" %} {# also includes layout.jinja2 #}
+
+{% block tutorial_content %}
+{% if mytarget %}
+{% include mytarget %}
+{% else %}
+<div class="content">
+    <p> As part of our system installation service, we provide extensive and comprehensive training, ensuring the
+        user feels confident and capable of operating the system safely.</p>
+    <p> We will provide follow-up phone and email support and additional site visits as necessary.</p>
+</div>
+{% endif %}
+
+{% endblock %}

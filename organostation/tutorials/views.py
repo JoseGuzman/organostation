@@ -48,10 +48,13 @@ def home():
     )
 
 
-@tutorials_bp.route("/lecture1")
+@tutorials_bp.route("/lectures/<int:lecture_id>")
 @login_required
-def test():
-    """Tutorials homepage"""
+def lectures(lecture_id: int):
+    """This links to the tutorial days"""
+    print(f"you access day{lecture_id}")
+    mytarget = f"day{lecture_id}/index.html"
+    print(mytarget)
     return render_template(
-        "lecture1.jinja2",  # uses layout and navigation jijna2 templates
-    )
+        "lecture.jinja2", mytarget=mytarget
+    )  # uses layout and navigation jijna2 templates
