@@ -1,11 +1,8 @@
 """
 Main Flask Application Factory with Blueprints.
-Assets are compiled with Flask-Assets from less files
+Assets are compiled with Flask-Assets from .less files
 
-Check for aditional information
-https://hackersandslackers.com/flask-application-factory/
-
-Shell context:
+Shell context (only available in development):
 (see here: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
 Typing flask shell will permit access to the app and database:
 >>> flask shell

@@ -62,7 +62,7 @@ $ git clone https//github.com/JoseGuzman/organostation.git
 $ cd organostation
 $ mv env_example .env
 $ mkdir .venv
-$ pipenv shell --python path/to/python
+$ pipenv shell --python path/to/python # (e.g., /usr/bin/python3.8)
 $ pipenv update 
 $ python wsgi.py
 ```

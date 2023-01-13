@@ -4,7 +4,8 @@ wsig.py
 Created: Wed Dec  7 14:23:08 CET 2022
 
 This is the Application entry point. It creates the app (myapp)
-from organostation and runs it on port 8051.
+from organostation and runs it on port different hosts and ports
+depending if we are at development or production.
 
 To run this app you need the appropiate environment and type:
 >>> python wsgi.py

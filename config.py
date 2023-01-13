@@ -58,7 +58,7 @@ class DevConfig(Config):
 
     # Flask Asset Configuration
     LESS_BIN = "/usr/local/bin/lessc"
-    ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
+    ASSETS_DEBUG = False  # if True, outputsl each source file instead of merging them
     ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
 
 

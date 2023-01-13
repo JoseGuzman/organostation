@@ -25,7 +25,7 @@ class ContactForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    """Login form with username and password."""
+    """User_email and password to simply log In."""
 
     user_email = StringField(
         label="User Email",
@@ -38,7 +38,7 @@ class LoginForm(FlaskForm):
             Length(min=8, message="Password must be at least 8 characters long"),
         ],
     )
-    remember_me = BooleanField("\t\n\r\x0b\x0c Remember me")
+    remember_me = BooleanField("Remember me")
     submit = SubmitField("Log In")
 
 
