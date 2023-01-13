@@ -16,7 +16,7 @@ myapp = create_app()
 if __name__ == "__main__":
     debug = myapp.config["DEBUG"]
     if myapp.config["FLASK_ENV"] == "development":
-        myapp.run(debug=debug, port=8051)
+        myapp.run(host="0.0.0.0", port=8080, debug=debug)
     elif myapp.config["FLASK_ENV"] == "production":
         myapp.run(host="0.0.0.0", port=80, debug=debug)
     else:
