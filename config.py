@@ -46,7 +46,10 @@ class Config:
 class DevConfig(Config):
     """
     Flask config file for Development. It
-    requires nodejs and lessc to compile
+    requires nodejs and lessc to compile static access.
+    It will prompt custom error messages, and give access
+    to the database (db), user object (User) and the app.
+    (see __init__.py).
     """
 
     FLASK_ENV = "development"  # will set DEBUG = True

@@ -46,12 +46,14 @@ def create_app() -> Flask:
     assets = Environment()  # create an assets environment for styling
     assets.init_app(myapp)  # initialize it with the app
 
-    # provide access to User model in shell
-    @myapp.shell_context_processor
-    def make_shell_context():
-        from .models import User
+    if myapp.config["DEBUG"]:  # active in DevConfig class:
+        # provide access to User model in shell
+        @myapp.shell_context_processor
+        def make_shell_context():
+            """makes User model available in shell context"""
+            from .models import User
 
-        return {"User": User}
+            return {"User": User}
 
     # The app context
     with myapp.app_context():
