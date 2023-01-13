@@ -58,13 +58,13 @@ def create_app() -> Flask:
         from .assets import compile_static_assets
 
         # Register Blueprints
-        from .home.views import home_bp
+        from .auth.views import auth_bp
         from .tutorials.views import tutorials_bp
 
         db.create_all()  # create sql tables for our data models
 
         # Register Blueprints
-        myapp.register_blueprint(home_bp)
+        myapp.register_blueprint(auth_bp)
         myapp.register_blueprint(tutorials_bp)
 
         # dashboards

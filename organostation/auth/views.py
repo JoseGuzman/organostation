@@ -2,8 +2,8 @@
 views.py
 Created: Sun Dec 25 21:10:17 CET 2022
 
-It creates the routes (or views) for our 'home'. Home uses a
-'home_bp' blueprint that define access to the the homepage 
+It creates the routes (or views) for our 'auth'. Auth uses a
+'auth_bp' blueprint that define access to the the homepage
 and autentification resources.
 We define routes, templates and logic of the homepage here.
 """
@@ -26,8 +26,8 @@ def flash_errors(form: dict) -> None:
             )
 
 
-home_bp = Blueprint(
-    "home_bp",
+auth_bp = Blueprint(
+    "auth_bp",
     __name__,
     template_folder="templates",
     static_folder="static",
@@ -35,7 +35,7 @@ home_bp = Blueprint(
 )
 
 
-@home_bp.before_request
+@auth_bp.before_request
 def before_request():
     """Make sure we clean get_flashed_messages() before a request is made."""
     session["_flashes"] = []  # clear flash information
@@ -58,8 +58,8 @@ def unauthorized():
 # =========================================================================
 #  home
 # =========================================================================
-@home_bp.route("/")
-@home_bp.route("/index.html")
+@auth_bp.route("/")
+@auth_bp.route("/index.html")
 def home():
     """The homepage will be visible to all users"""
     return render_template(
@@ -72,7 +72,7 @@ def home():
 # =========================================================================
 #  contact
 # =========================================================================
-@home_bp.route("/contact", methods=["GET", "POST"])
+@auth_bp.route("/contact", methods=["GET", "POST"])
 def contact():
     """Contact form page"""
     contact_form = ContactForm()
@@ -96,12 +96,12 @@ def contact():
 # =========================================================================
 #  register
 # =========================================================================
-@home_bp.route("/register", methods=["GET", "POST"])
+@auth_bp.route("/register", methods=["GET", "POST"])
 def register():
     """Register page"""
     # Bypass if user is logged in
     if current_user.is_authenticated:
-        return redirect(url_for("home_bp.home"))
+        return redirect(url_for("auth_bp.home"))
 
     signup_form = SignUpForm()
     if signup_form.validate_on_submit():  # POST validation
@@ -127,7 +127,7 @@ def register():
             login_user(myuser)  # Log in as newly created user
             flash("User created successfully.")
 
-            return redirect(url_for("home_bp.home"))
+            return redirect(url_for("auth_bp.home"))
 
     else:
         print(f"Error-> {signup_form.errors}")
@@ -144,14 +144,14 @@ def register():
 # =========================================================================
 #  login
 # =========================================================================
-@home_bp.route("/login", methods=["GET", "POST"])
+@auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     """Login page for registered users only.
     It contains username, password and remember me option"""
 
     # Bypass if user is logged in
     if current_user.is_authenticated:
-        return redirect(url_for("home_bp.home"))
+        return redirect(url_for("auth_bp.home"))
 
     login_form = LoginForm()
     if login_form.validate_on_submit():
@@ -162,12 +162,12 @@ def login():
         if myuser and myuser.check_password(password=login_form.password.data):
             login_user(myuser, remember=login_form.remember_me.data)
             flash("Logged in successfully.")
-            return redirect(url_for("home_bp.home"))
+            return redirect(url_for("auth_bp.home"))
         else:
             print("Invalid username or password")
             flash("Invalid username or password", "error")
 
-        return redirect(url_for("home_bp.home"))
+        return redirect(url_for("auth_bp.home"))
     else:
         print(f"Error-> {login_form.errors}")
         flash_errors(login_form)  # check get_flashed_messages() in login.jinja2
@@ -180,7 +180,7 @@ def login():
 # =========================================================================
 #  profile
 # =========================================================================
-@home_bp.route("/profile/<string:email>", methods=["GET"])
+@auth_bp.route("/profile/<string:email>", methods=["GET"])
 @login_required
 def profile(email: str):
     """Profile page for registered users only.
@@ -192,16 +192,16 @@ def profile(email: str):
 # =========================================================================
 #  logout
 # =========================================================================
-@home_bp.route("/logout")
+@auth_bp.route("/logout")
 @login_required
 def logout():
     """Logout page"""
     logout_user()
     flash("You have been logged out.")
-    return redirect(url_for("home_bp.home"))
+    return redirect(url_for("auth_bp.home"))
 
 
-@home_bp.route("/configuration")
+@auth_bp.route("/configuration")
 def configuration():
     """Technical specifications"""
     return render_template(
@@ -211,7 +211,7 @@ def configuration():
     )
 
 
-@home_bp.route("/test")
+@auth_bp.route("/test")
 def test():
     """Test page"""
     return render_template("test.jinja2", title="Test Page", description="simple test")
