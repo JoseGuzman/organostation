@@ -47,6 +47,7 @@ class Config:
     FLASKS3_BUCKET_NAME = environ.get("FLASKS3_BUCKET_NAME")
 
 
+# Sister Classes will add FLASK_ENV, DEBUG and TESTING
 class DevConfig(Config):
     """
     Flask config file for Development

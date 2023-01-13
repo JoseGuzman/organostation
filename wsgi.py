@@ -14,4 +14,9 @@ from organostation import create_app
 myapp = create_app()
 
 if __name__ == "__main__":
-    myapp.run(port=8051)
+    if config["FLASK_ENV"] == "development":
+        myapp.run(debug=True, port=8051)
+    elif config["FLASK_ENV"] == "production":
+        myapp.run(host="0.0.0.0", port=80)
+    else:
+        myapp.run(port=8051)
