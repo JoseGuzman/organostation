@@ -40,6 +40,14 @@ class User(UserMixin, db.Model):
     surname = db.Column(db.String(100), index=True, unique=False, nullable=False)
     email = db.Column(db.String(80), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
+
+    # created if user enters them, otherwise null
+    phone = db.Column(db.String(20), index=False, unique=False, nullable=True)
+    address1 = db.Column(db.String(100), index=False, unique=False, nullable=True)
+    address2 = db.Column(db.String(100), index=False, unique=False, nullable=True)
+    postcode = db.Column(db.String(10), index=False, unique=False, nullable=True)
+
+    # automatically loaded
     created = db.Column(db.DateTime)
     last_login = db.Column(db.DateTime)
     admin = db.Column(
