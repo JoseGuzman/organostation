@@ -41,7 +41,7 @@ def compile_static_assets(assets: Environment) -> None:
     assets.register("main_js", js_bundle)
     assets.register("tutorials_styles", tutorials_css_bundle)
 
-    # Build less styles and JavaScript if in development
+    # Build less styles and JavaScript in development
     if myapp.config["FLASK_ENV"] == "development":
         css_bundle.build()
         tutorials_css_bundle.build()

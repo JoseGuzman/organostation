@@ -33,11 +33,6 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False  # stderr
 
-    # Flask Asset Configuration
-    LESS_BIN = "/usr/local/bin/lessc"
-    ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
-    ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
-
     # AWS Access
     AWS_SECRET_KEY = environ.get("AWS_SECRET_KEY")
     AWS_KEY_ID = environ.get("AWS_KEY_ID")
@@ -50,12 +45,18 @@ class Config:
 # Sister Classes will add FLASK_ENV, DEBUG and TESTING
 class DevConfig(Config):
     """
-    Flask config file for Development
+    Flask config file for Development. It
+    requires nodejs and lessc to compile
     """
 
     FLASK_ENV = "development"  # will set DEBUG = True
     DEBUG = True
     TESTING = True
+
+    # Flask Asset Configuration
+    LESS_BIN = "/usr/local/bin/lessc"
+    ASSETS_DEBUG = False  # if True, Flaks-Assets won't bundle
+    ASSETS_AUTO_BUILD = True  # build bundles when Flask starts
 
 
 class ProdConfig(Config):
