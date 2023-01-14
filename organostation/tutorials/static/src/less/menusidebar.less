@@ -23,8 +23,8 @@
 *************************************************************************/
 .mybtn {
     position: fixed;
-    top: 110px;
-    left: 255px;
+    top: 60px;
+    left: 205px;
     height: 37px;
     width: 37px;
     text-align: center;
@@ -36,7 +36,7 @@
 }
 
 .mybtn.click {
-    left: 260px;
+    left: 205px;
 }
 
 .mybtn span {
@@ -45,8 +45,9 @@
     line-height: 36px;
 }
 
+/* fa-light fa-book */
 .mybtn.click span:before {
-    content: '\f00d';
+    content: '\f02d';
 }
 
 /**************************************************************************
@@ -55,7 +56,7 @@
 .menusidebar {
     position: fixed;
     top: 40px;
-    width: 250px;
+    width: 200px; // width is 200 px!
     height: 100%;
     left: -0px;
     background: @myligthgray;
@@ -63,11 +64,12 @@
 }
 
 .menusidebar.show {
-    left: -250px;
+    left: -200px;
 }
 
 /* Table of Context text */
 .menusidebar .tableofcontents {
+    width: 200px;
     color: white;
     font-size: 15px;
     font-weight: 600;
@@ -104,8 +106,8 @@
     position: relative;
     color: whitesmoke;
     text-decoration: none;
-    font-size: 13px;
-    padding-left: 14px;
+    font-size: 12px;
+    padding-left: 12px;
     font-weight: 500;
     display: block;
     width: 100%;
