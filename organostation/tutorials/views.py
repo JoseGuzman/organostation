@@ -7,6 +7,7 @@ It creates the routes (or views) for 'tutorials'. It uses
 lectures and resources.
 We define routes, templates and logic of the homepage here.
 """
+from datetime import datetime as dtime
 
 from flask import Blueprint, flash, redirect, render_template, url_for
 from flask_login import login_required
@@ -34,6 +35,12 @@ def unauthorized():
     """Redirect unauthorized users to Login page."""
     flash("You must be logged in to view that page.")
     return redirect(url_for("home_bp.login"))
+
+
+@tutorials_bp.context_processor
+def inject_now():
+    """makes 'now' available to all templates"""
+    return {"now": dtime.utcnow()}
 
 
 # =========================================================================

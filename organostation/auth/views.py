@@ -41,6 +41,12 @@ def before_request():
     session["_flashes"] = []  # clear flash information
 
 
+@auth_bp.context_processor
+def inject_now():
+    """makes 'now' available to all templates"""
+    return {"now": dtime.utcnow()}
+
+
 @login_manager.user_loader
 def load_user(user_id: str) -> User:
     """Flask-Login retrieves the ID of the user from the session"""
