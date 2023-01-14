@@ -22,17 +22,17 @@ It serves as a template for future pages
                             <h4>H4: {{ description }}</h4>
                             <H4>This is my title paragraph</H4>
                             <div class="container">
-                                Simple paragraph for text <a href="{{url_for('home_bp.home')}}">with a home Link</a>
+                                Simple paragraph for text <a href="{{url_for('auth_bp.home')}}">with a home Link</a>
                                 that continues to run until the end.
                             </div>
 
                             <p>New paragraph includes image
                                 <img src="{{ url_for('static', filename='img/favicon.ico') }}"
-                                    href="{{ url_for('home_bp.home') }}" />
+                                    href="{{ url_for('auth_bp.home') }}" />
                             </p>
                             <p> Second local image
                                 <img class="rounded mx-auto d-block"
-                                    src="{{ url_for('home_bp.static', filename='img/zoom.jpg') }}" width="300">
+                                    src="{{ url_for('auth_bp.static', filename='img/zoom.jpg') }}" width="300">
                             </p>
                         </div>
                     </div>
