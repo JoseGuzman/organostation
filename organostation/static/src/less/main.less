@@ -11,6 +11,8 @@
     //font-family: 'Poppins', sans-serif;
 }
 
+
+
 /************************************************************************** 
 // hyperlink behaviour
 **************************************************************************/
@@ -45,6 +47,36 @@ header {
 navigation bar
 nav-link
 **************************************************************************/
+// menu bar icon default color is dark-blue
+.fa-bars {
+    color: @dark-blue;
+}
+
+// navigation button 
+.navbar-toggler {
+    border: 2px solid @dark-blue;
+    background: @baby-blue;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+// navigation button on hover becomes purple ..
+.navbar .navbar-toggler:hover {
+    color: purple;
+    border-color: purple;
+    border-width: 2px solid purple;
+}
+
+// ... and also the icon inside 
+.navbar .navbar-toggler:hover .fa-bars {
+    color: purple;
+}
+
+.navbar .navbar-toggler:focus {
+    border: 2px solid @dark-blue;
+    border-color: none;
+}
+
 // menubar shadow: offset-x | offset-y | blur-radius | spread-radius | color 
 .navbar {
     -webkit-box-shadow: 0 6px 4px -4px #999;
@@ -53,7 +85,7 @@ nav-link
 }
 
 .navbar {
-    height: 40px;
+    height: 50px;
     font-family: 'Munito', sans-serif !important;
     font-size: small;
     background-color: @baby-blue;
