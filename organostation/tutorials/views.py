@@ -37,6 +37,7 @@ def unauthorized():
     return redirect(url_for("home_bp.login"))
 
 
+# add to all footer.jinja2
 @tutorials_bp.context_processor
 def inject_now():
     """makes 'now' available to all templates"""
