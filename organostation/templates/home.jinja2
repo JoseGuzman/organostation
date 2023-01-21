@@ -7,51 +7,45 @@ Home page for organostation.
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-
-<section class="h-100" style="background-color: #eee;"> {# section element of height 100% and light-gray background #}
-    <div class="container h-100 py-5"> {# height 100% and extra-large left/right padding#}
-        <div class="row d-flex justify-content-center align-items-center h-100"> {# row element d-flex to align
-            horizontaly children #}
-            <div class="col-md-10"> {# grid column that takes 10 out of 12 available extra large columns #}
-                <div class="card rounded-3 text-black">
-                    <div class="row g-0"> {# all the gutters (spacing between columns) removed #}
-                        {# first column START #}
-                        <div class="col-lg-6">
-                            <div class="card-body p-md-6 mx-md-4">
-                                <div class="text-center">
-                                    <img src="{{url_for('static', filename='img/brain1.jpg')}}" alt="logo"
-                                        style="height: 150px;">
-                                </div>
-                            </div>
+<div class="row d-flex h-100"> {# row element d-flex to align horizontaly children #}
+    <div class="col-md-10"> {# grid column that takes 10 out of 12 available extra large columns #}
+        <div class="card rounded-3 text-black">
+            <div class="row g-0"> {# all the gutters (spacing between columns) removed #}
+                {# first column START #}
+                <div class="col-lg-6">
+                    <div class="card-body p-md-6 mx-md-4">
+                        <div class="text-center">
+                            <img src="{{url_for('static', filename='img/brain1.jpg')}}" alt="logo"
+                                style="height: 150px;">
                         </div>
-                        {# first column END #}
-
-                        {# second column START #}
-                        <div class="col-lg-6 d-flex align-items-center">
-                            <div class="text-black px-3 py-4 p-md-5 mx-md-4">
-                                <h4 class="mt-1 mb-5 pb-1">OrganoStation App</h4>
-                                <p class="small mb-5">
-                                    The OrganoStation is a customized system to obtain neurophysiological signals (e.g.,
-                                    EEG) in brain organoids or other in vitro preparations. It also contains a
-                                    visualization app to document and analyze electrical or fluorescence signals.
-                                </p>
-                                <div class="d-flex align-items-center justify-content-center pb-4">
-                                    {% if current_user.is_authenticated %}
-                                    <p class=" mb-0 me=2">Hi {{ current_user.name}}, welcome! </p>
-                                    <a href="{{url_for('auth_bp.logout') }}">&nbsp;Log Out</a>
-                                    {% else %}
-                                    <p class="mb-0 me-2">Don't have an account?</p>
-                                    <a href="{{url_for('auth_bp.register') }}">&nbsp;Create new</a>
-                                    {% endif %}
-
-                                </div>
-                            </div>
-                        </div>
-                        {# second column END #}
                     </div>
                 </div>
+                {# first column END #}
+
+                {# second column START #}
+                <div class="col-lg-6 d-flex align-items-center">
+                    <div class="text-black px-3 py-4 p-md-5 mx-md-4">
+                        <h4 class="mt-1 mb-5 pb-1">OrganoStation App</h4>
+                        <p class="small mb-5">
+                            The OrganoStation is a customized system to obtain neurophysiological signals (e.g.,
+                            EEG) in brain organoids or other in vitro preparations. It also contains a
+                            visualization app to document and analyze electrical or fluorescence signals.
+                        </p>
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                            {% if current_user.is_authenticated %}
+                            <p class=" mb-0 me=2">Hi {{ current_user.name}}, welcome! </p>
+                            <a href="{{url_for('main_bp.logout') }}">&nbsp;Log Out</a>
+                            {% else %}
+                            <p class="mb-0 me-2">Don't have an account?</p>
+                            <a href="{{url_for('main_bp.register') }}">&nbsp;Create new</a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                {# second column END #}
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
