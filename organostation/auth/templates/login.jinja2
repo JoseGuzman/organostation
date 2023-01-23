@@ -12,7 +12,7 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
     <div class="container h-100 py-5"> {# height 100% and extra-large up/down padding#}
         <div class="row d-flex justify-content-center align-items-center h-50"> {# row element d-flex to align
             horizontaly children #}
-            <div class="col-md-6"> {# grid column that takes 10 out of 12 available extra large columns #}
+            <div class="col-md-5"> {# grid column that takes 10 out of 12 available extra large columns #}
                 <div class="card rounded-3 text-black">
                     <div class="row g-0"> {# all the gutters (spacing between columns) removed #}
                         <div class="card-body p-md-6 mx-md-4"> {# 6 units on all sides and 4 left/right#}
@@ -50,7 +50,6 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                         <strong>Success! </strong> {{ message[1] }}
                                     </div>
                                     {% endif %}
-
                                     {% if "Error" in message[1]: %}
                                     <div class="alert alert-danger" role="alert">
                                         {{ message[1] }}
@@ -70,7 +69,6 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 {% endblock %}

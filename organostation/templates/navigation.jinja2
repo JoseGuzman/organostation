@@ -1,14 +1,13 @@
 {#
-This is the main menu bar for the organostation website.It includes
-icons fromh Font Awesome Icons (prefix fa).
-
-Check this tutorial
-https://mdbootstrap.com/docs/standard/navigation/navbar/
+The horizontal menu bar for the organostation website.It includes
+icons fromh Font Awesome Icons (prefix fa). The height of the navigation bar
+is 50 px. Thus, every container must have at least 80 px top-margin.
 
 #}
-<!-- Navbar -->
+
+<!-- Horizontal main menubar -->
 <nav class="navbar navbar-expand-lg fixed-top">
-    <!-- Container wrapper -->
+    <!-- Container wrapper will collapse if screen is small -->
     <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand" href="{{ url_for('auth_bp.home') }}">
@@ -17,12 +16,12 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
 
 
         <!-- Toggle button if screen small-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars"></i>
         </button>
 
-        <!-- Collapsible wrapper -->
+        <!-- Collapsible items -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex flex-row me-1">
                 <!-- Contact -->
@@ -30,20 +29,16 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
                     <a class="nav-link" href="{{ url_for('auth_bp.contact') }}"><i class="fas fa-envelope mx-1"></i>
                         &nbsp;Contact</a>
                 </li>
-                <!-- Configure -->
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="{{ url_for('auth_bp.configuration') }}"><i class="fas fa-cog mx-1"></i>
-                        &nbsp;Configure</a>
-                </li>
 
                 <!-- User's Dropdown menu -->
                 {% if current_user.is_authenticated %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="UserDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user"></i>&nbsp;{{ current_user.name}}
                     </a>
-                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="UserDropdown">
                         <a class="dropdown-item" href="{{ url_for('tutorials_bp.home') }}">
                             <i class="fa-solid fa-chalkboard-user"></i>&nbsp;Tutorials</a>
                         <a class="dropdown-item" href="{{ url_for('auth_bp.profile', email = current_user.email) }}">
@@ -52,6 +47,7 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
                         <a class="dropdown-item" href="{{url_for('auth_bp.logout') }}"><i
                                 class="fa-solid fa-right-to-bracket"></i>&nbsp;Log out</a>
                     </div>
+
                 </li> <!-- my account -->
                 {% else %}
                 <!-- My Account -->
@@ -64,6 +60,5 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
         </div>
         <!-- Collapsible wrapper -->
     </div>
-    <!-- Container wrapper -->
+    <!-- End container wrapper -->
 </nav>
-<!-- Navbar -->

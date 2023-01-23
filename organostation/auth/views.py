@@ -71,7 +71,6 @@ def home():
     return render_template(
         "home.jinja2",  # uses layout and navigation jijna2 templates
         title="Organostation App",
-        description="Electrophysiology in a box",
     )
 
 

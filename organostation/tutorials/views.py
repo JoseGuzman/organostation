@@ -47,18 +47,19 @@ def inject_now():
 # =========================================================================
 # tutorials
 # =========================================================================
-@tutorials_bp.route("/home")
+@tutorials_bp.route("/tutorials")
 @login_required
 def home():
     """Tutorials homepage"""
     return render_template(
-        "tutorial.jinja2",  # uses layout and navigation jijna2 templates
+        "tutorial_copy.jinja2",
+        title="Tutorials",  # uses layout and navigation jijna2 templates
     )
 
 
-@tutorials_bp.route("/lectures/<int:lecture_id>")
+@tutorials_bp.route("/tutorial/<int:lecture_id>")
 @login_required
-def lectures(lecture_id: int):
+def tutorial(lecture_id: int):
     """This links to the tutorial days"""
     print(f"you access day{lecture_id}")
     mytarget = f"day{lecture_id}/index.html"

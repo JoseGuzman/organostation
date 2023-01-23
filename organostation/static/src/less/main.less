@@ -11,6 +11,21 @@
     //font-family: 'Poppins', sans-serif;
 }
 
+.mywrapper {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    align-items: stretch;
+    /*gap: 20px 20px;
+    /* row-gap column gap */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /************************************************************************** 
 // hyperlink behaviour
 **************************************************************************/
@@ -151,4 +166,39 @@ Footer
     background-color: @baby-blue;
 
 
+}
+
+// menusidebar
+.btn {
+    padding: .375rem !important;
+    color: #f1f1f1;
+    font-size: 20px;
+    background-color: transparent;
+    text-transform: lowercase;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #fff;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    white-space: nowrap;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    /* background-color: rgba(27,80,119,0.3); */
+    background-color: rgba(0, 0, 0, 0.6);
+    border-right: 1px solid #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+    padding-top: 30px;
+    font-size: 18px;
 }
