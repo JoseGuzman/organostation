@@ -1,0 +1,14 @@
+{#
+Tutorial_conpy.jinja2
+
+
+#}
+{% extends "layout.jinja2" %} {# load header/footer from templates #}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dist/css/tutorials.min.css') }}" />
+
+
+{% block content %}
+{# menusidebar #}
+{% include "tutorial_menu.jinja2" %}
+
+{% endblock %}
