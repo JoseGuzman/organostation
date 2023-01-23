@@ -10,7 +10,7 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
     <!-- Container wrapper will collapse if screen is small -->
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="{{ url_for('auth_bp.home') }}">
+        <a class="navbar-brand" href="{{ url_for('main_bp.home') }}">
             <i class="fa-solid fa-brain"></i>&nbsp;ORGANOSTATION
         </a>
 
@@ -26,7 +26,7 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
             <ul class="navbar-nav d-flex flex-row me-1">
                 <!-- Contact -->
                 <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="{{ url_for('auth_bp.contact') }}"><i class="fas fa-envelope mx-1"></i>
+                    <a class="nav-link" href="{{ url_for('main_bp.contact') }}"><i class="fas fa-envelope mx-1"></i>
                         &nbsp;Contact</a>
                 </li>
 
@@ -41,10 +41,10 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="UserDropdown">
                         <a class="dropdown-item" href="{{ url_for('tutorials_bp.home') }}">
                             <i class="fa-solid fa-chalkboard-user"></i>&nbsp;Tutorials</a>
-                        <a class="dropdown-item" href="{{ url_for('auth_bp.profile', email = current_user.email) }}">
+                        <a class="dropdown-item" href="{{ url_for('main_bp.profile', email = current_user.email) }}">
                             <i class=" fa-regular fa-address-card"></i>&nbsp;User Account</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{url_for('auth_bp.logout') }}"><i
+                        <a class="dropdown-item" href="{{url_for('main_bp.logout') }}"><i
                                 class="fa-solid fa-right-to-bracket"></i>&nbsp;Log out</a>
                     </div>
 
@@ -52,7 +52,7 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
                 {% else %}
                 <!-- My Account -->
                 <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="{{ url_for('auth_bp.login') }}"><i class="fas fa-user"></i>
+                    <a class="nav-link" href="{{ url_for('main_bp.login') }}"><i class="fas fa-user"></i>
                         My Account</a>
                 </li>
                 {% endif %}
@@ -60,5 +60,8 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
         </div>
         <!-- Collapsible wrapper -->
     </div>
-    <!-- End container wrapper -->
+    <<<<<<< HEAD <!-- End container wrapper -->
+        =======
+        <!-- Container wrapper -->
+        >>>>>>> refs/remotes/origin/main
 </nav>
