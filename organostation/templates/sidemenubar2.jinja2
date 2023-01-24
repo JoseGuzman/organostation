@@ -5,7 +5,7 @@ Sidemenubar
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
 
         <li class="nav-item">
-            <a href="{{url_for('auth_bp.home')}}" class="nav-link text-truncate">
+            <a href="{{url_for('main_bp.home')}}" class="nav-link text-truncate">
                 <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline">Home</span>
             </a>
         </li>
@@ -46,11 +46,11 @@ Sidemenubar
                 <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
         </li>
         <li>
-            <a href="{{url_for('auth_bp.contact')}}" class="nav-link text-truncate">
+            <a href="{{url_for('main_bp.contact')}}" class="nav-link text-truncate">
                 <i class="fs-5 bi-envelope"></i><span class="ms-1 d-none d-sm-inline">Contact</span> </a>
         </li>
         <li>
-            <a href="{{url_for('auth_bp.profile', email=current_user.email)}}" class="nav-link text-truncate">
+            <a href="{{url_for('main_bp.profile', email=current_user.email)}}" class="nav-link text-truncate">
                 <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Account</span> </a>
         </li>
     </ul>

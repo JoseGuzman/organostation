@@ -1,6 +1,8 @@
 {#
 The horizontal menu bar for the organostation website.It includes
-icons fromh Font Awesome Icons (prefix fa). The height of the navigation bar
+icons fromh Font Awesome Icons (prefix fa).
+
+The height of the navigation bar
 is 50 px. Thus, every container must have at least 80 px top-margin.
 
 #}
@@ -11,7 +13,7 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
     <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand" href="{{ url_for('main_bp.home') }}">
-            <i class="fa-solid fa-brain"></i>&nbsp;ORGANOSTATION
+            <small><i class="fa-solid fa-brain"></i>&nbsp;Organostation</small>
         </a>
 
 
@@ -47,7 +49,6 @@ is 50 px. Thus, every container must have at least 80 px top-margin.
                         <a class="dropdown-item" href="{{url_for('main_bp.logout') }}"><i
                                 class="fa-solid fa-right-to-bracket"></i>&nbsp;Log out</a>
                     </div>
-
                 </li> <!-- my account -->
                 {% else %}
                 <!-- My Account -->

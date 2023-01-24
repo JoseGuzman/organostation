@@ -43,7 +43,6 @@ for the menusidebar, together with the font awesome icons.
                 {% if current_user.is_authenticated %}
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color:#eee;">
                     {% include "sidemenubar.jinja2" %}
-                    {# {% include "test_sidemenu.jinja2" %} #}
                 </div>
                 {% endif %}
                 <div class="col">
@@ -53,7 +52,6 @@ for the menusidebar, together with the font awesome icons.
     </div>
 
     {% include "footer.jinja2" %}
-
     {# To provide JavaScript capabilities of Bootstrap5
     insert jQuery first, then Popper.js, then Bootstrap JS
     #}
