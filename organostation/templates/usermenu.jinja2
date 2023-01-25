@@ -1,0 +1,48 @@
+{#
+This is an horizontal menubar with the user's preferences and information.
+It includes icons fromh Font Awesome Icons (prefix fa).
+
+#}
+<!-- Horizontal User's main menubar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand p-2" href="{{ url_for('main_bp.home') }}">
+            <small><i class="fa-solid fa-brain"></i> OG</small>
+        </a>
+        <div class="d-flex justify-content-start p-2">
+        </div>
+
+        <!-- right aligned flex -->
+        <div class="d-flex flex-row justify-content-end p-2">
+            {% if current_user.is_authenticated %}
+            <div class="nav-dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="user" width="30" height="30" class="rounded-circle">
+                    <span class="d-none d-sm-inline mx-1">{{current_user.name}}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser">
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-folder-open"></i>&nbsp;New
+                            project...</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">
+                            <i class="fa-solid fa-gear"></i>&nbsp;Settings</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('main_bp.profile', email = current_user.email) }}">
+                            <i class=" fa-regular fa-address-card"></i>&nbsp;User Account</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{{url_for('main_bp.logout') }}">
+                            <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+            {% else %}
+            <ul class="navbar-nav">
+                <a class="nav-link" href="{{ url_for('main_bp.login') }}"><i class="fas fa-user"></i>
+                    My Account</a>
+            </ul>
+            {% endif %}
+        </div>
+    </div> <!-- container ends -->
+</nav>
