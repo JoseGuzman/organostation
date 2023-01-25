@@ -94,7 +94,6 @@ def contact():
     return render_template(
         "contact.jinja2",
         title="Contact Us",
-        description="Contact page",
         form=contact_form,
     )
 

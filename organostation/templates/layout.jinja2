@@ -18,7 +18,7 @@ for the menusidebar, together with the font awesome icons.
     <meta name="description" content="OrganoStation: electrophysiology in a box">
     <meta name="author" content="Jose Guzman Ph.D.">
 
-    <title>{{ page_title }}</title>
+    <title>{{ title }}</title>
 
     {# Favicon #}
     <link rel=" shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
@@ -35,7 +35,7 @@ for the menusidebar, together with the font awesome icons.
 </head>
 
 <body>
-    {% include "usermenu.jinja2" %}
+    {% include "topmenu.jinja2" %}
 
     <main>
         <div class="container-fluid mt-4" role="main">
