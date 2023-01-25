@@ -9,8 +9,7 @@ We define routes, templates and logic of the homepage here.
 """
 from datetime import datetime as dtime
 
-from flask import (Blueprint, abort, flash, redirect, render_template, session,
-                   url_for)
+from flask import Blueprint, abort, flash, redirect, render_template, session, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from .. import login_manager

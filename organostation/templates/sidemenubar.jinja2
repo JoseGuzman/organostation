@@ -1,6 +1,9 @@
-<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none">
-        <span class="fs-5 d-none d-sm-inline">Organostation</span>
+
+        <span class="fs-5 d-none d-sm-inline"> <img src="{{url_for('static', filename='img/organostation.jpg')}}"
+                alt="logo" style="height: 75px;"></span>
+
     </a>
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
         <li class="nav-item">
@@ -45,7 +48,7 @@
             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                 <i class="fs-4 bi-book"></i>
                 <span class="ms-1 d-none d-sm-inline">Tutorials</span>
-                <i class="fa fa-caret-down"></i>
+                <span class="fa fa-caret-down"></span>
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                 <li class="w-100">
@@ -65,25 +68,9 @@
 
         <li>
             <a class="nav-link px-0 align-middle" href="{{url_for('main_bp.profile', email=current_user.email)}}">
-                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">User Account</span>
+                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Admin</span>
             </a>
         </li>
     </ul>
     <hr>
-    <div class="dropdown pb-5">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-            <span class="d-none d-sm-inline mx-1">loser</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
-    </div>
 </div>

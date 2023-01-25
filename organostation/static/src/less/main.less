@@ -32,7 +32,7 @@ a:visited {
 
 
 /************************************************************************** 
-navigation bar
+usermenu navigation bar
 nav-link
 **************************************************************************/
 // menu bar icon default color is dark-blue
@@ -73,7 +73,7 @@ nav-link
 }
 
 .navbar {
-    height: 50px;
+    height: 35px;
     font-family: 'Munito', sans-serif !important;
     font-size: small;
     background-color: @baby-blue;
@@ -115,12 +115,14 @@ nav-link
 
 }
 
-.dropdown-item:visited {
+.dropdown-item:visited,
+.dropdown-toggle:visited {
     text-decoration: none;
     color: @dark-blue !important;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover,
+.dropdown-toggle:hover {
     text-decoration: none;
     color: purple !important;
     background-color: @baby-blue !important;
