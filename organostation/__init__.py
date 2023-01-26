@@ -68,6 +68,9 @@ def create_app() -> Flask:
         myapp.register_blueprint(tutorials_bp)
 
         # dashboards
+        from .dashboards.visualoid import test
+
+        myapp = test(myapp)
 
         # Compile static assets for styling
         compile_static_assets(assets)

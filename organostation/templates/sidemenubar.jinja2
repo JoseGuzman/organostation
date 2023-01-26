@@ -9,45 +9,33 @@ Side menubar for main application
                 alt="logo" style="height: 75px;"></span>
 
     </a>
-    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+    {# Here we start the main app_menu #}
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="app_menu">
         <li class="nav-item">
             <a href="{{url_for('main_bp.home')}}" class="nav-link align-middle px-0">
                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
             </a>
         </li>
-        {# Dashboard collapse menu #}
+        {# Dashboard collapse app_menu #}
         <li>
             <a href="#mydashboard" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                 <i class="fs-4 bi-speedometer2"></i>
                 <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                 <i class="fa fa-caret-down"></i>
             </a>
-            <ul class="collapse nav flex-column ms-1" id="mydashboard" data-bs-parent="#menu">
+            <ul class="collapse nav flex-column ms-1" id="mydashboard" data-bs-parent="#app_menu">
                 <li class="w-100">
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Item</span> 1 </a>
+                    <a href="{{url_for('/visualoid/')}}" class="nav-link px-0"> <span
+                            class="d-none d-sm-inline"></span>Lab Book</span></a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Visualization</span></a>
                 </li>
             </ul>
         </li>
         <li>
             <a href="#" class="nav-link px-0 align-middle">
                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-        </li>
-        {# Contact #}
-        <li>
-            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-            </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                <li class="w-100">
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                </li>
-            </ul>
         </li>
         {# TUTORIALS #}
         <li>
@@ -56,22 +44,32 @@ Side menubar for main application
                 <span class="ms-1 d-none d-sm-inline">Tutorials</span>
                 <span class="fa fa-caret-down"></span>
             </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                <li class="w-100">
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#app_menu"
+                style="list-style:decimal">
+                <li class="w-100 ms-4">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 0)}}" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Before we start</span></a>
                 </li>
-                <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                <li class="w-100 ms-4">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 1)}}" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Hardware installation</span></a>
                 </li>
-                <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                <li class="w-100 ms-4">
+                    <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Software configuration</span></a>
                 </li>
-                <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                <li class="w-100 ms-4">
+                    <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Sample preparation</span></a>
+                </li>
+                <li class="w-100 ms-4">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 4)}}" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Data analysis</span></a>
                 </li>
             </ul>
         </li>
 
+        {# Contact Us #}
         <li>
             <a class="nav-link px-0 align-middle" href="{{ url_for('main_bp.contact') }}">
                 <i class="fs-4 bi-envelope"></i> <span class="ms-1 d-none d-sm-inline">Contact Us</span>

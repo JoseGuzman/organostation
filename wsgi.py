@@ -15,7 +15,8 @@ from organostation import create_app
 myapp = create_app()
 
 if __name__ == "__main__":
-    debug = myapp.config["DEBUG"]
+    debug = myapp.config["DEBUG"]  # check if in debug mode
+
     if myapp.config["FLASK_ENV"] == "development":
         myapp.run(host="0.0.0.0", port=8080, debug=debug)
     elif myapp.config["FLASK_ENV"] == "production":
