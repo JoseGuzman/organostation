@@ -1,21 +1,24 @@
 <h1><strong>Before we start</strong></h1>
 
-<p style="margin-left:8px; margin-right:10px">This guide contains the minimal requirements to start an experiment with
+<p>This guide contains the minimal requirements to start an experiment with
 	our customized recording system. Please, check it before we arrive at your destination. In addition, Maintenance
 	Solutions, and Drugs must be ready to use on the recording day of our training (<a
 		href="/Day-3-Sample-preparation-and-recording-7dd7192a08b44b8ca6916649621f3cec">📖Day 3: Sample preparation and
-		recording</a> ). Feel free to download this guide and ensure all elements in the Checklist are available.</p>
+		recording</a> ). Feel free to download this guide and ensure all elements in the Checklist are available.
+</p>
 
 <hr />
-<p>Table of Contents</p>
-
-<ul>
-	<li><a href="#checklist">Checklist</a></li>
+<H1>Table of Contents</H1>
+<ol>
 	<li><a href="#hardware">Hardware requirements</a></li>
-</ul>
-
+	<li><a href="#maintenance">Maintenance</a></li>
+	<li><a href="#solutions">Solutions and drugs</a></li>
+	<li><a href="#computer">Computer requirements</a></li>
+	<li><a href="#references">References</a></li>
+</ol>
 <hr />
-<section id="checklist">
+
+<section id="#checklist">
 	<h1><em>Checklist</em></h1>
 
 	<ul>
@@ -35,49 +38,47 @@
 	</ul>
 </section>
 
-<section>
+<!-- Hardware section -->
+<section id="hardware">
 	<h1>1. Hardware requirements</h1>
 
-	<p style="margin-left:8px; margin-right:10px">Please, ask your building facility to assist you when installing the
+	<p>Please, ask your building facility to assist you when installing the
 		system for the first time. The equipment is heavy, but it is possible to move it with the help of a hand pallet
 		trolley.</p>
 
-	<h2 style="margin-left: 8px; margin-right: 10px;">1.1 Dedicated location</h2>
+	<h2>1.1 Dedicated location</h2>
 
-	<p style="margin-left: 8px; margin-right: 10px;">You may need a quiet place for your station following the
-		measurements below.</p>
+	<p>You may need a quiet place for your station with the proper size. Depending on your model, you will have a 600 x
+		600
+		cm (Width x Length) for the recording system or a 600 x 900 cm passive isolator table for the
+		recording workstation (see figure). Note that the table requires a surrounding distance of ~ 20
+		cm for electrical and mechanical isolation.</p>
 
-	<table border="1" cellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
+	<p>Computers, cell phones, or any other radio-emitting
+		devices should not be exposed to the entry of the Faraday Cage, as they may interfere with the
+		signals.</p>
+	<table border="0" cellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
 		<tbody>
 			<tr>
-				<td style="width: 550px;"><img
-						src="https://lh6.googleusercontent.com/CKmGAkkJtej6pZcSyRgSliKMoEtLaO3iESPPlCun1_mzbRinZMCtC2cThrIanK7GsplNg9ZNsQ8aVsZ0QAwZe93CSrkW0kAqiSQiDYodaQu5A_09w4kox5tdaABb58yPKxTSA2MI_izprhr82_mNwrZpNgCv9QVvuE97LNwXcusv2sk84aTQrmVeCqxt"
-						style="width:450px" /></td>
-				<td style="width:250px">
-					<p style="margin-left: 8px; margin-right: 10px;">Depending on your model, you will have a 600 x 600
-						cm (Width x Length) for the recording system or a 600 x 900 cm passive isolator table for the
-						recording workstation (see figure). Note that the table requires a surrounding distance of ~ 20
-						cm for electrical and mechanical isolation.</p>
-
-					<p style="margin-left: 8px; margin-right: 10px;">Computers, cell phones, or any other radio-emitting
-						devices should not be exposed to the entry of the Faraday Cage, as they may interfere with the
-						signals.</p>
+				<td style="width: 550px;"><img alt="dimensions"
+						src="{{url_for('tutorials_bp.static', filename='img/table.png')}}" style="width:450px" /></td>
+				<td style="width:250px"></td>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<p>&nbsp;</p>
-
 	<p>A pump will be used to pressurize the passive vibration table. We recommend filling the tables with 60 psi (415
-		kPa or 4,15 bars).</p>
+		kPa or 4.15 bars).</p>
 
-	<h2 style="margin-left: 8px; margin-right: 10px;">1.1 Power supply</h2>
+	<h2>1.2 Power supply</h2>
 
-	<p style="margin-left: 8px; margin-right: 10px;">It is recommended to use different security sockets for the
+	<p>It is recommended to use different security sockets for the
 		recording system and the computer. If possible, two independent extra-long power strips are advisable</p>
+</section>
 
-	<h1 style="margin-left: 8px; margin-right: 10px;">2. Maintenance</h1>
+<section id="maintenance">
+	<h1>2. Maintenance</h1>
 
 	<p>Recording in neurophysiological conditions requires detailed control of temperature and precise concentrations of
 		solutions and gases. Physiological con</p>
@@ -90,28 +91,244 @@
 		oxygenation levels. Commercially available bottles containing 50L or 10 L of carbogen at 200 bars are available.
 	</p>
 
-	<table border="1" cellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
+	<table border="0" cellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
 		<tbody>
 			<tr>
-				<td style="width: 550px;"><img alt=""
-						src="https://ckeditor.com/apps/ckfinder/userfiles/files/carbogen.png" style="width: 250px; " />
+				<td style="width: 550px;"><img alt="carbogen"
+						src="{{url_for('tutorials_bp.static', filename='img/carbogen.png')}}" style="width: 250px; " />
 				</td>
 				<td style="width:250px">
-					<p style="margin-left: 8px; margin-right: 10px;">&nbsp;</p>
-
-					<p style="margin-left: 8px; margin-right: 10px;">Carbogen is highly flammable. Check the safety
-						regulations of your institution carefully.</p>
+					<p>Carbogen is highly flammable. Check the safety regulations of your institution carefully.</p>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<p>&nbsp;</p>
 
-	<h2 style="margin-left: 8px; margin-right: 10px;">2.2 Pressure adaptor</h2>
+	<h2>2.2 Pressure adaptor</h2>
 
-	<p style="margin-left: 8px; margin-right: 10px;">If your facility does not provide it, you will need an adaptor to
+	<p>If your facility does not provide it, you will need an adaptor to
 		reduce the pressure of the carbogen bottle (200 Bar) to the pressure of application necessary to operate the
 		recording system (to ~ 1-2 bar pressure, 1 bar is 14.5 psi or 100 kPa). Please, also follow the local regulation
 		(in Europe, we follow ISO 5171 regulations). Be sure that:</p>
+
+
+	<table border="1" urouncellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
+		<tbody>
+			<tr>
+				<td style="width: 400px;"><img alt="adaptor"
+						src="{{url_for('tutorials_bp.static', filename = 'img/carbogen_adaptor.jpeg')}}"
+						style=" width: 400px;" /></td>
+				<td style=" width:250px">
+
+					<ol>
+						<li>The adaptor is suitable for conducting
+							flammable gas.</li>
+						<li>Input pressure is 200 bar ( in Europe
+							DIN-477-1).</li>
+						<li>Output pressure is in the range of 1-2 bars.
+						</li>
+						<li>The output size of the adaptor has a diameter
+							of 6 or 8 mm.
+						</li>
+					</ol>
+
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>You can order a suitable adaptor <a data-token-index="1"
+			href="https://www.medicalgasinstallers.com/product/western-medical-m1-280-pg-single-stage-adjustable-0-100-psi-carbon-dioxide-oxygen-mixture-pressure-regulator/"
+			rel="noopener noreferrer" target="_blank">here</a> that outputs up to 100 psi (~ 6.8 bar).
+	</p>
+
+	<h2>2.3 Filter-candle tubing</h2>
+
+	<p>Carbogen must be applied to the tissue through standard silicon cables via micro-filter candles. (e.g., models
+		18114 or 18124 in Robusglass, see this <a data-token-index="1"
+			href="https://www.robuglas.com/en/laboratory-equipment/filter-candles-with-tube/micro-filter-candles-cylindrical-shape.html"
+			rel="noopener noreferrer" target="_blank">link</a>). Be sure you have several meters of ROTILABO silicon
+		tubes of different diameters (available, for example, <a data-token-index="3"
+			href="https://www.carlroth.com/com/en/hoses-for-peristaltic-pumps/tube-rotilabo-silicone-standard-design/p/n875.1"
+			rel="noopener noreferrer" target="_blank">here</a>). Finally, you may also need <a data-token-index="5"
+			href="https://www.amazon.com/Bel-Art-Acetal-Mid-Range-Plastic-F18228-0000/dp/B002VA5U3E"
+			rel="noopener noreferrer" target="_blank">tubing clamps</a> to regulate the gas influx.</p>
+</section>
+
+<section id="solutions">
+	<h1>3. Solutions and drugs</h1>
+
+	<p>It is critical to keep the cultures in BrainPhys Neuronal medium for at least three weeks before starting the
+		recordings (see detailed formulation in <a data-token-index="1" href="https://pubmed.ncbi.nlm.nih.gov/35084981/"
+			rel="noopener noreferrer" target="_blank">Eichm&uuml;ller et al., 2022</a>). The standard culture in a
+		high-nutrient formulation (e.g., Diff + Vitamin A from <a data-token-index="3"
+			href="https://pubmed.ncbi.nlm.nih.gov/25035496/" rel="noopener noreferrer" target="_blank">Lancaster et al.,
+			2014</a>) can be slowly replaced by increasing amounts of BrainPhys low-nutrient solution according to the
+		following scheme:</p>
+
+	<table align="center" border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+		<thead>
+			<tr>
+				<th scope="col">Culture day</th>
+				<th scope="col">Culture solution</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Before day 40</td>
+				<td>100% high nutrient solution</td>
+			</tr>
+			<tr>
+				<td>day 40</td>
+				<td>80/20 ratio high/low nutrient solution</td>
+			</tr>
+			<tr>
+				<td>day 43</td>
+				<td>60/40 ratio high/low nutrient solution&nbsp;</td>
+			</tr>
+			<tr>
+				<td>day 46</td>
+				<td>40/60 ratio&nbsp;high/low nutrient solution</td>
+			</tr>
+			<tr>
+				<td>day 49</td>
+				<td>20/80 ratio high/low nutrient solution</td>
+			</tr>
+			<tr>
+				<td>day 52 onwards</td>
+				<td>100% low nutrient solution</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2>High nutrient formulation (Diff + Vitamin A)</h2>
+
+	<ul>
+		<li>125 mL Neurobasal medium (Thermofischer ****)</li>
+		<li>125 mL DMEM/F12 (with HEPES, Glutamine)</li>
+		<li>5 mL B-27 supplement 50X (Gibco, <a
+				href="https://www.thermofisher.com/order/catalog/product/17504044"><strong>Cat. No.
+					17504044</strong></a>)</li>
+		<li>2.5 mL Penicillin/Streptomycin (Gibco, <strong><a
+					href="https://www.thermofisher.com/order/catalog/product/15070063">Cat. No. 15070063</a></strong>)
+		</li>
+		<li>2.5 mL Matrigel (Corning , <a
+				href="https://ecatalog.corning.com/life-sciences/b2b/US/en/Surfaces/Extracellular-Matrices-ECMs/Corning%C2%AE-Matrigel%C2%AE-Matrix/p/356234"><strong>Cat.
+					No. 356234</strong></a>)</li>
+		<li>2.5 mL Glutamax</li>
+		<li>1.25 mL N2 supplement 100X (Gibco, <strong><a
+					href="https://www.thermofisher.com/order/catalog/product/17502048">Cat. No. 17502048</a></strong>)
+		</li>
+		<li>1.25 mL MEM-Non essential aminoacids</li>
+		<li>62.5 uL Insulin solution (9.5 - 12 mg/mL)</li>
+		<li>87.5 uL beta mercapto-ethanol (1:100 dilution in DMEM/F12)</li>
+	</ul>
+
+	<h2>Low nutrient formulation (BrainPhys)</h2>
+
+	<ul>
+		<li>235.3 mL BrainPhys Neuronal medium (Stem Cell Technologies, <strong><a
+					href="https://www.stemcell.com/products/brainphys-neuronal-medium.html">Cat. No. 05790</a></strong>
+			)</li>
+		<li>5 mL B-27 supplement 50X (Gibco, <a
+				href="https://www.thermofisher.com/order/catalog/product/17504044"><strong>Cat. No.
+					17504044</strong></a>)</li>
+		<li>2.5 mL N2 supplement 100X (Gibco, <strong><a
+					href="https://www.thermofisher.com/order/catalog/product/17502048">Cat. No. 17502048</a></strong>)
+		</li>
+		<li>2.5 mL Matrigel (Corning , <a
+				href="https://ecatalog.corning.com/life-sciences/b2b/US/en/Surfaces/Extracellular-Matrices-ECMs/Corning%C2%AE-Matrigel%C2%AE-Matrix/p/356234"><strong>Cat.
+					No. 356234</strong></a>)</li>
+		<li>2.5 mL Penicillin/Streptomycin (Gibco, <strong><a
+					href="https://www.thermofisher.com/order/catalog/product/15070063">Cat. No. 15070063</a></strong>)
+		</li>
+		<li>1.7 mL 20% D-glucose stock solution (lead to a final concentration of 10 mM Glucose)</li>
+		<li>0.5 mL lipid concentrate (Gibco, <strong><a
+					href="https://www.thermofisher.com/order/catalog/product/11905031">Cat. No. 11905031</a></strong>)
+		</li>
+		<li>1.25 uL of 200 mM stock solution of Ascorbic Acid</li>
+	</ul>
+
+	<h2>3.1 Agarose 4% (w/v) in PBS</h2>
+
+	<p>Prepare 4% (m/v) low-melt agarose (Biozime, <a data-token-index="1"
+			href="https://www.biozym.com/biochemikalien/agarosen/standard-und-spezialagarosen/7857/biozym-sieve-geneticpure-agarose?number=850084"
+			rel="noopener noreferrer" target="_blank">Cat. No. 850080</a>) in Phosphate Buffer Saline (PBS). We can
+		store them in 1-2 mL stocks in Eppendorf tubes of 1.5 to 2 mL before warming them at ~ 40 degrees and embedding
+		the tissue. If you do not have commercially available PBS, use the recipe below.&nbsp;The type of agarose is
+		key. Use a dense formulation (500 g/cm2) from <a data-token-index="1"
+			href="https://www.biozym.com/biochemikalien/agarosen/standard-und-spezialagarosen/7857/biozym-sieve-geneticpure-agarose?number=850080"
+			rel="noopener noreferrer" target="_blank">this provider</a></p>
+
+	<p><img alt="pbs" src="{{url_for('tutorials_bp.static', filename = 'img/PBS_receipt.png')}}" style="width: 750px" />
+	</p>
+
+	<h2>3.2&nbsp;Artificial CerebroSpinal Fluid (ACSF)</h2>
+
+	<p>ACSF should be prepared daily (e.g., from a calcium and magnesium-free 10X stock prepared weekly). CaCl2 and
+		MgCl2 should be added immediately before the experiment and bubbled in Carbogen at least 30 minutes before the
+		experiment. Follow the recipe below.</p>
+	<img alt="acsf" src="{{url_for('tutorials_bp.static', filename = 'img/ACSF_receipt.png')}}" style="width: 750px;" />
+	<h2>3.3 Other drugs</h2>
+
+	<p>If you want to test the effects of synaptic blockers, it is convenient to have frozen (-20 deg.) aliquots
+		containing drugs of interest. For example:</p>
+
+	<p><img alt="drugs" src="{{url_for('tutorials_bp.static', filename = 'img/drug_concentrations.png')}}"
+			style="width: 750px;" />
+	</p>
+</section>
+
+<section id="computer">
+	<h1>4. Software requirements (optional)</h1>
+
+	<p>It is advisable to have a system with Python (version &ge; 3.6), and if spike sorting is required, Matlab
+		(version &gt; R2016b) with the following toolboxes:</p>
+
+	<ol>
+		<li>
+			<p>parallel computing</p>
+		</li>
+		<li>
+			<p>signal-processing</p>
+		</li>
+		<li>
+			<p>statistics and machine learning</p>
+		</li>
+	</ol>
+</section>
+
+<section id="references">
+	<h1>5. References</h1>
+	<small>
+
+		<ol>
+			<li><small>Bardy C, van den Hurk M, Eames T, Marchand C, Hernandez RV, Kellogg M, Gorris M, Galet B,
+					Palomares
+					V, Brown J, Bang AG, Mertens J, B&ouml;hnke L, Boyer L, Simon S, Gage FH. Neuronal medium that
+					supports
+					basic synaptic functions and activity of human neurons in vitro. Proc Natl Acad Sci U S A. 2015 May
+					19;112(20):E2725-34. doi: 10.1073/pnas.1504393112. Epub 2015 Apr 13. Erratum in: Proc Natl Acad Sci
+					U S
+					A. 2015 Jun 23;112(25):E3312. PMID: 25870293; PMCID: PMC4443325.</small></li>
+			<li><small>Eichm&uuml;ller OL, Corsini NS, V&eacute;rtesy &Aacute;, Morassut I, Scholl T, Gruber VE, Peer
+					AM,
+					Chu J, Novatchkova M, Hainfellner JA, Paredes MF, Feucht M, Knoblich JA. <em>Amplification of human
+						interneuron progenitors promotes brain tumors and neurological defects.</em> Science. 2022 Jan
+					28;375(6579):eabf5546. doi: 10.1126/science.abf5546. Epub 2022 Jan 28. PMID: 35084981.</small></li>
+			<li><small>Lancaster MA, Knoblich JA. Organogenesis in a dish: modeling development and disease using
+					organoid
+					technologies. Science. 2014 Jul 18;345(6194):1247125. doi: 10.1126/science.1247125. Epub 2014 Jul
+					17.
+					PMID: 25035496.</small></li>
+			<li><small>Zabolocki M, McCormack K, van den Hurk M, Milky B, Shoubridge AP, Adams R, Tran J,
+					Mahadevan-Jansen
+					A, Reineck P, Thomas J, Hutchinson MR, Mak CKH, A&ntilde;onuevo A, Chew LH, Hirst AJ, Lee VM, Knock
+					E,
+					Bardy C. BrainPhys neuronal medium optimized for imaging and optogenetics in vitro. Nat Commun. 2020
+					Nov
+					3;11(1):5550. doi: 10.1038/s41467-020-19275-x. PMID: 33144563; PMCID: PMC7642238.</small></li>
+		</ol>
+		<small>
 </section>

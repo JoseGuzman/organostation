@@ -24,7 +24,6 @@ def compile_static_assets(assets: Environment) -> None:
 
     # Tutorials assets bundle will add customized CSS
     tutorials_css_bundle = Bundle(
-        "src/less/*.less",
         "tutorials_bp/src/less/*.less",
         filters="less, cssmin",
         output="dist/css/tutorials.min.css",

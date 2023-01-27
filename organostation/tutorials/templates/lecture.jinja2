@@ -9,6 +9,9 @@ of the index.html located in every subfolder (e.g., day0/index.html)
 {% extends "layout.jinja2" %} {# main layout #}
 
 {% block content %}
+{# Custom CSS (see in source in src/less/, compiled in /dist) #}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/tutorials.min.css') }}" />
+
 <div class="container px-3 py-5">
     {% include mytarget %}
 </div>
