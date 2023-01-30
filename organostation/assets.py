@@ -39,11 +39,18 @@ def compile_static_assets(assets: Environment) -> None:
     )
 
     # JavaScript Tutorials
+    js_tutorials = Bundle(
+        "tutorials_bp/src/js/*.js",
+        filters="jsmin",
+        output="dist/js/tutorials.min.js",
+        extra={"type": "text/javascript"},
+    )
 
     # Register bundles
     assets.register("main_styles", css_bundle)
     assets.register("tutorials_styles", tutorials_css_bundle)
     assets.register("main_js", js_bundle)
+    assets.register("tutorials_js", js_tutorials)
 
     # Build less styles and JavaScript in development
     if myapp.config["FLASK_ENV"] == "development":
@@ -51,3 +58,4 @@ def compile_static_assets(assets: Environment) -> None:
         css_bundle.build()
         tutorials_css_bundle.build()
         js_bundle.build()
+        js_tutorials.build()

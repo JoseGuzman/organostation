@@ -16,6 +16,8 @@ of the index.html located in every subfolder (e.g., day0/index.html)
     {% include mytarget %}
 </div>
 
+{# Custom JavaScript #}
+<script src="{{url_for('static', filename='dist/js/tutorials.min.js')}}"></script>
 
 {% endblock %}
 <div class="content">
