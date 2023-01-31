@@ -77,9 +77,9 @@
 	<table border="0" cellpadding="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:750px">
 		<tbody>
 			<tr>
-				<td style="width:508px"><img alt="" src="https://ckeditor.com/apps/ckfinder/userfiles/files/sample.jpg"
-						style="height:375px; width:500px" /></td>
-				<td style="width:228px"><img alt="" src="https://ckeditor.com/apps/ckfinder/userfiles/files/thermo.jpg"
+				<td style="width:500px"><img alt="sample" src="{{ url_for('tutorials_bp.static', filename='img/sample.jpg')}}"
+						style="width:500px" /></td>
+				<td style="width:228px"><img alt="thermo" src="{{url_for('tutorials_bp.static', filename = 'img/thermo.jpg') }}"
 						style="height:188px; width:250px" /></td>
 			</tr>
 		</tbody>
@@ -149,7 +149,7 @@
 		and
 		do not forget to allocate the reference electrode inside the bath (see figure).&nbsp;</p>
 
-	<p><img alt="" src="https://ckeditor.com/apps/ckfinder/userfiles/files/grounding.jpg"
+	<p><img alt="grounding" src="{{ url_for('tutorials_bp.static', filename = 'img/grounding.jpg') }}"
 			style="width: 350px; height: 264px;" /></p>
 
 	<p>After setting the grounding electrode, move the manipulators fast until you see it under the microscope. At the
@@ -168,7 +168,7 @@
 
 	<p>Check that the binary file is saved and enter in your dataset all the details for your recording, for example</p>
 
-	<p><img alt="" src="https://ckeditor.com/apps/ckfinder/userfiles/files/Stable.jpg" style="width:750px" /></p>
+	<p><img alt="stable" src="{{ url_for('tutorials_bp.static', filename = 'img/stable.jpg') }}" style="width:750px" /></p>
 
 </section>
 
@@ -216,11 +216,11 @@
 	<table border="0" cellpadding="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:750px">
 		<tbody>
 			<tr>
-				<td style="width:386px"><img alt=""
-						src="https://ckeditor.com/apps/ckfinder/userfiles/files/probe_cleaner.jpg"
+				<td style="width:500px"><img alt="probe_cleaner"
+						src="{{ url_for('tutorials_bp.static', filename='img/probe_cleaner.jpg')}}"
 						style="height:253px; width:250px" /></td>
-				<td style="width:350px"><img alt=""
-						src="https://ckeditor.com/apps/ckfinder/userfiles/files/cleaning_station.jpg"
+				<td style="width:500px"><img alt=""
+						src="{{ url_for('tutorials_bp.static', filename = 'img/cleaning_station.jpg')}}"
 						style="height:436px; width:250px" /></td>
 			</tr>
 		</tbody>
