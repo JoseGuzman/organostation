@@ -47,23 +47,23 @@ Side menubar for main application
             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#app_menu"
                 style="list-style:decimal">
                 <li class="w-100 ms-4">
-                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 0)}}" class="nav-link px-0">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 1)}}" class="nav-link px-0">
                         <span class="d-none d-sm-inline">Before we start</span></a>
                 </li>
                 <li class="w-100 ms-4">
-                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 1)}}" class="nav-link px-0">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 2)}}" class="nav-link px-0">
                         <span class="d-none d-sm-inline">Hardware installation</span></a>
                 </li>
                 <li class="w-100 ms-4">
-                    <a href="#" class="nav-link px-0">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 3)}}" class="nav-link px-0">
                         <span class="d-none d-sm-inline">Software configuration</span></a>
                 </li>
                 <li class="w-100 ms-4">
-                    <a href="#" class="nav-link px-0">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 4)}}" class="nav-link px-0">
                         <span class="d-none d-sm-inline">Sample preparation</span></a>
                 </li>
                 <li class="w-100 ms-4">
-                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 4)}}" class="nav-link px-0">
+                    <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 5)}}" class="nav-link px-0">
                         <span class="d-none d-sm-inline">Data analysis</span></a>
                 </li>
             </ul>
