@@ -1,11 +1,24 @@
 /**************************************************************************
-    Custom styling for tutorial contents
+    Custom styling for tutorial contents. The font for tutorials is Lato
 *************************************************************************/
 @black: #1f1f1f;
 @purple: #670067;
 @myligthgray: #eee;
+@webgray: #4D5154;
 @dark-blue: #00468b;
 @baby-blue: #EAF0F6;
+
+@font-face {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://mdn.github.io/web-fonts/LatoReg.ttf");
+}
+
+body {
+    font-family: Lato, sans-serif;
+    color: @webgray;
+}
 
 #btn-back-to-toc {
     position: fixed;
@@ -18,6 +31,7 @@ h1 {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-left: 5px;
+    color: @dark-blue !important;
 
 }
 
@@ -25,6 +39,7 @@ h2 {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 10px;
+    color: @black !important;
 }
 
 .p {
@@ -32,4 +47,15 @@ h2 {
     margin-right: 10px;
     padding-top: 30px;
     padding-bottom: 30px;
+    color: @webgray !important;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 750px;
+    border: 3px solid;
+
 }
