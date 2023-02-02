@@ -1,20 +1,20 @@
 <h1><strong>Data analysis</strong></h1>
 
-<p>After recording electrical signals, minimal quantification and visual signals ensure the proper functioning of the
-    equipment and biological preparation. This tutorial will guide you to visualize and briefly quantify relevant
-    signals before defining a specific software pipeline for evaluating a scientific hypothesis.</p>
+<p>We need a basic quantification and visualization of signals to ensure the proper functioning of the equipment and
+    biological preparation. This tutorial will guide you to visualize and briefly quantify relevant signals. That&#39;s
+    an essential step before defining a specific software pipeline for evaluating a scientific hypothesis.</p>
 
-<p>We will use Python (recommended version &gt; 3.8) because it provides an easy programming framework available on all
-    platforms.</p>
+<p>We will use Python (recommended version &gt; 3.8) because it provides a straightforward programming framework
+    available on all platforms.</p>
 
 <section id="toc">
     <hr />
     <h1>Table of Contents (ToC)</h1>
 
     <ol>
-        <li><a href="#software">Software requirements</a></li>
+        <li><a href="#anaconda">A package manager</a></li>
         <li><a href="#python">First steps in Python</a></li>
-        <li><a href="#solutions">Python-specific examples</a></li>
+        <li><a href="#examples">Python-specific examples</a></li>
     </ol>
 
     <hr />
@@ -32,51 +32,139 @@
     </ul>
 </section>
 
-<section id="software">
-    <h1>1. Software requirements</h1>
+<section id="anaconda">
+    <h1>1. A package manager</h1>
 
-    <p>Your computer already has a built-in python system. We don&#39;t want to interfere with it. That&#39;s why we
-        will create a dedicated environment where we will make our analyses and visualizations. To have dedicated python
-        environments, we need to download and install an environment called Anaconda.</p>
-
+    <p>Your computer already has a built-in python system to handle your operating system. We don&#39;t want to
+        interfere with it. That&#39;s why we will create a dedicated environment devoted to our analyses and
+        visualizations.&nbsp;</p>
 
     <h2>1.1 Definitions</h2>
+
     <p>Anaconda is a package manager for Python that permits the easy handling of python libraries in dedicated
-        environments.&nbsp;</p>
+        environments. Python is a general programming language, and it contains specialized libraries (sometimes called
+        modules or packages) for specific tasks, like scientific analysis (e.g., Scipy), manipulation of vectors and
+        matrices (e.g., NumPy), plotting (e.g., Matplotlib), or modern applications for machine learning (scikit-learn)
+        and deep learning (PyTorch). These libraries generally have version dependencies (i.e., the newest version of a
+        scientific plotting library requires an older version from the library for numerical analysis). Those
+        dependencies are difficult to track.</p>
 
     <p><img alt="libraries" src="{{url_for('tutorials_bp.static', filename = 'img/libraries.jpg')}}"
             style="width: 500px;" /></p>
 
+    <p>We can use a package manager like Anaconda to install these libraries that automatically manage their
+        dependencies in a single environment. The environments can be easily created and deleted and do not interfere
+        with each other or with the Python version of your computer.</p>
+
     <h2>1.2 Anaconda download and installation</h2>
+
+    <p>Use&nbsp;<a href="https://www.anaconda.com/products/distribution">this link</a> to download the latest anaconda
+        version for your computer. Follow the instructions to install. After installation, if you open Anaconda, you
+        will have an&nbsp;Anaconda Navigator, which is the graphical interface to handle Python environments.</p>
+
+    <p><img alt="libraries" src="{{url_for('tutorials_bp.static', filename = 'img/anaconda.png')}}"
+            style="width: 500px;" /></p>
 
     <h2>1.3 Create a Python environment</h2>
 
-    <p>To set up a new environment, download analysis.yml, go to your anaconda prompt to the location you downloaded,
-        and type:</p>
+    <p>Open&nbsp;<em>Anaconda Navigator</em>&nbsp;and select the&nbsp;<em>Environments</em>&nbsp;in the left
+        menu.&nbsp;Click&nbsp;<em>Create</em>&nbsp;and type a name (e.g., analysis). Finally, select the Python version
+        you want to use (we recommend Python &gt; 3.8)</p>
+
+    <p><img alt="libraries" src="{{url_for('tutorials_bp.static', filename = 'img/environment.png')}}"
+            style="width: 500px;" /></p>
+
+    <p>This will create a Python environment with minimal libraries for our analysis. You will need to install the
+        libraries for scientific analysis and visualization. A typical list includes at least the following:</p>
+
+    <ul>
+        <li>Standard scientific modules for data handling (IPython, Jupyter, and pandas)</li>
+        <li>Libraries for scientific analysis (Scipy, Numpy)</li>
+        <li>A scientific library for data visualization (Matplotlib)</li>
+    </ul>
+
+    <p>To install these libraries proceed as follows:</p>
+
+    <ol>
+        <li>Select your created environment (i.e., analysis)</li>
+        <li>Select all from the drop-down menu</li>
+        <li>Search your desired library (e.g., NumPy)</li>
+        <li>Tick the checkbox of the library name.</li>
+        <li>Repeat for the rest of the libraries (e.g., IPython, Jupyter, pandas, Scipy and Matplotlib)</li>
+        <li>Click Apply button in the lower right corner.</li>
+    </ol>
+
+    <p>After that, you can select&nbsp;<em>Installed</em>&nbsp;from the drop-down menu and verify that all libraries are
+        present. Your analysis environment is created and includes the libraries you require, and to start using it you
+        can select it from the Anaconda Navigator. You can export your environment to other computers or import
+        different environments for different tasks.</p>
+
+    <h2>1.3 Using your environment</h2>
+
+    <p>Importing and exporting a Python environment requires management with the terminal or console, and it is
+        different in different operative systems. In general, exporting the environment requires generating a .yml file
+        with the console, and loading the file later with the Anaconda Navigator.&nbsp;</p>
+
+    <h3>In Mac:</h3>
+
+    <ul>
+        <li>Open Terminal from Launchpad or the applications folder and type:</li>
+        <li><code>&gt;&gt;&gt; conda env export --name analysis --file ~/Desktop/analysis.yml </code></li>
+    </ul>
+
+    <h3>In Windows:</h3>
+
+    <ul>
+        <li>Open the Anaconda prompt from the Start menu and type:</li>
+        <li><code>&gt;&gt;&gt; conda env export --name analysis --file C:\Users\&lt;youruser&gt;\Desktop\environment.yml </code>
+        </li>
+    </ul>
+
+    <h3>In Linux:</h3>
+
+    <ul>
+        <li>Open your favorite terminal and type:</li>
+        <li><code>&gt;&gt;&gt; conda env export --name analysis --file ~/Desktop/analysis.yml </code></li>
+    </ul>
+
+    <p>The file analysis.yml contains all the information (i.e., the python version, libraries and dependencies) that
+        you need to recreate that environment on a different computer. For that, you can simply use the import option:
+    </p>
+
 </section>
 
 <section id="python">
-
-    <p>This will create a Python environment with minimal libraries for our analysis.</p>
-
-    <p>To activate that environment type:</p>
-
-    <code>
-        >>> conda env create --name analysis --file environment.yml
-    </code>
     <h1>2. First steps in Python</h1>
 
+    <p>In this tutorial, we will use one of these two Advanced interactive environments:</p>
+
+    <ul>
+        <li><strong>IPython</strong>, an advanced&nbsp;<strong>Python console</strong>&nbsp;<a
+                href="http://ipython.org/">http://ipython.org/</a></li>
+        <li><strong>Jupyter</strong>,&nbsp;<strong>notebooks</strong>&nbsp;in the browser&nbsp;<a
+                href="http://jupyter.org/">http://jupyter.org/</a></li>
+    </ul>
+    For this section, we recommend you open IPython with Anaconda and type:
+
+    <p><code>&gt;&gt;&gt; print(3 + 2) </code></p>
+
+    <p>Python will return the result of the operation. Similarly, we can use variable assignment:</p>
+
     <code>
-        >>> print(2 + 2)
+    <p>&gt;&gt;&gt; x = 3</p>
+    <p>&gt;&gt;&gt; a = 2</p>
+    <p>&gt;&gt;&gt; print(x+a)</p>
     </code>
 
     <p>&nbsp;</p>
 </section>
 
-<section id="solutions">
+<section id="examples">
     <h1>3. Python-specific examples</h1>
 
-    <p>&nbsp;</p>
+    <p>From now on, we will use&nbsp;<strong>Jupyter</strong>&nbsp;<strong>notebooks</strong>, which allows you to run
+        python commands and scripts form the browser, and save the inputs and outputs and individual files. Open Jupyter
+        Notebook with anaconda:</p>
 
     <h2>3.1 Open binaries&nbsp;</h2>
 

@@ -1,0 +1,180 @@
+<h1><strong>Software configuration</strong></h1>
+
+<p>We need to store the electrical signals organized in channels and the images scaled to the magnification of the
+    imaging system.</p>
+
+<p>&nbsp;</p>
+
+<section id="toc">
+    <hr />
+    <h1>Table of Contents (ToC)</h1>
+
+    <ol>
+        <li><a href="#anaconda">Signal acquisition</a></li>
+        <li><a href="#python">Configuration of the imaging system&nbsp;</a></li>
+        <li><a href="#examples">Drug application settings</a>&nbsp;</li>
+    </ol>
+
+    <hr />
+</section>
+
+<section id="#checklist">
+    <h1><em>Checklist</em></h1>
+
+    <ul>
+        <li style="list-style-type:disc">Open-ephys&nbsp;installation</li>
+        <li style="list-style-type:disc">Configuration of signal pipeline</li>
+        <li style="list-style-type:disc">Design of channel maps</li>
+        <li style="list-style-type:disc">Installation of Pylon Viewer and Fiji Plugin</li>
+        <li style="list-style-type:disc">Installation and configuration of Matlab</li>
+        <li style="list-style-type:disc">Installation and configuration of Phy2</li>
+        <li style="list-style-type:disc">Installation and configuration of Kilosort3</li>
+    </ul>
+</section>
+
+<section id="anaconda">
+    <h1>1. Signal acquisition</h1>
+
+    <p>We will use open-ephys to acquire extracellular voltages. You can download the latest version of the open-ephys
+        GUI&nbsp;<a data-token-index="1" href="https://github.com/open-ephys/plugin-GUI" rel="noopener noreferrer"
+            target="_blank">here</a>, with information specific to your operative system, in&nbsp;<a
+            data-token-index="5"
+            href="https://open-ephys.github.io/gui-docs/User-Manual/Installing-the-GUI.html#installingthegui"
+            rel="noopener noreferrer" target="_blank">this link</a>.&nbsp;Open-ephys comes with great <a
+            data-token-index="3" href="https://open-ephys.github.io/gui-docs/" rel="noopener noreferrer"
+            target="_blank">documentation</a>, but for now, we will focus on 1) selecting the type of output files, 2)
+        designing the channel map, and 3) pipeline configuration.</p>
+
+    <h2>1.1 Selection of binary format&nbsp;</h2>
+
+    <p>The output of the acquisition system will be in a flat binary format since this is the easiest way to read the
+        signals with customized software. When selecting &#39;binary&#39; in the open-ephys GUI, it creates
+        a&nbsp;&rsquo;continuous&rsquo; folder with a file in it called continous.dat.</p>
+
+    <table cellpadding="1" cellspacing="1">
+        <tbody>
+            <tr>
+                <td style="width: 750px;"><img alt="binaries"
+                        src="{{url_for('tutorials_bp.static', filename = 'img/binaries.jpg')}}" style="width:750px" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The binary format contains (row x cols) Nchans x Nsamples as 16-bit integers in little-endian format. The time
+        stamps will be saved as a 64-bit (unsigned) integer binary bumpy array.</p>
+
+    <p>The timestamps are entered in reference to the entry in start_time in a file called sync_messages.txt</p>
+
+    <h2>1.2 Channel mapping</h2>
+
+    <p>To have the acquisition channels properly ordered in open-ephys, we first need to reorganize the channels from
+        the probes. We will need to map the omnetics output of the probe to the input of the Intan preamplifier.</p>
+
+    <table cellpadding="1" cellspacing="1">
+        <tbody>
+            <tr>
+                <td style="width: 750px;"><img alt="libraries"
+                        src="{{url_for('tutorials_bp.static', filename = 'img/omnetics_CNT.jpg')}}"
+                        style="width:750px" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>After that, we need to transform the channels in the probe to channels of the Intan preamplifier, as in the
+        figure below:</p>
+
+    <table cellpadding="1" cellspacing="1">
+        <tbody>
+            <tr>
+                <td style="width: 750px;"><img alt="intan"
+                        src="{{url_for('tutorials_bp.static', filename = 'img/intan_amps.jpg')}}" style="width:750px" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Ultimately, we will operate with these numbers open-ephys GUI. For that, we need to re-arrange them as in the
+        probe configuration. Therefore, for every sequence of grouped numbers in a probe, we will have to
+        &lsquo;translate&rsquo; that sequence into Intan numbering. To configure open-ephys acquisition, add +1 to the
+        Intan numbering.</p>
+
+    <table cellpadding="1" cellspacing="1">
+        <tbody>
+            <tr>
+                <td style="width: 750px;"><img alt="mapping"
+                        src="{{url_for('tutorials_bp.static', filename = 'img/mapping.jpg')}}" style="width:750px" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>1.3 Configuration of the signal pipeline</h2>
+
+    <p>The signal pipeline in open-ephys is the acquisition sequence that leads to the binary file. It starts with the
+        acquisition&nbsp;</p>
+</section>
+
+<section id="python">
+    <h1>2. Configuration of the imaging system</h1>
+
+    <p>The imaging system is customized to either acquire red or green fluorescence.</p>
+
+    <h2>2.1 Infrared and fluorescence imaging&nbsp;</h2>
+
+    <p>We use pylon viewer, which you can download <a data-token-index="1"
+            href="https://www.baslerweb.com/en/downloads/software-downloads/#type=pylonsoftware;language=all;version=all"
+            rel="noopener noreferrer" target="_blank">here</a>. The camera (model <a data-token-index="3"
+            href="https://www.baslerweb.com/de/produkte/kameras/flaechenkameras/ace/aca2040-55um/"
+            rel="noopener noreferrer" target="_blank">acA2040-55um</a>) has a resolution of 2048 x 1536 (width, length)
+        pixels (~3.14 Megapixels) with a spatial resolution of 3.5 um per pixel. The sensor size is 7.1 x 5.3 m, and the
+        acquisition rate of 55 frames per second (fps). Because we have a total magnification of 50/85 = 0.588x, thus
+        the field of view is 12.07 x 9.01 mm. For standard acquisition, we will do a ~2x average binning to reduce the
+        samples to 1012 x 768 pixels and reduce sampling to 25 fps. It will reduce the size of the images on the
+        computer with a minimal cost in resolution.</p>
+
+    <p>The configuration of the camera can be loaded here:</p>
+
+    <table cellpadding="1" cellspacing="1">
+        <tbody>
+            <tr>
+                <td style="width: 750px;"><img alt="pylon"
+                        src="{{url_for('tutorials_bp.static', filename = 'img/pylon_menu.jpg')}}" style="width:750px" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2.1 Plugins for analysis&nbsp;</h2>
+
+    <p>We recommend using Fiji to analyze the pictures acquired with the camera.&nbsp;</p>
+
+    <p>To install it, in Fiji go to Plugins&rarr;Install Plugin... and select the file downloaded. After rebooting Fiji,
+        you will have a menu to select the image and add the scale bar.&nbsp;This plugin creates a file white scale bar
+        that corresponds to the calibration of the camera and magnification system.</p>
+
+    <table cellpadding="1" cellspacing="1">
+        <tbody>
+            <tr>
+                <td style="width: 750px;"><img alt="fiji"
+                        src="{{url_for('tutorials_bp.static', filename = 'img/fiji_menu.jpg')}}" style="width:750px" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+</section>
+
+<section id="examples">
+    <h1>3. Drug application configuration</h1>
+
+    <p>Download the software to manipulate the pump <a data-token-index="1"
+            href="https://www.multichannelsystems.com/software/pps2" rel="noopener noreferrer" target="_blank">here</a>.
+        The software is&nbsp;only available for Windows.</p>
+
+    <p><img alt="libraries" src="{{url_for('tutorials_bp.static', filename = 'img/pps2.jpg')}}" style="width: 350px;" />
+    </p>
+
+    <p>&nbsp;</p>
+</section>
