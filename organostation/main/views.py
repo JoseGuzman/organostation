@@ -3,7 +3,7 @@ views.py
 Created: Sun Dec 25 21:10:17 CET 2022
 
 It creates the routes (or views) for our 'main'. Auth uses a
-'auth_bp' blueprint that define access to the the homepage
+'main_bp' blueprint that define access to the the homepage
 and autentification resources.
 We define routes, templates and logic of the homepage here.
 """
