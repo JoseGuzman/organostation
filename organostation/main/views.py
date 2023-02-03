@@ -14,7 +14,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from .. import login_manager
 from ..models import User, db
-from .forms import ContactForm, LoginForm, SignUpForm
+from .forms import ContactForm, LoginForm, SignUpForm, UpdateAccountForm
 
 
 def flash_errors(form: dict) -> None:
@@ -94,12 +94,13 @@ def contact():
     return render_template(
         "contact.jinja2",
         title="Contact Us",
+        description="Contact us for any questions",
         form=contact_form,
     )
 
 
 # =========================================================================
-#  register
+#  register user
 # =========================================================================
 @main_bp.route("/register", methods=["GET", "POST"])
 def register():
@@ -127,9 +128,11 @@ def register():
                 admin=False,
             )
             myuser.set_password(signup_form.password.data)  # hash password
+            myuser.last_login = dtime.utcnow()
             db.session.add(myuser)
             db.session.commit()
-            login_user(myuser)  # Log in as newly created user
+            # Log in as newly created user
+            login_user(myuser)
             flash("User created successfully.")
 
             return redirect(url_for("main_bp.home"))
@@ -141,7 +144,7 @@ def register():
     return render_template(
         "register.jinja2",
         title="Register",
-        description="Register page",
+        description="Register user",
         form=signup_form,
     )
 
@@ -166,6 +169,9 @@ def login():
 
         if myuser and myuser.check_password(password=login_form.password.data):
             login_user(myuser, remember=login_form.remember_me.data)
+            # update last login
+            myuser.last_login = dtime.utcnow()
+            db.session.commit()
             flash("Logged in successfully.")
             return redirect(url_for("main_bp.home"))
         else:
@@ -184,15 +190,46 @@ def login():
 
 
 # =========================================================================
-#  profile
+#  profile and update profile
 # =========================================================================
-@main_bp.route("/profile/<string:email>", methods=["GET"])
+@main_bp.route("/profile/<string:email>", methods=["GET", "POST"])
 @login_required
 def profile(email: str):
     """Profile page for registered users only.
     It allows updating user information."""
     myuser = User.query.filter_by(email=email).first_or_404()
-    return render_template("profile.jinja2", title=myuser.name, user=myuser)
+
+    update_form = UpdateAccountForm()
+    if update_form.validate_on_submit():
+        print(f"Update Form: {update_form.data}")
+        myuser.name = update_form.name.data
+        myuser.surname = update_form.surname.data
+
+        myuser.phone = update_form.phone.data
+        myuser.address1 = update_form.address1.data
+        myuser.address2 = update_form.address2.data
+        myuser.postcode = update_form.postcode.data
+        myuser.city = update_form.city.data
+        myuser.country = update_form.country.data
+
+        db.session.commit()
+        flash("Your account has been updated!")
+        return redirect(url_for("main_bp.profile", email=myuser.email))
+
+    return render_template(
+        "profile.jinja2", title=myuser.name, form=update_form, user=myuser
+    )
+
+
+# =========================================================================
+#  list all users
+# =========================================================================
+@main_bp.route("/users", methods=["GET"])
+@login_required
+def users():
+    """List all users"""
+    users = User.query.all()
+    return render_template("users.jinja2", title="Users", users=users)
 
 
 # =========================================================================

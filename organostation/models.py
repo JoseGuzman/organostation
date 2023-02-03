@@ -46,10 +46,14 @@ class User(UserMixin, db.Model):
     address1 = db.Column(db.String(100), index=False, unique=False, nullable=True)
     address2 = db.Column(db.String(100), index=False, unique=False, nullable=True)
     postcode = db.Column(db.String(10), index=False, unique=False, nullable=True)
+    city = db.Column(db.String(20), index=False, unique=False, nullable=True)
+    country = db.Column(db.String(20), index=False, unique=False, nullable=True)
 
     # automatically loaded
     created = db.Column(db.DateTime)
     last_login = db.Column(db.DateTime)
+
+    # Finally, the admin flag is set to False by default.
     admin = db.Column(
         db.Boolean, index=False, unique=False, nullable=False, default=False
     )
@@ -63,4 +67,4 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return f"username: {self.name}"
+        return f"name: {self.name}, email: {self.email}"

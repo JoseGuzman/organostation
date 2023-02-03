@@ -76,3 +76,20 @@ class SignUpForm(FlaskForm):
     )
 
     submit = SubmitField("Register")
+
+
+class UpdateAccountForm(FlaskForm):
+    """Update database name or surname, or add
+    phone, address1, address2, and postcode"""
+
+    name = StringField(label="Name", validators=[Length(min=3)])
+    surname = StringField(label="Surname", validators=[Length(min=3)])
+
+    phone = StringField(label="Phone", validators=None)
+    address1 = StringField(label="Address 1", validators=None)
+    address2 = StringField(label="Address 2", validators=None)
+    postcode = StringField(label="Postcode", validators=None)
+    city = StringField(label="City", validators=None)
+    country = StringField(label="Country", validators=None)
+
+    submit = SubmitField("Update Profile")

@@ -1,0 +1,66 @@
+{#
+users.jinja2 shows a list of registered users in the database. It is only allowed if
+the user is administrator.
+#}
+{% extends "layout.jinja2" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<div class="container h-100 py-5"> {# height 100% and extra-large left/right padding#}
+    {% for myuser in users %}
+    <div class="row d-flex justify-content-center mt-3"> {# row element d-flex to align
+        horizontaly children #}
+        <div class="col-md-11"> {# grid column that takes 10 out of 12 available extra large columns #}
+            <div class="card rounded-3 text-black">
+                <div class="row g-0"> {# all the gutters (spacing between columns) removed #}
+                    {# first column START #}
+                    <div class="col-lg-3">
+                        <div class="card-body p-md-1 mx-md-1">
+                            <div class="text-center">
+                                <img class="rounded-circle mt-1" width="150px"
+                                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                                    alt={{ myuser.name }}>
+                                <h4 class="mt-1 mb-1 pb-1">{{ myuser.name }} {{ myuser.surname }}</h4>
+                                <p class="small text-black-50">{{ myuser.email }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {# first column END #}
+
+                    {# second column START #}
+                    <div class="col-lg-9 d-flex align-items-center">
+                        <div class="text-black px-2 py-2 p-md-1 mx-md-1">
+                            <p class="small mb-1">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Key</th>
+                                        <th scope="col">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for key, value in myuser.__dict__.items() %}
+                                    {# show only relevant keys #}
+                                    {% if key not in ["_sa_instance_state","password_hash"] %}
+                                    <tr>
+                                        <th class="small" scope="row">{{ key }}</th>
+                                        <th class="fw-light small" scope="row">{{ value }}</th>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            </p>
+                        </div>
+                    </div>
+                    {# second column END #}
+                </div>
+                {# first column END #}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
