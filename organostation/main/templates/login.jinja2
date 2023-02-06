@@ -41,6 +41,7 @@ you may look here: https://www.mattbutton.com/2019/01/05/google-authentication-w
                                 {{ form.submit(class="btn btn-primary btn-block mb-3")
                                 }}
                             </div>
+                            {# Flask feedback (see in views.py)#}
                             <div class="form-outline mb-0 d-grid">
                                 {% set messages = get_flashed_messages(with_categories=true) %}
                                 {% for message in messages %}

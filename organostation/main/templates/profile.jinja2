@@ -54,24 +54,40 @@
                                                         class="form-control")}}
                                                 </div>
                                                 <div class="col-md-12">
-                                                        <label class="labels">Postcode</label>
+                                                        <label class="labels">Postal code</label>
                                                         {{ form.postcode(placeholder=user.postcode,
                                                         class="form-control")}}
                                                 </div>
                                         </div>
                                         <div class="row mt-3"> {# State and Country #}
                                                 <div class="col-md-6">
-                                                        <label class="labels">State/Region</label>
+                                                        <label class="labels">City</label>
                                                         {{ form.city(placeholder=user.city, class="form-control") }}
                                                 </div>
                                                 <div class="col-md-6">
-                                                        <label class="labels">Country</label>
+                                                        <label class="labels">Country or Region</label>
                                                         {{ form.country(placeholder=user.country,
                                                         class="form-control")}}
                                                 </div>
                                         </div>
                                         <div class="mt-5 text-center"> {# Update button #}
                                                 {{ form.submit(class="btn btn-primary profile-button") }}
+                                                {# Flask feedback (see in views.py)#}
+                                                <div class="form-outline mb-0 d-grid">
+                                                        {% set messages = get_flashed_messages(with_categories=true) %}
+                                                        {% for message in messages %}
+                                                        {% if "Error" not in message[1]: %}
+                                                        <div class="alert alert-success" role="alert">
+                                                                <strong>Success! </strong> {{ message[1] }}
+                                                        </div>
+                                                        {% endif %}
+                                                        {% if "Error" in message[1]: %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                                {{ message[1] }}
+                                                        </div>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </div>
                                         </div>
                                 </form>
                         </div>
