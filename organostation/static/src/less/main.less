@@ -40,6 +40,14 @@ nav-link
     color: @dark-blue;
 }
 
+ul a {
+    color: @ligthgray !important;
+}
+
+ul .a:hover {
+    color: whitesmoke !important;
+}
+
 // navigation button 
 .navbar-toggler {
     border: 2px solid @dark-blue;
@@ -48,7 +56,7 @@ nav-link
     cursor: pointer;
 }
 
-// navigation button on hover becomes purple ..
+// navigation button on hover becomes white ..
 .navbar .navbar-toggler:hover {
     color: ligthgray;
     border-color: ligthgray;
@@ -56,8 +64,8 @@ nav-link
 }
 
 // ... and also the icon inside 
-.navbar .navbar-toggler:hover .fa-bars {
-    color: ligthgray;
+.navbar .navbar-toggler:hover .a {
+    color: @dark-blue;
 }
 
 .navbar .navbar-toggler:focus {
@@ -86,9 +94,13 @@ nav-link
     font-size: small;
 }
 
+/* navigation links */
 .nav-link:visited {
-    text-decoration: none;
-    color: @dark-blue !important;
+    color: @ligthgray !important;
+}
+
+.nav-link:hover {
+    color: @orange !important;
 }
 
 .nav-link:hover {
@@ -98,32 +110,43 @@ nav-link
 
 .navbar-brand:visited {
     text-decoration: none;
-    color: @dark-blue !important;
+    color: @ligthgray !important;
 }
 
 .navbar-brand:hover {
     text-decoration: none;
-    color: ligthgray !important;
+    color: @orange !important;
 }
 
+
+/* Top Dropdown menu for users */
 .dropdown-menu {
     text-decoration: none;
     color: @dark-blue !important;
     font-family: 'Munito', sans-serif !important;
     font-size: small;
-
 }
 
-.dropdown-item:visited,
+.dropdown-menu {
+    background-color: @mymenu;
+}
+
+/* Drop-donw user */
+.dropdown-item:visited {
+    color: @ligthgray !important;
+}
+
+/* User */
 .dropdown-toggle:visited {
     text-decoration: none;
-    color: @dark-blue !important;
+    color: @ligthgray !important;
+    background-color: @myblack !important;
 }
 
 .dropdown-item:hover,
 .dropdown-toggle:hover {
     text-decoration: none;
-    color: ligthgray !important;
+    color: @orange !important;
     background-color: @myblack !important;
 }
 
@@ -145,8 +168,6 @@ nav-link
 /************************************************************************** 
 Footer
 **************************************************************************/
-
-
 // menubar shadow: offset-x | offset-y | blur-radius | spread-radius | color 
 .myfooter {
     -webkit-box-shadow: 0 -6px 4px -4px #999;
@@ -180,15 +201,15 @@ Footer
 btn:visited {
     /*padding: .375rem !important;*/
     color: @ligthgray;
-    border-color: @dark-blue;
+    border-color: @mymenu;
     font-size: 20px;
     background-color: @dark-blue;
 }
 
 .btn:hover,
 .btn:focus {
-    color: @dark-blue;
-    border-color: @dark-blue;
+    color: @orange;
+    border-color: @orange;
     background-color: @myblack;
     text-decoration: none;
     box-shadow: none;
