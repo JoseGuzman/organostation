@@ -10,7 +10,7 @@ We define routes, templates and logic of the homepage here.
 from datetime import datetime as dtime
 
 from flask import Blueprint, flash, redirect, render_template, url_for
-from flask_login import login_required
+from flask_login import current_user, login_required
 
 from .. import login_manager
 from ..models import User
@@ -61,9 +61,14 @@ def home():
 @login_required
 def tutorial(lecture_id: int):
     """This links to the tutorial days"""
-    print(f"you access day{lecture_id}")
-    mytarget = f"day{lecture_id}/index.html"
-    print(mytarget)
-    return render_template(
-        "lecture.jinja2", mytarget=mytarget
-    )  # uses layout and navigation jijna2 templates
+    if current_user.client is False:
+        mytitle = "Access Denied"
+        mymmsg = "Tutorials are part of the exclusive support we provide to our scientist.<br/> Please <a href='contact'>Contact Us</a> to guarantee you access."
+        return (render_template("errors.jinja2", title=mytitle, message=mymmsg), 403)
+    else:
+        print(f"you access day{lecture_id}")
+        mytarget = f"day{lecture_id}/index.html"
+        print(mytarget)
+        return render_template(
+            "lecture.jinja2", title=lecture_id, mytarget=mytarget
+        )  # uses layout and navigation jijna2 templates

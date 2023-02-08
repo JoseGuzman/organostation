@@ -16,6 +16,9 @@ Instance: /Users/joseguzman/git/og/instance
 >>> <SQLAlchemy sqlite:////Users/joseguzman/git/og/instance/organostation_users.db>
 >>> User
 >>> User <class 'organostation.models.User'>
+>>> myuser = User.query.filter_by(username='jose').first()
+>>> myuser = User.query.filter(User.email == 'jose.guzman@example.com').first()
+>>> db.session.commit()
 """
 from flask import Flask
 from flask_assets import Environment

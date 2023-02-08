@@ -236,7 +236,7 @@ def users():
     if current_user.admin is False:
         # flash("You are not authorized to view this page")
         mytitle = "Access Denied"
-        mymsg = "You are not authorized to access this page. Please <a href='contact'>Contact Us</a> to guarantee you access privileges. "
+        mymsg = "You are not authorized to access this page. <br/> Please <a href='contact'>Contact Us</a> to guarantee you access privileges. "
         return (
             render_template("errors.jinja2", title=mytitle, message=mymsg),
             403,
