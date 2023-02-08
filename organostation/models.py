@@ -57,6 +57,9 @@ class User(UserMixin, db.Model):
     admin = db.Column(
         db.Boolean, index=False, unique=False, nullable=False, default=False
     )
+    client = db.Column(
+        db.Boolean, index=False, unique=False, nullable=False, default=False
+    )
 
     def set_password(self, password: str) -> None:
         """Set password to a hashed password."""

@@ -216,20 +216,35 @@ def profile(email: str):
         flash("Your account has been updated!")
         return redirect(url_for("main_bp.profile", email=myuser.email))
 
+    else:
+        print(f"Error-> {update_form.errors}")
+
+        flash_errors(update_form)
+
     return render_template(
         "profile.jinja2", title=myuser.name, form=update_form, user=myuser
     )
 
 
 # =========================================================================
-#  list all users
+#  list all users (only admin)
 # =========================================================================
 @main_bp.route("/users", methods=["GET"])
 @login_required
 def users():
     """List all users"""
-    users = User.query.all()
-    return render_template("users.jinja2", title="Users", users=users)
+    if current_user.admin is False:
+        # flash("You are not authorized to view this page")
+        mytitle = "Access Denied"
+        mymsg = "You are not authorized to access this page. Please <a href='contact'>Contact Us</a> to guarantee you access privileges. "
+        return (
+            render_template("errors.jinja2", title=mytitle, message=mymsg),
+            403,
+        )
+
+    else:
+        users = User.query.all()
+        return render_template("users.jinja2", title="Users", users=users)
 
 
 # =========================================================================

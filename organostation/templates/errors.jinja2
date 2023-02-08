@@ -1,13 +1,11 @@
 {#
-Home page for organostation.
+Show errors in HTTP status
 #}
-
 {% extends "layout.jinja2" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-
 <div class="container h-100 py-5"> {# height 100% and extra-large left/right padding#}
     <div class="row d-flex justify-content-center"> {# row element d-flex to align
         horizontaly children #}
@@ -28,31 +26,20 @@ Home page for organostation.
                     {# second column START #}
                     <div class="col-lg-9 d-flex align-items-center">
                         <div class="text-black px-3 py-4 p-md-5 mx-md-4">
-                            <h4 class="mt-1 mb-5 pb-1">OrganoStation App</h4>
+                            <h4 class="mt-1 mb-5 pb-1"> {{ title }}</h4>
                             <p class="small mb-5">
-                                The OrganoStation is a customized system to obtain neurophysiological signals (e.g.,
-                                EEG) in brain organoids or other in vitro preparations. It also contains a
-                                visualization app to document and analyze electrical or fluorescence signals.
+                                {{ message }}
                             </p>
-                            <div class="d-flex align-items-center justify-content-center pb-6">
-                                {% if current_user.is_authenticated %}
-                                <p class="alert alert-success mb-0 me-2">Hi {{ current_user.name}}, welcome! </p>
-                                <a href="{{ url_for('main_bp.logout') }}">&nbsp;Sign Out</a>
-                                {% else %}
-                                <p class="mb-0 me-2">Don't have an account?</p>
-                                <a href="{{ url_for('main_bp.register') }}">&nbsp;Create new</a>
-                                {% endif %}
-
-                            </div>
                         </div>
                     </div>
-                    {# second column END #}
                 </div>
-                {# first column END #}
-
-                {# second column START #}
+                {# second column END #}
             </div>
+            {# first column END #}
+
+            {# second column START #}
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
