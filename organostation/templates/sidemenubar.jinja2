@@ -1,5 +1,7 @@
 {#
-Side menubar for main application
+Side menubar for main application with icons form fontawesome.com
+Inspired from this blog here; https://dev.to/codeply/bootstrap-5-sidebar-examples-38pb
+()
 #}
 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
     {# This is the logo #}
@@ -45,8 +47,7 @@ Side menubar for main application
                 <span class="ms-1 d-none d-sm-inline">Tutorials</span>
                 <span class="fa fa-caret-down"></span>
             </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#app_menu"
-                style="list-style:decimal">
+            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#app_menu">
                 <li class="w-100 ms-4">
                     <a href="{{ url_for('tutorials_bp.tutorial', lecture_id = 1)}}" class="nav-link px-0">
                         <span class="d-none d-sm-inline">Before we start</span></a>
