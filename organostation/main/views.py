@@ -263,6 +263,7 @@ def logout():
 # temporal routes
 # =========================================================================
 @main_bp.route("/customer")
+@login_required
 def customer():
     """Customer page"""
     mytitle = "Researchers and Scientist area only"
@@ -273,12 +274,20 @@ def customer():
 # =========================================================================
 # temporal routes
 # =========================================================================
-@main_bp.route("/mydashboard")
-def mydashboard():
+@main_bp.route("/mydashboard/<string:dashboard>")
+@login_required
+def mydashboard(dashboard):
     """Customer page"""
     mytitle = "Dashboard"
-    mymsg = "This is an exclusive area to help our scientists. <br/> Please <a href='contact'>Contact Us</a> to guarantee you access privileges."
-    return (render_template("errors.jinja2", title=mytitle, message=mymsg), 403)
+    if dashboard == "lab":
+        mytarget = "img/library.jpg"
+    elif dashboard == "visualization":
+        mytarget = "img/visualization.jpg"
+    else:
+        mymsg = "This is an exclusive area to help our scientists. <br/> Please <a href='contact'>Contact Us</a> to guarantee you access privileges."
+        return (render_template("errors.jinja2", title=mytitle, message=mymsg), 403)
+
+    return (render_template("dashboard.jinja2", title=mytitle, mytarget=mytarget), 403)
 
 
 # =========================================================================
