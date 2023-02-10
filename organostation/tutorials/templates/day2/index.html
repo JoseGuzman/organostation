@@ -1,163 +1,144 @@
 <h1><strong>Hardware installation</strong></h1>
 
-<p>This guide contains a brief description of the components and their use. Feel free to download this guide and ensure
-    all elements in the Checklist are available.</p>
+<p>This guide contains a brief description of the mechanical components and their use. Feel free to download this guide
+    and ensure all elements in the Checklist are available.</p>
 
-<section id="toc">
-    <hr />
-    <h1>Table of Contents (ToC)</h1>
+<hr />
+<h1>Table of Contents (ToC)</h1>
 
-    <ol>
-        <li><a href="#wide-field">Wide-field imaging</a></li>
-        <li><a href="#electronics">Electronic components</a></li>
-        <li><a href="#mechanics">Mechanical components</a></li>
-        <li><a href="#pump">Drug application system</a></li>
-        <li><a href="#references">References</a></li>
-    </ol>
+<ol>
+    <li><a href="#wide-field">Wide-field imaging</a></li>
+    <li><a href="#electronics">Electronic components</a></li>
+    <li><a href="#mechanics">Mechanical components</a></li>
+    <li><a href="#pump">Drug application system</a></li>
+</ol>
 
-    <hr />
-</section>
+<hr />
+<h1><em>Checklist</em></h1>
 
-<section id="#checklist">
-    <h1><em>Checklist</em></h1>
-
-    <ul>
-        <li style="list-style-type:disc">Image and video acquisition</li>
-        <li style="list-style-type:disc">Movement and calibration of manipulators</li>
-        <li style="list-style-type:disc">Peristaltic pump</li>
-        <li style="list-style-type:disc">Power supply of acquisition system</li>
-    </ul>
-</section>
+<ul>
+    <li style="list-style-type:disc">Image and video acquisition</li>
+    <li style="list-style-type:disc">Movement and calibration of manipulators</li>
+    <li style="list-style-type:disc">Peristaltic pump</li>
+    <li style="list-style-type:disc">Power supply of acquisition system</li>
+</ul>
 <!-- Wide-field section -->
 
-<section id="wide-field">
-    <h1>1. Wide-field fluorescence</h1>
+<h1>1. Wide-field fluorescence</h1>
 
-    <p>The system contains a long-range macroscopic (0.6- 1.7X) magnification that includes epifluorescence
-        illumination
-        and photo/video capture. The photo is for a system for Green-fluorescence protein (GFP)</p>
+<p>The standard system contains a long-range macroscopic (0.6- 1.7X) magnification that includes epifluorescence
+    illumination with a large (~ 4 cm) working distance and a photo/video capture of an area of 12 x 9 mm. This
+    configuration may change depending on your specific needs.</p>
 
-    <table border="1" cellspacing="1" style="width:500px;margin-left:auto;margin-right:auto;" urouncellpadding="1">
-        <tbody>
-            <tr>
-                <td style="width: 500px;"><img alt="wide-field"
-                        src="{{url_for('tutorials_bp.static', filename = 'img/wide-field.jpg')}}" width="500px" /></td>
-            </tr>
-        </tbody>
-    </table>
+<p>The imaging will be for a Green-fluorescence protein (GFP, see image below) or a Red-fluorescence protein (RFP)
+    acquisition, depending on your ordering.&nbsp;</p>
 
-    <p>&nbsp;</p>
+<ul>
+    <li>Filter sets for GFP-imaging: 470/40 nm excitation filter, Longpass 490 nm Dichroic Mirror, and a 550/50 nm
+        emission filter.</li>
+    <li>Filter sets for RFP-imaging: 590 nm emission</li>
+</ul>
 
-    <h2>1.1 Image acquisition&nbsp;</h2>
+<table border="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:500px">
+    <tbody>
+        <tr>
+            <td style="width:500px"><img alt="wide-field"
+                    src="{{url_for('tutorials_bp.static', filename = 'img/wide-field.jpg')}}" style="width:500px" />
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-    <p>The video camera requires a fast (USB 3.0) connection to the computer.</p>
+<p>Adjustments must be made to climate the light beam on the specimen. It is essential to set the dichroic filter 45
+    degrees from the incidence light and adjust the collimator to obtain the maximal intensity at the sample. The
+    microscope must be located at about&nbsp; 4 cm, which permits inserting the samples and the probes comfortably.</p>
 
-    <p>&nbsp;</p>
+<h2>1.1 Image acquisition&nbsp;</h2>
 
-    <h2>1.2 Video acquisition</h2>
+<p>The video camera requires a fast (USB 3.0) connection to the computer and records at a maximum of 59 frames per
+    second. Adjustments should be made</p>
 
-    <p>It is recommended to use different security sockets for the recording system and the computer. If
-        possible, two
-        independent extra-long power strips are advisable</p>
-</section>
+<p>&nbsp;</p>
 
-<section id="electronics">
-    <h1>2. Electronic components</h1>
+<h2>1.2 Video Acquisition</h2>
 
-    <p>Connect the power supply and USB cable of the rear part from the open-ephys board. The front part
-        contains the
-        SPI cables that will go directly to the 64-channel <a data-token-index="1"
-            href="https://intantech.com/RHD_headstages.html?tabSelect=RHD64ch" rel="noopener noreferrer"
-            target="_blank">headstage</a>. The location of that stage is important for mapping the electrodes in
-        the
-        right position. The headstage is connected to the neural probe through an omnetics connector.</p>
+<p>It is recommended to use different security sockets for the recording system and the computer. If possible, two
+    independent extra-long power strips are advisable</p>
 
-    <table border="1" cellspacing="1" style="width:950px;margin-left:auto;margin-right:auto;" urouncellpadding="1">
-        <tbody>
-            <tr>
-                <td style="width: 350px;"><img alt="power_supply"
-                        src="{{url_for('tutorials_bp.static', filename = 'img/power_usb.jpeg')}}"
-                        style="width: 350px;" />
-                </td>
-                <td style="width: 350px;"><img alt="connection"
-                        src="{{url_for('tutorials_bp.static', filename='img/spi_cable.jpeg')}}" style="width: 350px;" />
-                </td>
-                <td style="width: 250px;"><img alt="omnetics"
-                        src="{{url_for('tutorials_bp.static', filename = 'img/omnetics.jpg')}}" style="width: 250px;" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<h1>2. Electronic components</h1>
 
+<p>Connect the power supply and USB cable of the rear part from the open-ephys board. The front part contains the SPI
+    cables that will go directly to the 64-channel <a href="https://intantech.com/RHD_headstages.html?tabSelect=RHD64ch"
+        rel="noopener noreferrer" target="_blank">headstage</a>. The location of that stage is essential for mapping the
+    electrodes in the right position. The headstage is connected to the neural probe through an omnetics connector.</p>
 
+<table border="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:950px">
+    <tbody>
+        <tr>
+            <td style="width:350px"><img alt="power_supply"
+                    src="{{url_for('tutorials_bp.static', filename = 'img/power_usb.jpeg')}}" style="width:350px" />
+            </td>
+            <td style="width:350px"><img alt="connection"
+                    src="{{url_for('tutorials_bp.static', filename='img/spi_cable.jpeg')}}" style="width:350px" /></td>
+            <td style="width:250px"><img alt="omnetics"
+                    src="{{url_for('tutorials_bp.static', filename = 'img/omnetics.jpg')}}" style="width:250px" /></td>
+        </tr>
+    </tbody>
+</table>
 
-    <h2>2.1 Documenting the probes</h2>
+<h2>2.1 Documenting the probes</h2>
 
-    <table border="0" cellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
-        <tbody>
-            <tr>
-                <td style="width: 500px;">
-                    <img alt="probes" src="{{url_for('tutorials_bp.static', filename ='img/probes.jpg')}}"
-                        style="width: 500px;" />
-                </td>
-                <td style="width:250px">
-                    <ul>
-                        <li>Annotate the serial number and type of the probe:</li>
-                        <li>The accompanying documentation must include the mapping of the electrodes</li>
-                        <li>Keep those two documents for your dataset. They are important to monitor your
-                            experiments
-                            later</li>
-                        <li>Remove both grounding and reference electrodes from your probes.</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+<table border="0" cellpadding="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:750px">
+    <tbody>
+        <tr>
+            <td style="width:500px"><img alt="probes"
+                    src="{{url_for('tutorials_bp.static', filename ='img/probes.jpg')}}" style="width:500px" /></td>
+            <td style="width:250px">
+                <ul>
+                    <li>Annotate the serial number and type of the probe:</li>
+                    <li>The accompanying documentation must include the mapping of the electrodes</li>
+                    <li>Keep those two documents for your dataset. They are important to monitor your experiments later
+                    </li>
+                    <li>Remove both grounding and reference electrodes from your probes.</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-<section id="mechanics">
-    <h1>3. Mechanical components</h1>
+<h1>3. Mechanical components</h1>
 
-    <h2>3.1 Micromanipulators</h2>
+<h2>3.1 Micromanipulators</h2>
 
-    <p>First, adjust the location of the LN to the locations on the table, and adjust them according to the
-        purple line
-        in the figures. We recommend an angle of incidence of 30 degrees.</p>
-    <img alt="manipulators" src="{{url_for('tutorials_bp.static', filename = 'img/micromanipulators.jpg')}}"
-        width="750px" />
+<p>First, adjust the location of the LN to the locations on the table, and adjust them according to the purple line in
+    the figures. We recommend an angle of incidence of 30 degrees.</p>
 
-    <p>Micromanipulators must be connected to LN-control box SM10 following the color code (z-direction in red,
-        y-direction in green, and x-direction in yellow).</p>
-    <table border="0" cellpadding="1" cellspacing="1" style="width:750px;margin-left:auto;margin-right:auto;">
-        <tbody>
-            <tr>
-                <td style="width: 600px;"><img alt="sm10"
-                        src="{{url_for('tutorials_bp.static', filename='img/sm10.jpg')}}" style="width: 600px; " />
-                </td>
-                <td style="width:150px">
-                    <img alt="sm10_2" src="{{url_for('tutorials_bp.static', filename='img/sm10_2.jpg')}}"
-                        style="width: 150px; " />
-                </td>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<p><img alt="manipulators" src="{{url_for('tutorials_bp.static', filename = 'img/micromanipulators.jpg')}}"
+        style="width:750px" /></p>
 
-    <p>Connect the LAN port of the Remote control SM10 with the LAN port of the Control box SM10.</p>
+<p>Micromanipulators must be connected to LN-control box SM10 following the color code (z-direction in red, y-direction
+    in green, and x-direction in yellow).</p>
 
-    <p>It is important to keep both Control Box and remote control OFF</p>
-</section>
+<table border="0" cellpadding="1" cellspacing="1" style="margin-left:auto; margin-right:auto; width:750px">
+    <tbody>
+        <tr>
+            <td style="width:600px"><img alt="sm10" src="{{url_for('tutorials_bp.static', filename='img/sm10.jpg')}}"
+                    style="width:600px" /></td>
+            <td style="width:150px"><img alt="sm10_2"
+                    src="{{url_for('tutorials_bp.static', filename='img/sm10_2.jpg')}}" style="width:150px" /></td>
+        </tr>
+    </tbody>
+</table>
 
-<section id="pump">
-    <h1>4. Drug application system</h1>
+<p>Connect the LAN port of the Remote control SM10 with the LAN port of the Control box SM10.</p>
 
-    <p>Precise temperature control for solution and organoid is necessary to preserve physiological conditions.
-    </p>
-    <img alt="wide-field" src="{{url_for('tutorials_bp.static', filename = 'img/drug_application.jpg')}}"
-        width="750px" />
-    <p>The pump must be connected to the temperature controller and the chamber.</p>
-</section>
+<p>It is important to keep both Control Box and remote control OFF</p>
 
-<section id="references">
-    <h1>5. References</h1>
-</section>
+<h1>4. Drug application system</h1>
+
+<p>Precise temperature control for solution and organoid is necessary to preserve physiological conditions.</p>
+
+<p><img alt="wide-field" src="{{url_for('tutorials_bp.static', filename = 'img/drug_application.jpg')}}"
+        style="width:750px" /></p>
+
+<p>The pump must be connected to the temperature controller and the chamber.</p>
