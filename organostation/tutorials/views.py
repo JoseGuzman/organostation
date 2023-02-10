@@ -63,7 +63,7 @@ def tutorial(lecture_id: int):
     """This links to the tutorial days"""
     if current_user.client is False:
         mytitle = "Access Denied"
-        mymmsg = "Tutorials are part of the exclusive support we provide to our scientist.<br/> Please <a href='contact'>Contact Us</a> to guarantee you access."
+        mymmsg = "Tutorials are part of the exclusive support we provide to our scientist.<br/> Please <a href='../contact'>Contact Us</a> to guarantee you access."
         return (render_template("errors.jinja2", title=mytitle, message=mymmsg), 403)
     else:
         print(f"you access day{lecture_id}")
