@@ -20,14 +20,25 @@
                                 <img src="{{url_for('static', filename = 'img/brain1.jpg')}}" style="height: 150px;"
                                     alt="logo">
                             </div>
+
+                            {% if current_user.is_authenticated %}
+                            <p class="small mb-4">
+                                Hi {{ current_user.name}}, Let us know what you think about our application in the
+                                text field. In case of troubles, our team
+                                will come back to you within a matter of hours to help you.
+                            </p>
+                            {% else %}
                             <p class="small mb-4">
                                 Do you have any questions? Please do not hesitate to contact us directly. Our team
                                 will come back to you within a matter of hours to help you.
                             </p>
+                            {% endif %}
+                            {% if current_user.is_not_authenticated %}
                             <div class="d-flex align-items-center justify-content-center pb-4">
                                 <p class="mb-0 me-2">Don't have an account?</p>
                                 <a href="{{url_for('main_bp.register') }}">Create new</a>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                     {# frst column END #}
