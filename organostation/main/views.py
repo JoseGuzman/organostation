@@ -265,7 +265,18 @@ def logout():
 @main_bp.route("/customer")
 def customer():
     """Customer page"""
-    mytitle = "Exclusive area only"
+    mytitle = "Researchers and Scientist area only"
+    mymsg = "This is an exclusive area to help our scientists. <br/> Please <a href='contact'>Contact Us</a> to guarantee you access privileges."
+    return (render_template("errors.jinja2", title=mytitle, message=mymsg), 403)
+
+
+# =========================================================================
+# temporal routes
+# =========================================================================
+@main_bp.route("/mydashboard")
+def mydashboard():
+    """Customer page"""
+    mytitle = "Dashboard"
     mymsg = "This is an exclusive area to help our scientists. <br/> Please <a href='contact'>Contact Us</a> to guarantee you access privileges."
     return (render_template("errors.jinja2", title=mytitle, message=mymsg), 403)
 

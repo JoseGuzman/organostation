@@ -28,14 +28,15 @@ Inspired from this blog here; https://dev.to/codeply/bootstrap-5-sidebar-example
             <ul class="collapse nav flex-column ms-1" id="mydashboard" data-bs-parent="#app_menu">
                 <li class="w-100">
                     {# Visualization Dash for lab book #}
-                    <a href="{{url_for('/visualoid/')}}" class="nav-link px-0">
-                        <i class="fa-solid fa-book"></i>
-                        <span class="ms-1 d-none d-sm-inline">Lab Book</span>
-                    </a>
+                    {# <a href="{{url_for('/visualoid/')}}" class="nav-link px-0"> #}
+                        <a href="{{url_for('main_bp.mydashboard')}}" class="nav-link px-0">
+                            <i class="fa-solid fa-book"></i>
+                            <span class="ms-1 d-none d-sm-inline">Lab Book</span>
+                        </a>
                 </li>
                 <li>
                     {# Visualization Dash for analysis #}
-                    <a href="#" class="nav-link px-0">
+                    <a href="{{url_for('main_bp.mydashboard')}}" class="nav-link px-0">
                         <i class="fa-solid fa-wave-square"></i>
                         <span class="d-none d-sm-inline">Visualization</span>
                     </a>

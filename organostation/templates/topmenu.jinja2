@@ -23,10 +23,11 @@ It includes icons fromh Font Awesome Icons (prefix fa).
                     <span class="d-none d-sm-inline mx-1">{{current_user.name}}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-folder-open"></i>&nbsp;New
+                    <li><a class="dropdown-item" href="{{url_for('main_bp.customer')}}"><i
+                                class="fa-solid fa-folder-open"></i>&nbsp;New
                             project...</a>
                     </li>
-                    <li><a class="dropdown-item" href="#">
+                    <li><a class="dropdown-item" href="{{url_for('main_bp.customer')}}">
                             <i class="fa-solid fa-gear"></i>&nbsp;Settings</a></li>
                     <li><a class="dropdown-item" href="{{ url_for('main_bp.profile', email = current_user.email) }}">
                             <i class=" fa-regular fa-address-card"></i>&nbsp;User Account</a></li>
