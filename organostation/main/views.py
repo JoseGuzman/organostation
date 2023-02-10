@@ -259,6 +259,20 @@ def logout():
     return redirect(url_for("main_bp.home"))
 
 
+# =========================================================================
+# temporal routes
+# =========================================================================
+@main_bp.route("/customer")
+def customer():
+    """Customer page"""
+    mytitle = "Exclusive area only"
+    mymsg = "This is an exclusive area to help our scientists. <br/> Please <a href='contact'>Contact Us</a> to guarantee you access privileges."
+    return (render_template("errors.jinja2", title=mytitle, message=mymsg), 403)
+
+
+# =========================================================================
+#  only tests here ...
+# =========================================================================
 @main_bp.route("/configuration")
 def configuration():
     """Technical specifications"""

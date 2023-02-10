@@ -1,7 +1,6 @@
 {#
-Side menubar for main application with icons form fontawesome.com
+Side menubar for main application with icons form fontawesome.com (those with fa- prefix)
 Inspired from this blog here; https://dev.to/codeply/bootstrap-5-sidebar-examples-38pb
-()
 #}
 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
     {# This is the logo #}
@@ -28,17 +27,25 @@ Inspired from this blog here; https://dev.to/codeply/bootstrap-5-sidebar-example
             </a>
             <ul class="collapse nav flex-column ms-1" id="mydashboard" data-bs-parent="#app_menu">
                 <li class="w-100">
-                    <a href="{{url_for('/visualoid/')}}" class="nav-link px-0"> <span
-                            class="d-none d-sm-inline"></span>Lab Book</span></a>
+                    {# Visualization Dash for lab book #}
+                    <a href="{{url_for('/visualoid/')}}" class="nav-link px-0">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-1 d-none d-sm-inline">Lab Book</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Visualization</span></a>
+                    {# Visualization Dash for analysis #}
+                    <a href="#" class="nav-link px-0">
+                        <i class="fa-solid fa-wave-square"></i>
+                        <span class="d-none d-sm-inline">Visualization</span>
+                    </a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#" class="nav-link px-0 align-middle">
-                <i class="fs-5 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+            <a href="{{url_for('main_bp.customer')}}" class="nav-link px-0 align-middle">
+                <i class="fs-5 bi-table"></i>
+                <span class="ms-1 d-none d-sm-inline">Orders</span></a>
         </li>
         {# TUTORIALS #}
         <li>
