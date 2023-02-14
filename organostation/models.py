@@ -60,6 +60,9 @@ class User(UserMixin, db.Model):
     client = db.Column(
         db.Boolean, index=False, unique=False, nullable=False, default=False
     )
+    demo = db.Column(
+        db.Boolean, index=False, unique=False, nullable=False, default=False
+    )
 
     def set_password(self, password: str) -> None:
         """Set password to a hashed password."""

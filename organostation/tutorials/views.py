@@ -60,10 +60,16 @@ def home():
 @tutorials_bp.route("/tutorial/<int:lecture_id>")
 @login_required
 def tutorial(lecture_id: int):
-    """This links to the tutorial days"""
+    """This links to the tutorial days. Only customers have access to all the
+    materials. The first lecture is a demo for users to test the platform"""
     if current_user.client is False:
         mytitle = "Access Denied"
         mymmsg = "Tutorials are part of the exclusive support we provide to our scientist.<br/> Please <a href='../contact'>Contact Us</a> to guarantee you access."
+        return (render_template("errors.jinja2", title=mytitle, message=mymmsg), 403)
+    elif current_user.demo is True and lecture_id > 1:
+        print("eh")
+        mytitle = "Tutorial Denied"
+        mymmsg = "This tutorial is not part of the demo.<br/> Please <a href='../contact'>Contact Us</a> to guarantee you access."
         return (render_template("errors.jinja2", title=mytitle, message=mymmsg), 403)
     else:
         print(f"you access day{lecture_id}")
