@@ -46,19 +46,19 @@ def create_app() -> Flask:
     assets = Environment()  # create an assets environment for styling
     assets.init_app(myapp)  # initialize it with the app
 
-    if myapp.config["DEBUG"]:  # active in DevConfig class:
-        # provide access to User model in shell
-        @myapp.shell_context_processor
-        def make_shell_context():
-            """makes User model available in shell context"""
-            from .models import User
+    # provide access to User model in shell
+    @myapp.shell_context_processor
+    def make_shell_context():
+        """makes User model available in shell context"""
+        from .models import User
 
-            return {"User": User}
+        return {"User": User}
 
     # The app context
     with myapp.app_context():
-        # Import parts of our application
-        from .assets import compile_static_assets
+        if myapp.config["DEBUG"]:  # active in DevConfig class:
+            # Import parts of our application
+            from .assets import compile_static_assets
 
         # Register Blueprints
         from .main.views import main_bp
@@ -75,7 +75,8 @@ def create_app() -> Flask:
 
         myapp = test(myapp)
 
-        # Compile static assets for styling
-        compile_static_assets(assets)
+        if myapp.config["DEBUG"]:  # active in DevConfig class:
+            # Compile static assets for styling
+            compile_static_assets(assets)
 
         return myapp
