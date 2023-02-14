@@ -61,7 +61,10 @@ def home():
 @login_required
 def tutorial(lecture_id: int):
     """This links to the tutorial days. Only customers have access to all the
-    materials. The first lecture is a demo for users to test the platform"""
+    materials. The first lecture is a demo for clients to test the platform.
+    It means that the first lecture is for user.demo and user.client is True.
+    If we set user.client to True, and user.demo to False, the user will have
+    access to all the tutorials."""
     if current_user.client is False:
         mytitle = "Access Denied"
         mymmsg = "Tutorials are part of the exclusive support we provide to our scientist.<br/> Please <a href='../contact'>Contact Us</a> to guarantee you access."
